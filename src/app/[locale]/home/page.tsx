@@ -11,6 +11,7 @@ import { Box, Flex } from "@/components/Box";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { useTranslations } from "next-intl";
+import LoadingPage from "@/app/[locale]/home/components/LoadingPage";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -34,7 +35,9 @@ const HomePage = () => {
 
   return (
     <HomeLayout>
-      <Wrapper>
+      <LoadingPage />
+
+      {/* <Wrapper>
         <h1>{t("title")}</h1>
         <h1>{t("description")}</h1>
 
@@ -74,7 +77,7 @@ const HomePage = () => {
             </button>
           </div>
         </div>
-      </Wrapper>
+      </Wrapper> */}
     </HomeLayout>
   );
 };

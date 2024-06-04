@@ -1,0 +1,1 @@
+export { default as SvgTest } from './svgload.svg';
