@@ -2,8 +2,8 @@
 "use client";
 
 import React from "react";
-import Header from "../Footer";
-import Footer from "../Header";
+import Header from "../Header";
+import Footer from "../Footer";
 
 // Define your custom layout
 const HomeLayout = ({ children }: { children: React.ReactNode }) => {

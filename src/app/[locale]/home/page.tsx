@@ -12,6 +12,7 @@ import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { useTranslations } from "next-intl";
 import LoadingPage from "@/app/[locale]/home/components/LoadingPage";
+import { SvgTest } from "@/components/Svg";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -35,8 +36,7 @@ const HomePage = () => {
 
   return (
     <HomeLayout>
-      <LoadingPage />
-
+      {/* <LoadingPage /> */}x
       {/* <Wrapper>
         <h1>{t("title")}</h1>
         <h1>{t("description")}</h1>

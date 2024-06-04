@@ -36,9 +36,12 @@ const GlobalStyles = createGlobalStyle`
     width: 100% !important;
   }
 
-
   .flex{
     display: flex;
+  }
+
+  .hover{
+    cursor: pointer;
   }
 `;
 

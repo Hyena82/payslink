@@ -4,10 +4,10 @@ import { RootState } from "../../store/store";
 
 const Wrapper = styled.div``;
 
-const Header = () => {
-  const count = useSelector((state: RootState) => state.counter.value);
+const Footer = () => {
+  // const count = useSelector((state: RootState) => state.counter.value);
 
-  return <Wrapper>Header {count}</Wrapper>;
+  return <Wrapper>Footer</Wrapper>;
 };
 
-export default Header;
+export default Footer;
