@@ -11,6 +11,9 @@ import { Box, Flex } from "@/components/Box";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { useTranslations } from "next-intl";
+import LoadingPage from "@/app/[locale]/home/components/LoadingPage";
+import { SvgTest } from "@/components/Svg";
+import FirstPage from "./components/FirstPage";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -28,53 +31,16 @@ const Wrapper = styled.div`
 
 const HomePage = () => {
   const router = useRouter();
-  const count = useSelector((state: RootState) => state.counter.value);
+  const loadingPage = useSelector(
+    (state: RootState) => state.system.loadingPage
+  );
   const dispatch = useDispatch();
   const t = useTranslations("Index");
 
   return (
     <HomeLayout>
-      <Wrapper>
-        <h1>{t("title")}</h1>
-        <h1>{t("description")}</h1>
-
-        <Box height={400} position="relative">
-          <Image
-            src="/images/dev-black.png"
-            style={{
-              objectFit: "cover",
-            }}
-            sizes="100vw"
-            fill
-            alt="Picture of the author"
-          />
-        </Box>
-
-        <div>
-          <div>
-            <button
-              aria-label="Increment value"
-              onClick={() => dispatch(increment())}
-            >
-              Increment
-            </button>
-            <span>{count}</span>
-            <button
-              aria-label="Decrement value"
-              onClick={() => dispatch(decrement())}
-            >
-              Decrement
-            </button>
-
-            <button
-              aria-label="Decrement value"
-              onClick={() => dispatch(incrementByAmount(5))}
-            >
-              increase by 5
-            </button>
-          </div>
-        </div>
-      </Wrapper>
+      <LoadingPage />
+      <FirstPage />
     </HomeLayout>
   );
 };
