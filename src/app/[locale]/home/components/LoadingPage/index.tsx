@@ -82,7 +82,7 @@ const Wrapper = styled.div<{ active: boolean }>`
       right: 0;
       height: 50%;
       bottom: 0;
-      animation: animateHeightBottom 5s ease-in-out 2s forwards;
+      animation: animateHeightBottom 4s ease-in-out 2s forwards;
     }
 
     @keyframes animateHeight {
@@ -177,6 +177,22 @@ const LoadingPage = () => {
     };
   }, [progress]);
 
+  useEffect(() => {
+    if (!delayedState) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      dispatch(setLoadingPage(!loadingPage));
+    }, 5000); // 2 seconds delay
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [delayedState]);
+
+  console.log("~~", loadingPage);
+
   const handleChange = () => {
     dispatch(setLoadingPage(!loadingPage));
   };
@@ -199,6 +215,10 @@ const LoadingPage = () => {
       clearInterval(timer);
     };
   }, []);
+
+  if (!loadingPage) {
+    return null;
+  }
 
   return (
     <Wrapper

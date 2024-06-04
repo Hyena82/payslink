@@ -14,6 +14,7 @@ const Wrapper = styled.div`
   border-bottom: 1px solid rgba(53, 53, 57, 1);
   background: #000;
   color: #fff;
+  height: 58px;
 
   .header-logo {
     padding-top: 5px;
