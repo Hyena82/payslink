@@ -105,7 +105,6 @@ const Wrapper = styled.div<{ active: boolean }>`
   }
 
   .loading-text {
-    font-family: Metrophobic;
     font-size: 16px;
     font-weight: 400;
     line-height: 19.73px;
@@ -206,7 +205,7 @@ const LoadingPage = () => {
           return 100;
         }
         // Generate a random increment between 1 and 10
-        const increment = Math.floor(Math.random() * 20) + 1;
+        const increment = Math.floor(Math.random() * 40) + 1;
         const newProgress = oldProgress + increment;
         return newProgress > 100 ? 100 : newProgress;
       });

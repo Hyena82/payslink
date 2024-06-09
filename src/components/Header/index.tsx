@@ -26,8 +26,8 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-between;
     position: relative;
+    height: 100%;
 
-    font-family: Metrophobic;
     font-size: 16px;
     font-weight: 400;
     line-height: 19.73px;

@@ -14,6 +14,7 @@ import { useTranslations } from "next-intl";
 import LoadingPage from "@/app/[locale]/home/components/LoadingPage";
 import { SvgTest } from "@/components/Svg";
 import FirstPage from "./components/FirstPage";
+import Staking from "./components/Staking";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -30,17 +31,16 @@ const Wrapper = styled.div`
 `;
 
 const HomePage = () => {
-  const router = useRouter();
-  const loadingPage = useSelector(
-    (state: RootState) => state.system.loadingPage
-  );
-  const dispatch = useDispatch();
-  const t = useTranslations("Index");
-
   return (
     <HomeLayout>
       <LoadingPage />
-      <FirstPage />
+      <Box id="Home">
+        <FirstPage />
+      </Box>
+
+      <Box className="" height={1000} background="black"></Box>
+
+      <Staking />
     </HomeLayout>
   );
 };
