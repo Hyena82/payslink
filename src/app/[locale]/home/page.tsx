@@ -33,14 +33,13 @@ const Wrapper = styled.div`
 const HomePage = () => {
   return (
     <HomeLayout>
-      <LoadingPage />
+      {/* <LoadingPage /> */}
       <Box id="Home">
         <FirstPage />
       </Box>
 
-      <Box className="" height={1000} background="black"></Box>
-
       <Staking />
+      <Box className="" height={1000} background="black"></Box>
     </HomeLayout>
   );
 };

@@ -11,7 +11,9 @@ import NavScroll from "../NavScroll";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  background-color: #000;
+`;
 
 // Define your custom layout
 const HomeLayout = ({ children }: { children: React.ReactNode }) => {

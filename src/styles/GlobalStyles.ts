@@ -39,6 +39,7 @@ const GlobalStyles = createGlobalStyle`
 
     top: 0 !important;
     width: 100% !important;
+    color: #fff;
   }
 
   .flex{

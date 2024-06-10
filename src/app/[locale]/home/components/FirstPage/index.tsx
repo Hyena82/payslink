@@ -195,12 +195,12 @@ const FirstPage = () => {
   return (
     <Wrapper ref={ref}>
       <div className="model-box">
-        <Canvas resize={{ scroll: true, debounce: { scroll: 50, resize: 0 } }}>
+        {/* <Canvas resize={{ scroll: true, debounce: { scroll: 50, resize: 0 } }}>
           <PerspectiveCamera fov={105} />
           <Environment preset="studio" />
           <OrbitControls />
           <ModelRobot />
-        </Canvas>
+        </Canvas> */}
       </div>
 
       <div className="container relative">
