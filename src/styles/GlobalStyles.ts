@@ -33,9 +33,7 @@ const GlobalStyles = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Metrophobic', sans-serif;
-    img {
-      height: auto;
-    }
+   
 
     top: 0 !important;
     width: 100% !important;
@@ -64,6 +62,11 @@ const GlobalStyles = createGlobalStyle`
 
   .hover{
     cursor: pointer;
+  }
+
+  .text-gradient{
+    background: linear-gradient(90deg, #0093fe 0%, #50ffd5 72.7%) text;
+    -webkit-text-fill-color: transparent;
   }
 `;
 

@@ -15,6 +15,7 @@ import LoadingPage from "@/app/[locale]/home/components/LoadingPage";
 import { SvgTest } from "@/components/Svg";
 import FirstPage from "./components/FirstPage";
 import Staking from "./components/Staking";
+import Trusted from "./components/Trusted";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -39,6 +40,8 @@ const HomePage = () => {
       </Box>
 
       <Staking />
+
+      <Trusted />
       <Box className="" height={1000} background="black"></Box>
     </HomeLayout>
   );
