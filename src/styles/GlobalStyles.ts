@@ -16,6 +16,12 @@ const GlobalStyles = createGlobalStyle`
 
    @font-face {
     font-family: 'Trap';
+    font-weight: 500;
+    src: local('Trap'), url('/fonts/Trap/Trap-Medium.otf') format('opentype');
+  }
+
+  @font-face {
+    font-family: 'Trap';
     font-weight: 400;
     src: local('Trap'), url('/fonts/Trap/Trap-Regular.ttf') format('truetype');
   }
@@ -68,6 +74,29 @@ const GlobalStyles = createGlobalStyle`
     background: linear-gradient(90deg, #0093fe 0%, #50ffd5 72.7%) text;
     -webkit-text-fill-color: transparent;
   }
+
+  .title-section {
+    font-family: Trap;
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 55px;
+    text-align: left;
+    max-width: 791px;
+    width: 100%;
+    position: relative;
+
+    span {
+      font-family: Trap;
+      font-size: 50px;
+      font-weight: 600;
+      line-height: 55px;
+      text-align: left;
+      background: linear-gradient(90deg, #0093fe 0%, #50ffd5 72.7%) text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  
 `;
 
 export default GlobalStyles;

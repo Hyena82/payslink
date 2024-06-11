@@ -12,10 +12,10 @@ import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { useTranslations } from "next-intl";
 import LoadingPage from "@/app/[locale]/home/components/LoadingPage";
-import { SvgTest } from "@/components/Svg";
 import FirstPage from "./components/FirstPage";
 import Staking from "./components/Staking";
 import Trusted from "./components/Trusted";
+import Section4 from "./components/Section4";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -42,6 +42,9 @@ const HomePage = () => {
       <Staking />
 
       <Trusted />
+
+      <Section4 />
+
       <Box className="" height={1000} background="black"></Box>
     </HomeLayout>
   );
