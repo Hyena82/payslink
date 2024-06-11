@@ -54,6 +54,18 @@ const Wrapper = styled.div`
       }
     }
 
+    &.is-fromIcon {
+      &:hover .icon-button {
+        background: unset;
+        .show-icon {
+          display: flex;
+        }
+      }
+      .icon-button {
+        background: unset;
+      }
+    }
+
     &.is-no-icon {
       padding: 9px 9px;
 
@@ -138,23 +150,36 @@ const Wrapper = styled.div`
 
 interface PrimaryButtonProps {
   children: React.ReactNode;
-  icon?: React.ReactNode;
-  activeIcon?: React.ReactNode;
+  icon?: string;
+  activeIcon?: string;
+  fromIcon?: boolean;
 }
 
 const PrimaryButton: React.FC<PrimaryButtonProps> = ({
   children,
   icon,
   activeIcon,
+  fromIcon,
 }) => {
+  const WIDTH = fromIcon ? 30 : 18;
   return (
     <Wrapper>
-      <Box className={`${!icon && "is-no-icon"} read-more-button flex`}>
+      <Box
+        className={`${!icon && "is-no-icon"} ${
+          fromIcon && "is-fromIcon"
+        } read-more-button flex`}
+      >
         {icon && (
           <div className={`${activeIcon && "is-image"} icon-button center`}>
-            <div className="show-icon center">{icon && icon} </div>
+            <div className="show-icon center">
+              {icon && <Image src={icon} width={WIDTH} height={WIDTH} alt="" />}{" "}
+            </div>
 
-            {activeIcon && <div className="is-image center">{activeIcon}</div>}
+            {activeIcon && (
+              <div className="is-image center">
+                {<Image src={activeIcon} width={WIDTH} height={WIDTH} alt="" />}
+              </div>
+            )}
           </div>
         )}
 

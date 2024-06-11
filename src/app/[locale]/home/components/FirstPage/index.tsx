@@ -230,57 +230,22 @@ const FirstPage = () => {
 
         <div className="group-button">
           <PrimaryButton
-            icon={<Staking />}
-            activeIcon={
-              <Image
-                src="/images/icons/white-staking.svg"
-                width={18}
-                height={18}
-                alt=""
-              />
-            }
+            icon="/images/icons/black-staking.svg"
+            activeIcon="/images/icons/white-staking.svg"
           >
             Staking
           </PrimaryButton>
 
           <PrimaryButton
-            icon={
-              <Image
-                src="/images/icons/black-wallet.svg"
-                width={18}
-                height={18}
-                alt=""
-              />
-            }
-            activeIcon={
-              <Image
-                src="/images/icons/white-wallet.svg"
-                width={18}
-                height={18}
-                alt=""
-              />
-            }
+            icon="/images/icons/black-wallet.svg"
+            activeIcon="/images/icons/white-wallet.svg"
           >
             Connect wallet
           </PrimaryButton>
 
           <PrimaryButton
-            icon={
-              <Image
-                src="/images/icons/black-down.svg"
-                width={18}
-                height={18}
-                alt=""
-              />
-            }
-            activeIcon={
-              <Image
-                src="/images/icons/white-down.svg"
-                width={18}
-                height={18}
-                alt=""
-              />
-            }
+            icon="/images/icons/black-down.svg"
+            activeIcon="/images/icons/white-down.svg"
           >
             Connect wallet
           </PrimaryButton>
