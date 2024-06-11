@@ -16,6 +16,7 @@ import FirstPage from "./components/FirstPage";
 import Staking from "./components/Staking";
 import Trusted from "./components/Trusted";
 import Section4 from "./components/Section4";
+import Section5 from "./components/Section5";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -44,6 +45,8 @@ const HomePage = () => {
       <Trusted />
 
       <Section4 />
+
+      <Section5 />
 
       <Box className="" height={1000} background="black"></Box>
     </HomeLayout>
