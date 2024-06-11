@@ -40,17 +40,35 @@ const Wrapper = styled.div`
       border-radius: 30px;
       overflow: hidden;
       &::before {
-        display: inline-block;
         content: attr(data-content);
         width: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        padding-left: 10px;
         height: 100%;
         background: var(--gradient);
         color: #fff;
         transform: translateX(100%);
         transition: transform 275ms ease;
+      }
+    }
+
+    &.is-no-icon {
+      padding: 9px 9px;
+
+      span {
+        &::before {
+          justify-content: flex-start;
+          padding-left: 10px;
+        }
+      }
+
+      &:hover > span {
+        &::before {
+          justify-content: flex-start;
+          padding-left: 10px;
+        }
       }
     }
 
@@ -120,7 +138,7 @@ const Wrapper = styled.div`
 
 interface PrimaryButtonProps {
   children: React.ReactNode;
-  icon: React.ReactNode;
+  icon?: React.ReactNode;
   activeIcon?: React.ReactNode;
 }
 
@@ -131,14 +149,17 @@ const PrimaryButton: React.FC<PrimaryButtonProps> = ({
 }) => {
   return (
     <Wrapper>
-      <Box className="read-more-button flex">
-        <div className={`${activeIcon && "is-image"} icon-button center`}>
-          <div className="show-icon center">{icon}</div>
+      <Box className={`${!icon && "is-no-icon"} read-more-button flex`}>
+        {icon && (
+          <div className={`${activeIcon && "is-image"} icon-button center`}>
+            <div className="show-icon center">{icon && icon} </div>
 
-          {activeIcon && <div className="is-image center">{activeIcon}</div>}
-        </div>
+            {activeIcon && <div className="is-image center">{activeIcon}</div>}
+          </div>
+        )}
 
         <span data-content={children} aria-hidden="true" />
+
         {children}
 
         <DownArrow className="arrow-button" />
