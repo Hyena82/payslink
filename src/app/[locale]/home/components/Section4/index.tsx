@@ -1,8 +1,9 @@
+import Slider from "react-slick";
 import Image from "next/image";
 import styled from "styled-components";
 import Step from "./Step";
-import { Flex } from "@/components/Box";
 import { DownArrow } from "@/components/Svg";
+import { useState } from "react";
 
 const Wrapper = styled.div`
   padding: 40px 0 0;
@@ -28,7 +29,6 @@ const Wrapper = styled.div`
   }
 
   .slider-box {
-    display: flex;
     overflow-x: auto;
     border-top: 1px solid var(--Stroke, #353539);
     margin-top: 56px;
@@ -44,54 +44,125 @@ const Wrapper = styled.div`
     }
   }
 
-  .button-box {
-    position: absolute;
-    bottom: 40px;
-    left: 40px;
-    .svg-button {
-      cursor: pointer;
+  .slick-next:before,
+  .slick-next::after,
+  .slick-prev:before,
+  .slick-prev::after {
+    display: none;
+  }
+
+  .slick-list {
+    padding-right: 100px !important;
+  }
+`;
+
+const ArrowBox = styled.div`
+  position: absolute;
+  bottom: 56px;
+  left: 60px;
+  z-index: 10;
+  top: unset;
+
+  .svg-button {
+    cursor: pointer;
+    path {
+      fill: rgba(217, 217, 217, 0.5);
+    }
+
+    &.active path {
+      fill: #fff;
+    }
+
+    &.left {
+      transform: rotate(180deg);
+      margin-top: 1px;
+      margin-right: 27px;
+    }
+
+    &.active:hover {
       path {
-        fill: #d9d9d9;
-      }
-
-      &.active path {
-        fill: #fff;
-      }
-
-      &.left {
-        transform: rotate(180deg);
-        margin-top: 1px;
-        margin-right: 27px;
-      }
-
-      &.active:hover {
-        path {
-          fill: url(#paint0_linear_196_1511);
-        }
+        fill: url(#paint0_linear_196_1511);
       }
     }
   }
 `;
 
+const ArrowLeftBox = styled.div`
+  position: absolute;
+  bottom: 56px;
+  top: unset;
+
+  left: 20px;
+  z-index: 10;
+
+  &.left-arrow {
+    left: 0;
+  }
+  .svg-button {
+    cursor: pointer;
+    path {
+      fill: rgba(217, 217, 217, 0.5);
+    }
+
+    &.active path {
+      fill: #fff;
+    }
+
+    &.left {
+      transform: rotate(180deg);
+      margin-top: 1px;
+      margin-right: 27px;
+    }
+
+    &.active:hover {
+      path {
+        fill: url(#paint0_linear_196_1511);
+      }
+    }
+  }
+`;
+
+const data = [
+  {
+    stepDescription: "The Unified Platform for Everything DeFi",
+  },
+  {
+    stepDescription:
+      "Real-time analytics, risk assessment, and detailed reporting on single interface for informed decisions.",
+  },
+  {
+    stepDescription: "The most efficient staking protocol..",
+  },
+  {
+    stepDescription: "The 1-click gateway to best Defi yields",
+  },
+  {
+    stepDescription: "The Safest Crypto Wallet to navigate web3",
+  },
+];
+
 const Section4 = () => {
-  const data = [
-    {
-      stepDescription: "The Unified Platform for Everything DeFi",
-    },
-    {
-      stepDescription:
-        "Real-time analytics, risk assessment, and detailed reporting on single interface for informed decisions.",
-    },
-    {
-      stepDescription: "The most efficient staking protocol..",
-    },
-    {
-      stepDescription: "The 1-click gateway to best Defi yields",
-    },
-    {
-      stepDescription: "The Safest Crypto Wallet to navigate web3",
-    },
-  ];
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const settings = {
+    slidesToShow: 1.2,
+    slidesToScroll: 1,
+    infinite: false,
+    afterChange: (current: number) => setCurrentSlide(current),
+
+    nextArrow: (
+      <ArrowBox>
+        <DownArrow className={`${currentSlide < 3.8 && "active"} svg-button`} />
+      </ArrowBox>
+    ),
+    prevArrow: (
+      <ArrowLeftBox>
+        <DownArrow
+          className={`${currentSlide > 0 && "active"} left svg-button`}
+        />
+      </ArrowLeftBox>
+    ),
+  };
 
   return (
     <Wrapper>
@@ -105,19 +176,16 @@ const Section4 = () => {
         Our <span>Solutions</span>
       </p>
 
-      <Flex className="button-box" mt={6}>
-        <DownArrow className="svg-button left" />
-        <DownArrow className="svg-button active" />
-      </Flex>
-
       <div className="slider-box">
-        {data.map((item, index) => (
-          <Step
-            key={index}
-            stepNumber={index + 1}
-            stepDescription={item.stepDescription}
-          />
-        ))}
+        <Slider {...settings}>
+          {data.map((item, index) => (
+            <Step
+              key={index}
+              stepNumber={index + 1}
+              stepDescription={item.stepDescription}
+            />
+          ))}
+        </Slider>
       </div>
     </Wrapper>
   );

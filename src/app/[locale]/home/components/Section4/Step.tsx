@@ -6,11 +6,13 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   border-right: 1px solid var(--Stroke, #353539);
   padding: 40px 20px 56px;
+  max-width: 1200px;
+  width: 100%;
 
   .number-box {
     min-width: 334px;
     width: 100%;
-    padding: 40px 20px;
+    padding: 40px 20px 6rem 0;
   }
 
   .number-step {
