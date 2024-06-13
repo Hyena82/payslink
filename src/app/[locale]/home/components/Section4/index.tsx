@@ -56,13 +56,17 @@ const Wrapper = styled.div`
   }
 `;
 
-export const ArrowBox = styled.div<{ left?: number; disable?: boolean }>`
+export const ArrowBox = styled.div<{
+  left?: number;
+  disable?: boolean;
+  top?: number;
+}>`
   position: absolute;
-  bottom: 56px;
+  top: ${({ top }) => (top ? `${top}px` : "unset")};
+  bottom: ${({ top }) => (top ? `unset` : "56px")};
   left: ${({ left }) => (left ? `${left}px` : "60px")};
   pointer-events: ${({ disable }) => (disable ? "none" : "auto")};
   z-index: 10;
-  top: unset;
 
   .svg-button {
     cursor: pointer;
@@ -88,10 +92,14 @@ export const ArrowBox = styled.div<{ left?: number; disable?: boolean }>`
   }
 `;
 
-export const ArrowLeftBox = styled.div<{ left?: number; disable?: boolean }>`
+export const ArrowLeftBox = styled.div<{
+  left?: number;
+  disable?: boolean;
+  top?: number;
+}>`
   position: absolute;
-  bottom: 55px;
-  top: unset;
+  top: ${({ top }) => (top ? `${top}px` : "unset")};
+  bottom: ${({ top }) => (top ? `unset` : "56px")};
   left: ${({ left }) => (left ? `${left}px` : "20px")};
   pointer-events: ${({ disable }) => (disable ? "none" : "auto")};
 

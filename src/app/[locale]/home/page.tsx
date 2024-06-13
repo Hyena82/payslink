@@ -24,6 +24,7 @@ import Section9 from "./components/Section9";
 import Section10 from "./components/Section10";
 import Section11 from "./components/Section11";
 import Section12 from "./components/Section12";
+import Section13 from "./components/Section13";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -68,6 +69,8 @@ const HomePage = () => {
       <Section11 />
 
       <Section12 />
+
+      <Section13 />
 
       <Box className="" height={1000} background="black"></Box>
     </HomeLayout>
