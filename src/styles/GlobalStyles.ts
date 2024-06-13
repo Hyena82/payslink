@@ -96,6 +96,12 @@ const GlobalStyles = createGlobalStyle`
     }
   }
 
+  .slick-next:before,
+  .slick-next::after,
+  .slick-prev:before,
+  .slick-prev::after {
+    display: none;
+  }
   
 `;
 

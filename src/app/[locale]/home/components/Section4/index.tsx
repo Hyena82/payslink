@@ -56,10 +56,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const ArrowBox = styled.div`
+export const ArrowBox = styled.div<{ left?: number; disable?: boolean }>`
   position: absolute;
   bottom: 56px;
-  left: 60px;
+  left: ${({ left }) => (left ? `${left}px` : "60px")};
+  pointer-events: ${({ disable }) => (disable ? "none" : "auto")};
   z-index: 10;
   top: unset;
 
@@ -87,12 +88,13 @@ const ArrowBox = styled.div`
   }
 `;
 
-const ArrowLeftBox = styled.div`
+export const ArrowLeftBox = styled.div<{ left?: number; disable?: boolean }>`
   position: absolute;
-  bottom: 56px;
+  bottom: 55px;
   top: unset;
+  left: ${({ left }) => (left ? `${left}px` : "20px")};
+  pointer-events: ${({ disable }) => (disable ? "none" : "auto")};
 
-  left: 20px;
   z-index: 10;
 
   &.left-arrow {
