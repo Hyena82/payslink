@@ -11,7 +11,7 @@ import { useDispatch } from "react-redux";
 import { setCurrentSection } from "@/state/systemSlice";
 
 const Wrapper = styled.div`
-  padding: 60px 40px 40px;
+  padding: 90px 40px 90px;
   z-index: 3;
   position: relative;
   .title-section {
@@ -111,7 +111,7 @@ const Trusted = () => {
         PAYSLINK Staking represents a new era of cryptoeconomic security for the
         industry-standard oracle network
       </p>
-      <Flex justifyContent="center" mt={4}>
+      <Flex justifyContent="center" mt={5}>
         <_3DCard
           title="Focus on Growth"
           number="2.3x"

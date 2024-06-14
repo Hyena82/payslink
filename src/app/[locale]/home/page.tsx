@@ -61,12 +61,11 @@ const HomePage = () => {
 
   return (
     <HomeLayout>
-      {/* <LoadingPage /> */}
+      <LoadingPage />
 
       <FirstPage />
 
       <Staking />
-      {/* <Trusted /> */}
 
       <Section4 />
 

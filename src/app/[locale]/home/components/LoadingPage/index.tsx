@@ -1,5 +1,5 @@
 "use client";
-import { useDispatch, useSelector } from "react-redux";
+import { shallowEqual, useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { RootState } from "../../../../../store/store";
 import { setLoadingPage } from "@/state/systemSlice";
@@ -154,8 +154,11 @@ const Wrapper = styled.div<{ active: boolean }>`
 
 const LoadingPage = () => {
   const loadingPage = useSelector(
-    (state: RootState) => state.system.loadingPage
+    (state: RootState) => state.system.loadingPage,
+    shallowEqual
   );
+
+  console.log("~~", loadingPage);
   const dispatch = useDispatch();
   const [progress, setProgress] = useState(0); // Add this line
 
@@ -187,7 +190,7 @@ const LoadingPage = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [delayedState, dispatch, loadingPage]);
+  }, [delayedState]);
 
   // Add this effect to update progress over time
   useEffect(() => {
