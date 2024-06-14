@@ -2,21 +2,15 @@ import GradientBorder from "@/components/Border";
 import { Box } from "@/components/Box";
 import PrimaryButton from "@/components/Button/PrimaryButton";
 import InviewBox from "@/components/InViewBox";
-import { Staking } from "@/components/Svg";
 import { ModelRobot } from "@/components/_3DRobot";
 import { SECTIONS } from "@/configs/constants";
-import useSectionInView from "@/hooks/useSectionInView";
-import { setCurrentSection } from "@/state/systemSlice";
 import {
   Environment,
   OrbitControls,
   PerspectiveCamera,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
-import { useInView } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
-import { useDispatch } from "react-redux";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
