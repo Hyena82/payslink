@@ -66,8 +66,10 @@ const GlobalStyles = createGlobalStyle`
     margin: 0 auto;
   }
 
-  .hover{
+  .hover:hover{
+    transition: all 0.2s ease-in-out;
     cursor: pointer;
+    opacity: 0.8;
   }
 
   .text-gradient{

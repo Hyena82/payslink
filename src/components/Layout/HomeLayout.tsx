@@ -22,7 +22,7 @@ const HomeLayout = ({ children }: { children: React.ReactNode }) => {
       <Header />
       <NavScroll />
       {children}
-      {/* <Footer /> */}
+      <Footer />
     </Wrapper>
   );
 };
