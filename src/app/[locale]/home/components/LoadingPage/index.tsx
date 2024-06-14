@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { RootState } from "../../../../../store/store";
 import { setLoadingPage } from "@/state/systemSlice";
-import { SvgTest } from "../../../../../components/Svg";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import CircleProgressBar from "../../../../../components/CircleProgressBar";
@@ -105,7 +104,6 @@ const Wrapper = styled.div<{ active: boolean }>`
   }
 
   .loading-text {
-    font-family: Metrophobic;
     font-size: 16px;
     font-weight: 400;
     line-height: 19.73px;
@@ -189,13 +187,7 @@ const LoadingPage = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [delayedState]);
-
-  console.log("~~", loadingPage);
-
-  const handleChange = () => {
-    dispatch(setLoadingPage(!loadingPage));
-  };
+  }, [delayedState, dispatch, loadingPage]);
 
   // Add this effect to update progress over time
   useEffect(() => {
@@ -206,7 +198,7 @@ const LoadingPage = () => {
           return 100;
         }
         // Generate a random increment between 1 and 10
-        const increment = Math.floor(Math.random() * 20) + 1;
+        const increment = Math.floor(Math.random() * 50) + 1;
         const newProgress = oldProgress + increment;
         return newProgress > 100 ? 100 : newProgress;
       });
@@ -275,8 +267,6 @@ const LoadingPage = () => {
           </div>
         </>
       )}
-
-      {/* <button onClick={handleChange}>change loading...</button> */}
     </Wrapper>
   );
 };

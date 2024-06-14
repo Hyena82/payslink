@@ -12,7 +12,6 @@ const Wrapper = styled.div`
     align-items: center;
     border-radius: 30px;
 
-    font-family: Metrophobic;
     font-size: 14px;
     font-weight: 400;
     line-height: 17.26px;

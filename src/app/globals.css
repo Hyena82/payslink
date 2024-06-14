@@ -26,6 +26,9 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  --gradient: linear-gradient(90deg, #0093fe 0%, #50ffd5 100%);
+  --Stroke: #353539;
 }
 
 * {
@@ -43,6 +46,37 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.id-view {
+  position: absolute;
+  z-index: 1000;
+  top: 40%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  z-index: -1;
+}
+
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
 
 @media (prefers-color-scheme: dark) {
