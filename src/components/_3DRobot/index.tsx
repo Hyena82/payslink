@@ -6,21 +6,20 @@ export function ModelRobot(props: any) {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/model/model-robot.glb");
   const { actions, names } = useAnimations(animations, group);
-
   useEffect(() => {
     actions[names[0]]?.reset().play();
   }, [actions, names]);
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null} position={[0, -3.1, 0]}>
       <group name="Scene">
         <group
           name="Sketchfab_model"
           rotation={[-Math.PI / 2, 0, 0]}
-          scale={0.246}
+          scale={1.6}
         >
           <group
             name="a45b6f53b9cc462a82863bb5898bf730fbx"
-            rotation={[Math.PI / 2, 0, 0]}
+            rotation={[Math.PI / 1.75, 0, 0]}
             scale={0.01}
           >
             <group name="Object_2">

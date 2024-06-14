@@ -12,7 +12,7 @@ import Trusted from "../Trusted";
 import InviewBox from "@/components/InViewBox";
 
 const Wrapper = styled.div`
-  height: 400px;
+  height: 600px;
   background: url("/images/home/staking-bg.png");
   background-position: center;
   background-repeat: no-repeat;

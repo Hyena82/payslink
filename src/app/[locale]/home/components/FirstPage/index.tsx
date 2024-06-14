@@ -10,8 +10,17 @@ import {
   PerspectiveCamera,
 } from "@react-three/drei";
 import { Canvas } from "@react-three/fiber";
+import {
+  useMotionValue,
+  useScroll,
+  useSpring,
+  useTransform,
+} from "framer-motion";
+import { motion } from "framer-motion-3d";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
 import styled from "styled-components";
+import RoBotModelBox from "./RoBotModelBox";
 
 const Wrapper = styled.div`
   height: calc(100vh - 58px);
@@ -36,16 +45,6 @@ const Wrapper = styled.div`
     background-position: top;
     background-repeat: no-repeat;
     filter: blur(1px) brightness(0.6);
-  }
-
-  .model-box {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 500px;
-    height: 800px;
-    z-index: 5;
   }
 
   .intro-box {
@@ -182,16 +181,7 @@ const FirstPage = () => {
   return (
     <Wrapper id={SECTIONS[0]}>
       <InviewBox section={SECTIONS[0]} />
-
-      <div className="model-box">
-        <Canvas resize={{ scroll: true, debounce: { scroll: 50, resize: 0 } }}>
-          <PerspectiveCamera fov={105} />
-          <Environment preset="studio" />
-          <OrbitControls />
-          <ModelRobot />
-        </Canvas>
-      </div>
-
+      <RoBotModelBox />
       <div className="container relative">
         <div className="intro-box">
           <Box className="" padding={4}></Box>

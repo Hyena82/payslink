@@ -2,11 +2,12 @@
 
 import { RootState } from "@/store/store";
 import Link from "next/link";
-import { use } from "react";
-import { useSelector } from "react-redux";
+import { use, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { motion } from "framer-motion";
 import { SECTIONS } from "@/configs/constants";
+import { setDisableSVG } from "@/state/disableSVG";
 
 const Wrapper = styled.div`
   position: fixed;
@@ -66,8 +67,16 @@ const NavScroll = () => {
   const currentSection = useSelector(
     (state: RootState) => state.system.currentSection
   );
+  const dispatch = useDispatch();
 
-  console.log("~~", currentSection);
+  useEffect(() => {
+    if (SECTIONS.indexOf(currentSection) >= 2) {
+      dispatch(setDisableSVG(true));
+    } else {
+      dispatch(setDisableSVG(false));
+    }
+  }, [currentSection]);
+
   return (
     <Wrapper>
       {SECTIONS.map((section) => (
