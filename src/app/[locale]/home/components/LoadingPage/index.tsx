@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 import { RootState } from "../../../../../store/store";
 import { setLoadingPage } from "@/state/systemSlice";
-import { SvgTest } from "../../../../../components/Svg";
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import CircleProgressBar from "../../../../../components/CircleProgressBar";
@@ -188,13 +187,7 @@ const LoadingPage = () => {
     return () => {
       clearTimeout(timer);
     };
-  }, [delayedState]);
-
-  console.log("~~", loadingPage);
-
-  const handleChange = () => {
-    dispatch(setLoadingPage(!loadingPage));
-  };
+  }, [delayedState, dispatch, loadingPage]);
 
   // Add this effect to update progress over time
   useEffect(() => {
@@ -274,8 +267,6 @@ const LoadingPage = () => {
           </div>
         </>
       )}
-
-      {/* <button onClick={handleChange}>change loading...</button> */}
     </Wrapper>
   );
 };

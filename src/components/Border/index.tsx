@@ -24,7 +24,11 @@ const Wrapper = styled.div`
   }
 `;
 
-const GradientBorder = ({ children }) => {
+interface GradientBorderProps {
+  children: React.ReactNode;
+}
+
+const GradientBorder: React.FC<GradientBorderProps> = ({ children }) => {
   return (
     <Wrapper>
       <svg
