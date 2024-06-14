@@ -11,6 +11,8 @@ import { Box, Flex } from "@/components/Box";
 import Image from "next/image";
 import { useTranslation } from "next-i18next";
 import { useTranslations } from "next-intl";
+import { ReactLenis, useLenis } from "lenis/react";
+
 import LoadingPage from "@/app/[locale]/home/components/LoadingPage";
 import FirstPage from "./components/FirstPage";
 import Staking from "./components/Staking";
@@ -26,6 +28,10 @@ import Section11 from "./components/Section11";
 import Section12 from "./components/Section12";
 import Section13 from "./components/Section13";
 import Section14 from "./components/Section14";
+import { useEffect } from "react";
+import Lenis from "lenis";
+import useSectionInView from "@/hooks/useSectionInView";
+import { SECTIONS } from "@/configs/constants";
 
 const Wrapper = styled.div`
   width: 100%;
@@ -42,16 +48,25 @@ const Wrapper = styled.div`
 `;
 
 const HomePage = () => {
+  useEffect(() => {
+    const lenis = new Lenis();
+
+    function raf(time: any) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
+
   return (
     <HomeLayout>
       {/* <LoadingPage /> */}
-      <Box id="Home">
-        <FirstPage />
-      </Box>
+
+      <FirstPage />
 
       <Staking />
-
-      <Trusted />
+      {/* <Trusted /> */}
 
       <Section4 />
 

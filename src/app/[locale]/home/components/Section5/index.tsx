@@ -2,6 +2,9 @@ import { Flex } from "@/components/Box";
 import Image from "next/image";
 import styled from "styled-components";
 import Card3D from "./Card3D";
+import useSectionInView from "@/hooks/useSectionInView";
+import { SECTIONS } from "@/configs/constants";
+import InviewBox from "@/components/InViewBox";
 
 const Wrapper = styled.div`
   border-bottom: 1px solid var(--Stroke, #353539);
@@ -76,7 +79,9 @@ const Section5 = () => {
   ];
 
   return (
-    <Wrapper>
+    <Wrapper className="relative" id={SECTIONS[3]}>
+      <InviewBox section={SECTIONS[3]} />
+
       <Flex justifyContent="center" flexDirection="column" alignItems="center">
         <p className="title-section">
           <span>PAYSLINK</span>- Anatomy Of Defi

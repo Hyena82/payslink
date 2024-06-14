@@ -3,6 +3,8 @@ import Image from "next/image";
 import { useState } from "react";
 import styled from "styled-components";
 import { motion } from "framer-motion";
+import { SECTIONS } from "@/configs/constants";
+import InviewBox from "@/components/InViewBox";
 
 const Wrapper = styled.div`
   padding: 0 40px;
@@ -126,7 +128,8 @@ const Section10 = () => {
   const [selectedItem, setSelectedItem] = useState<string>("Payment");
 
   return (
-    <Wrapper>
+    <Wrapper className="relative" id={SECTIONS[8]}>
+      <InviewBox section={SECTIONS[8]} />
       <Flex className="flex-box">
         <div className="background-s10">
           <Image

@@ -47,8 +47,13 @@ const Wrapper = styled.div`
     width: 15px;
     height: 15px;
     border-radius: 50%;
+    position: relative;
 
     .dot {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       width: 6px;
       height: 6px;
       background-color: #6b6b6b;

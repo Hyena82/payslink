@@ -1,3 +1,3 @@
-const SECTIONS = ["Home", "Staking"];
+const SECTIONS = ["Home", "Staking", "Solutions", "Defi", "Why", "App", "Audited", "Trade", "Ecosystem", "Tokenomic", "Milestones", "Team", "Partner"];
 
 export { SECTIONS };

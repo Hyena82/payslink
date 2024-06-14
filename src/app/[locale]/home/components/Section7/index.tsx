@@ -4,6 +4,8 @@ import Image from "next/image";
 import styled from "styled-components";
 import { motion, useTransform, useScroll, useSpring } from "framer-motion";
 import { useRef } from "react";
+import { SECTIONS } from "@/configs/constants";
+import InviewBox from "@/components/InViewBox";
 
 const Wrapper = styled.div`
   border-bottom: 1px solid var(--Stroke, #353539);
@@ -48,7 +50,8 @@ const Section7 = () => {
   const downX = useSpring(downScrollX, { stiffness: 50, damping: 20 });
 
   return (
-    <Wrapper ref={container}>
+    <Wrapper ref={container} className="relative" id={SECTIONS[5]}>
+      <InviewBox section={SECTIONS[5]} />
       <Box>
         <Box mt={4} className="down-box">
           <motion.div style={{ x: downX }}>

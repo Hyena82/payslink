@@ -8,6 +8,8 @@ import { useState } from "react";
 import TotalMembers from "@/components/TotalMembers";
 import { Box } from "@/components/Box";
 import { position } from "styled-system";
+import InviewBox from "@/components/InViewBox";
+import { SECTIONS } from "@/configs/constants";
 
 const Wrapper = styled.div`
   .main-body {
@@ -110,7 +112,8 @@ const Section13 = () => {
     ),
   };
   return (
-    <Wrapper>
+    <Wrapper className="relative" id={SECTIONS[11]}>
+      <InviewBox section={SECTIONS[11]} />
       <Box className="main-body">
         <p className="title-section">
           <Image

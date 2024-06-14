@@ -4,6 +4,9 @@ import styled from "styled-components";
 import Step from "./Step";
 import { DownArrow } from "@/components/Svg";
 import { useState } from "react";
+import useSectionInView from "@/hooks/useSectionInView";
+import { SECTIONS } from "@/configs/constants";
+import InviewBox from "@/components/InViewBox";
 
 const Wrapper = styled.div`
   padding: 40px 0 0;
@@ -19,6 +22,7 @@ const Wrapper = styled.div`
     border-width: 1px;
     border-image-slice: 1;
     margin-top: 36px;
+    margin-left: 40px;
     padding: 0 0 14px 17px;
 
     img {
@@ -166,7 +170,7 @@ const Section4 = () => {
       </ArrowBox>
     ),
     prevArrow: (
-      <ArrowLeftBox>
+      <ArrowLeftBox left={10}>
         <DownArrow
           className={`${currentSlide > 0 && "active"} left svg-button`}
         />
@@ -175,7 +179,9 @@ const Section4 = () => {
   };
 
   return (
-    <Wrapper>
+    <Wrapper className="relative" id={SECTIONS[2]}>
+      <InviewBox section={SECTIONS[2]} />
+
       <p className="title-section">
         <Image
           src="/images/home/corner-border.png"

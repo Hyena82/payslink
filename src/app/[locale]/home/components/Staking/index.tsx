@@ -1,5 +1,6 @@
 import { SECTIONS } from "@/configs/constants";
 import useCustomSWR from "@/hooks/useCustomSWR";
+import useSectionInView from "@/hooks/useSectionInView";
 import { setCurrentSection } from "@/state/systemSlice";
 import { useInView } from "framer-motion";
 import Image from "next/image";
@@ -7,6 +8,8 @@ import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import useSWR from "swr";
+import Trusted from "../Trusted";
+import InviewBox from "@/components/InViewBox";
 
 const Wrapper = styled.div`
   height: 400px;
@@ -18,6 +21,7 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
+  overflow: hidden;
 
   border-top: 1px solid #353539;
   border-bottom: 1px solid #353539;
@@ -104,16 +108,6 @@ const Wrapper = styled.div`
 `;
 
 const Staking = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (isInView) {
-      dispatch(setCurrentSection(SECTIONS[1]));
-    }
-  }, [isInView]);
-
   const data = [
     {
       title: "Total TVL on Payslink",
@@ -138,21 +132,26 @@ const Staking = () => {
   ];
 
   return (
-    <Wrapper id="Staking" ref={ref}>
-      {data.map((item, index) => (
-        <div className="staking-item" key={index}>
-          <div className="title">{item.title}</div>
-          <span className="amount">{item.amount}</span>
-          <Image
-            src="/images/icons/top-percent.svg"
-            width={20}
-            height={14}
-            alt=""
-          />{" "}
-          <span className="percent">{item.percent}</span>
-        </div>
-      ))}
-    </Wrapper>
+    <div className="relative" id={SECTIONS[1]}>
+      <InviewBox section={SECTIONS[1]} />
+      <Wrapper>
+        {data.map((item, index) => (
+          <div className="staking-item" key={index}>
+            <div className="title">{item.title}</div>
+            <span className="amount">{item.amount}</span>
+            <Image
+              src="/images/icons/top-percent.svg"
+              width={20}
+              height={14}
+              alt=""
+            />{" "}
+            <span className="percent">{item.percent}</span>
+          </div>
+        ))}
+      </Wrapper>
+
+      <Trusted />
+    </div>
   );
 };
 

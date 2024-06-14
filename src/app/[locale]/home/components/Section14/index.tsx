@@ -2,6 +2,8 @@ import styled from "styled-components";
 import PartnerCard from "./PartnerCard";
 import { Box } from "@/components/Box";
 import { motion } from "framer-motion";
+import { SECTIONS } from "@/configs/constants";
+import InviewBox from "@/components/InViewBox";
 
 const Wrapper = styled.div`
   margin-top: 50px;
@@ -41,7 +43,8 @@ const dataRow2 = [
 
 const Section14 = () => {
   return (
-    <Wrapper>
+    <Wrapper className="relative" id={SECTIONS[12]}>
+      <InviewBox section={SECTIONS[12]} />
       <Box className="row-data" mb="-1px">
         <motion.div
           className="marquee"

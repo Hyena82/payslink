@@ -1,5 +1,7 @@
 import { Box, Flex } from "@/components/Box";
 import PrimaryButton from "@/components/Button/PrimaryButton";
+import InviewBox from "@/components/InViewBox";
+import { SECTIONS } from "@/configs/constants";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -69,7 +71,8 @@ const Section9 = () => {
   ];
 
   return (
-    <Wrapper>
+    <Wrapper className="relative" id={SECTIONS[7]}>
+      <InviewBox section={SECTIONS[7]} />
       <Flex className="center" flexDirection="column">
         <div className="title-section">
           Why choose

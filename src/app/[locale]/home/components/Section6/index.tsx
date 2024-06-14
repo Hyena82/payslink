@@ -1,4 +1,6 @@
 import { Flex } from "@/components/Box";
+import InviewBox from "@/components/InViewBox";
+import { SECTIONS } from "@/configs/constants";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -58,7 +60,9 @@ const Wrapper = styled.div`
 
 const Section6 = () => {
   return (
-    <Wrapper>
+    <Wrapper className="relative" id={SECTIONS[4]}>
+      <InviewBox section={SECTIONS[4]} />
+
       <Flex justifyContent="center" flexDirection="column" alignItems="center">
         <p className="title-section">
           Why PAYSLINK <span>Staking?</span>

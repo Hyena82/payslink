@@ -3,6 +3,12 @@ import Image from "next/image";
 import styled from "styled-components";
 
 import _3DCard from "./_3DCard";
+import useSectionInView from "@/hooks/useSectionInView";
+import { SECTIONS } from "@/configs/constants";
+import { useEffect, useRef } from "react";
+import { useInView } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { setCurrentSection } from "@/state/systemSlice";
 
 const Wrapper = styled.div`
   padding: 60px 40px 40px;
@@ -80,6 +86,15 @@ const Wrapper = styled.div`
 `;
 
 const Trusted = () => {
+  // const ref = useRef(null);
+  // const isInView = useInView(ref);
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   if (isInView) {
+  //     dispatch(setCurrentSection(SECTIONS[2]));
+  //   }
+  // }, [isInView]);
   return (
     <Wrapper>
       <p className="title-section">

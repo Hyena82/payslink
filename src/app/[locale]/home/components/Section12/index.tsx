@@ -4,6 +4,8 @@ import { DownArrow } from "@/components/Svg";
 import { useState } from "react";
 import Slider from "react-slick";
 import RoadStep from "./RoadStep";
+import InviewBox from "@/components/InViewBox";
+import { SECTIONS } from "@/configs/constants";
 
 const Wrapper = styled.div`
   position: relative;
@@ -164,7 +166,8 @@ const Section12 = () => {
     ),
   };
   return (
-    <Wrapper>
+    <Wrapper className="relative" id={SECTIONS[10]}>
+      <InviewBox section={SECTIONS[10]} />
       <p className="road-map-text">Roadmap</p>
 
       <div className="title-section">

@@ -205,7 +205,7 @@ const LoadingPage = () => {
           return 100;
         }
         // Generate a random increment between 1 and 10
-        const increment = Math.floor(Math.random() * 40) + 1;
+        const increment = Math.floor(Math.random() * 50) + 1;
         const newProgress = oldProgress + increment;
         return newProgress > 100 ? 100 : newProgress;
       });

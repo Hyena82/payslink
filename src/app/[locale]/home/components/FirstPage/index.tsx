@@ -1,8 +1,11 @@
+import GradientBorder from "@/components/Border";
 import { Box } from "@/components/Box";
 import PrimaryButton from "@/components/Button/PrimaryButton";
+import InviewBox from "@/components/InViewBox";
 import { Staking } from "@/components/Svg";
 import { ModelRobot } from "@/components/_3DRobot";
 import { SECTIONS } from "@/configs/constants";
+import useSectionInView from "@/hooks/useSectionInView";
 import { setCurrentSection } from "@/state/systemSlice";
 import {
   Environment,
@@ -109,22 +112,22 @@ const Wrapper = styled.div`
     line-height: 19.73px;
     text-align: left;
     margin-bottom: 28px;
-    margin-left: 40px;
   }
 
   .about-box {
     position: absolute;
     bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
     padding: 0 40px;
     display: flex;
     align-items: flex-end;
     .about-desc {
-      margin-left: 40px;
-
-      width: 400px;
-      padding: 34px 21px;
-      border: 0.5px solid rgba(255, 255, 255, 0.7);
+      width: 452px;
+      padding: 34px 25px;
       border-radius: 50px;
       font-family: Trap;
       font-size: 45px;
@@ -182,18 +185,10 @@ const Wrapper = styled.div`
 `;
 
 const FirstPage = () => {
-  const ref = useRef(null);
-  const isInView = useInView(ref);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (isInView) {
-      dispatch(setCurrentSection(SECTIONS[0]));
-    }
-  }, [isInView]);
-
   return (
-    <Wrapper ref={ref}>
+    <Wrapper id={SECTIONS[0]}>
+      <InviewBox section={SECTIONS[0]} />
+
       <div className="model-box">
         <Canvas resize={{ scroll: true, debounce: { scroll: 50, resize: 0 } }}>
           <PerspectiveCamera fov={105} />
@@ -247,7 +242,7 @@ const FirstPage = () => {
             icon="/images/icons/black-down.svg"
             activeIcon="/images/icons/white-down.svg"
           >
-            Connect wallet
+            Download app
           </PrimaryButton>
         </div>
       </div>
@@ -255,17 +250,19 @@ const FirstPage = () => {
       <div className="about-box">
         <div>
           <p className="top-about">About Payslink</p>
-          <div className="about-desc">
-            The top-notch
-            <span> DeFi solution</span> for the skilled trades
-          </div>
+          <GradientBorder>
+            <div>
+              <div className="about-desc">
+                The top-notch
+                <span> DeFi solution</span> for the skilled trades
+              </div>
+            </div>
+          </GradientBorder>
         </div>
-
         <div className="access-text">
           Gain access to stake rewards for securing the network through timely
           and valid alerts
         </div>
-
         <div className="scroll-down">
           <p>Scroll down</p>
           <Image src="/images/icons/scroll.svg" width={35} height={40} alt="" />

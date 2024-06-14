@@ -1,5 +1,7 @@
 import { Box, Flex } from "@/components/Box";
 import PrimaryButton from "@/components/Button/PrimaryButton";
+import InviewBox from "@/components/InViewBox";
+import { SECTIONS } from "@/configs/constants";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -33,7 +35,8 @@ const Wrapper = styled.div`
 
 const Section8 = () => {
   return (
-    <Wrapper>
+    <Wrapper className="relative" id={SECTIONS[6]}>
+      <InviewBox section={SECTIONS[6]} />
       <Flex justifyContent="flex-end" height="100%">
         <Box className="right-content">
           <div className="title-section">
