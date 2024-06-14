@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Box } from "../Box";
-import { DownArrow, Staking, WhiteStaking } from "../Svg";
+import { DownArrow } from "../Svg";
 import Image from "next/image";
 import React from "react";
 
