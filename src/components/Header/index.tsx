@@ -8,30 +8,32 @@ import { useState } from "react";
 
 const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
+  /* justify-content: space-between; */
   align-items: center;
   width: 100%;
   border-bottom: 1px solid rgba(53, 53, 57, 1);
   background: #000;
   color: #fff;
   height: 58px;
-
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 2.2%;
+  padding-right: 2.2%;
   .header-logo {
     padding-top: 5px;
   }
 
   .center-menu {
-    max-width: 792px;
-    width: 100%;
     align-items: center;
     justify-content: space-between;
     position: relative;
     height: 100%;
-
+    /* border: 1px solid rgba(53, 53, 57, 1); */
     font-size: 16px;
     font-weight: 400;
     line-height: 19.73px;
     text-align: left;
+    left: unset;
 
     .menu-item {
       width: calc(100% / 5);
@@ -71,6 +73,20 @@ const Wrapper = styled.div`
       transition: transform 0.25s;
     }
   }
+
+  .right-side-button {
+    width: 50%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & > div {
+      text-align: center;
+
+      width: 100%;
+    }
+  }
 `;
 
 const Header = () => {
@@ -78,7 +94,9 @@ const Header = () => {
 
   return (
     <Wrapper>
-      <Box className="header-logo">
+      <div className="layout-line layout-line-left" />
+      <div className="layout-line layout-line-right" />
+      <Box className="header-logo" width="15%">
         <Link href="/">
           <Image
             width={146}
@@ -89,7 +107,10 @@ const Header = () => {
         </Link>
       </Box>
 
-      <Flex className="center-menu" justifyContent="space-around">
+      <Flex
+        className="center-menu container-middle"
+        justifyContent="space-around"
+      >
         <Link
           className={`${selectedItem === "Home" && "active"} menu-item`}
           onClick={() => setSelectedItem("/home")}
@@ -129,11 +150,12 @@ const Header = () => {
         <Box className="line-slider" />
       </Flex>
 
-      <Box className="right-side">
-        <Button>Go to dashboard</Button>
-      </Box>
-
-      <LanguageSelector />
+      <Flex alignItems="center" width="25%" justifyContent="flex-end">
+        <Box className="right-side-button">
+          <Button>Go to dashboard</Button>
+        </Box>
+        <LanguageSelector />
+      </Flex>
     </Wrapper>
   );
 };

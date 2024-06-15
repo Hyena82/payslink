@@ -10,6 +10,7 @@ import { useInView } from "framer-motion";
 import NavScroll from "../NavScroll";
 import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import StakingNow from "../StakingNow.tsx";
 
 const Wrapper = styled.div`
   background-color: #000;
@@ -19,6 +20,8 @@ const Wrapper = styled.div`
 const HomeLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <Wrapper>
+      <StakingNow />
+
       <Header />
       <NavScroll />
       {children}

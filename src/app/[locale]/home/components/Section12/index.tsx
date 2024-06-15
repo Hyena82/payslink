@@ -149,6 +149,17 @@ const Section12 = () => {
     variableWidth: true,
     centerPadding: "0px",
     afterChange: (current: number) => setCurrentSlide(current),
+    infinite: false,
+
+    responsive: [
+      {
+        breakpoint: 1424,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
 
     nextArrow: (
       <ArrowBox left={-100} disable={!(currentSlide < data.length - 1)}>

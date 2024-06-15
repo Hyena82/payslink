@@ -164,11 +164,13 @@ const _3DCard = ({
   number,
   desc,
   arrow,
+  last,
 }: {
   title: string;
   number: string;
   desc: string;
   arrow?: boolean;
+  last?: boolean;
 }) => {
   const ref = useRef<any>(null);
 
@@ -218,17 +220,9 @@ const _3DCard = ({
           height: "280px",
           width: "472px",
           borderRadius: "20px",
-          marginRight: "35px",
-          backgroundColor: "#000",
+          marginRight: last ? 0 : "35px",
         }}
       >
-        <div className="dot">
-          <div />
-          <div />
-          <div />
-          <div />
-        </div>
-
         <div
           className="content-box center"
           style={{

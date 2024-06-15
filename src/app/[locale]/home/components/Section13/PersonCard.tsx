@@ -4,13 +4,19 @@ import { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  border: 1px solid rgba(53, 53, 57, 1);
   width: 397px;
-  padding: 20px 40px;
-  /* border-bottom: none; */
   position: relative;
   z-index: 2;
   background-color: #000;
+  margin-top: 1px;
+  &.fisrt-child-card .step-box {
+    border-left: 1px solid rgba(53, 53, 57, 1);
+  }
+
+  &.fisrt-child-card .content {
+    margin-left: unset;
+  }
+
   .plus-icon {
     transition: transform 0.3s ease-in-out;
   }
@@ -18,12 +24,15 @@ const Wrapper = styled.div`
   .content {
     max-height: 0;
     overflow: hidden;
+    padding: 0 40px;
+
     transition: max-height 0.3s ease-in-out;
-    margin-top: 20px;
+    transition: margin-top 0.3s ease-in-out;
   }
 
   &.content-visible .content {
     max-height: 1000px;
+    padding: 20px 40px;
   }
 
   &.content-visible .plus-icon {
@@ -31,20 +40,27 @@ const Wrapper = styled.div`
   }
 
   .content {
+    transition: all 0.5s ease-in-out;
     font-family: Metrophobic;
     font-size: 16px;
     font-weight: 400;
     line-height: 19.73px;
     text-align: left;
+    border: 1px solid rgba(53, 53, 57, 1);
+    border-top: none;
+    margin-left: -1px;
   }
 
   .step-box {
-    height: 397px;
+    height: 458px;
     gap: 20px;
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-
+    padding: 20px 40px;
+    border: 1px solid rgba(53, 53, 57, 1);
+    border-bottom: none;
+    border-left: none;
     .text-gradient {
       font-family: Metrophobic;
       font-size: 20px;
@@ -96,9 +112,11 @@ interface PersonCardProps {
     position: string;
     desc: string;
   };
+
+  index: number;
 }
 
-const PersonCard: React.FC<PersonCardProps> = ({ data }) => {
+const PersonCard: React.FC<PersonCardProps> = ({ data, index }) => {
   const [contentVisible, setContentVisible] = useState(false);
 
   const handlePlusClick = () => {
@@ -106,7 +124,11 @@ const PersonCard: React.FC<PersonCardProps> = ({ data }) => {
   };
 
   return (
-    <Wrapper className={contentVisible ? "content-visible" : ""}>
+    <Wrapper
+      className={`${contentVisible && "content-visible"}  ${
+        index === 0 && "fisrt-child-card"
+      }`}
+    >
       <Box className="step-box">
         <Box>
           <Box className="text-gradient">{data.name}</Box>

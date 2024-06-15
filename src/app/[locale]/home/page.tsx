@@ -61,7 +61,7 @@ const HomePage = () => {
 
   return (
     <HomeLayout>
-      <LoadingPage />
+      {/* <LoadingPage /> */}
 
       <FirstPage />
 
