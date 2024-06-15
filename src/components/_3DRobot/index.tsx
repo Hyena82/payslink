@@ -10,7 +10,7 @@ export function ModelRobot(props: any) {
     actions[names[0]]?.reset().play();
   }, [actions, names]);
   return (
-    <group ref={group} {...props} dispose={null} position={[0, -3.1, 0]}>
+    <group ref={group} {...props} dispose={null} position={[0, -3.5, 0]}>
       <group name="Scene">
         <group
           name="Sketchfab_model"

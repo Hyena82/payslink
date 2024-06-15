@@ -86,15 +86,6 @@ const Wrapper = styled.div`
 `;
 
 const Trusted = () => {
-  // const ref = useRef(null);
-  // const isInView = useInView(ref);
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   if (isInView) {
-  //     dispatch(setCurrentSection(SECTIONS[2]));
-  //   }
-  // }, [isInView]);
   return (
     <Wrapper>
       <p className="title-section">
@@ -111,7 +102,7 @@ const Trusted = () => {
         PAYSLINK Staking represents a new era of cryptoeconomic security for the
         industry-standard oracle network
       </p>
-      <Flex justifyContent="center" mt={5}>
+      <Flex justifyContent="center" className="container-middle" mt={5}>
         <_3DCard
           title="Focus on Growth"
           number="2.3x"
@@ -123,6 +114,7 @@ const Trusted = () => {
           number="0.8s"
           desc="MPC/AA logins globally scaled"
           arrow
+          last
         />
       </Flex>
     </Wrapper>

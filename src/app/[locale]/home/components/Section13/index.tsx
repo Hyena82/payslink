@@ -41,6 +41,10 @@ const Wrapper = styled.div`
     margin-bottom: -1px;
   }
 
+  .slick-list {
+    padding-left: 1px;
+  }
+
   .slick-slider {
     height: 100%;
   }
@@ -91,7 +95,16 @@ const Section13 = () => {
     variableWidth: true,
     centerPadding: "0px",
     afterChange: (current: number) => setCurrentSlide(current),
-
+    infinite: false,
+    responsive: [
+      {
+        breakpoint: 1224,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+        },
+      },
+    ],
     nextArrow: (
       <ArrowBox
         left={-100}
@@ -131,13 +144,13 @@ const Section13 = () => {
           <div className="slider-box">
             <Slider {...settings}>
               {data.map((item, index) => (
-                <PersonCard key={index} data={item} />
+                <PersonCard key={index} data={item} index={index} />
               ))}
             </Slider>
           </div>
         </div>
       </Box>
-      <Box className="" height={400} width={1000}></Box>
+      <Box className="" height={450} width={1000}></Box>
       <Box my={4} className="center">
         <TotalMembers text="BACKERS and partner (52)" />
       </Box>

@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div`
   height: 413px;
+
   .step-box {
     width: 397px;
     height: 413px;
@@ -12,6 +13,11 @@ const Wrapper = styled.div`
     border-bottom: none;
     border-left: none;
     border-top: none;
+
+    &.fisrt-children {
+      border-left: 1px solid rgba(53, 53, 57, 1);
+    }
+
     .header {
       font-family: Metrophobic;
       font-size: 20px;
@@ -81,7 +87,7 @@ interface RoadStepProps {
 const RoadStep: React.FC<RoadStepProps> = ({ data, index }) => {
   return (
     <Wrapper>
-      <Box className="step-box">
+      <Box className={`${index === 1 && "fisrt-children"} step-box`}>
         <Flex className="header">
           <Box className="road-text">Round {index}</Box>
           <Box

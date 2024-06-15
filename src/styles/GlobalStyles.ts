@@ -60,11 +60,9 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
   }
   
-  .container{
-    width: 100%;
-    max-width: 792px;
-    margin: 0 auto;
-  }
+
+
+  
 
   .hover:hover{
     transition: all 0.2s ease-in-out;
@@ -103,6 +101,45 @@ const GlobalStyles = createGlobalStyle`
   .slick-prev:before,
   .slick-prev::after {
     display: none;
+  }
+
+  .layout-line {
+    position: absolute;
+    background-color: rgba(53, 53, 57, 1);
+    width: 1px;
+    height: 100%;
+    top: 0;
+  }
+
+  /* .layout-line-relative {
+    position: absolute;
+    background-color: rgba(53, 53, 57, 1);
+    width: 1px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+  } */
+
+  .container {
+    padding-left: 2.2%;
+    padding-right: 2.2%;
+  }
+
+  .layout-line-right {
+    right: 25%;
+  }
+
+  .layout-line-left {
+    left: 15%;
+  }
+
+  .container-middle {
+    width: 60%;
+    left: -5%;
+    position: relative;
+
+    margin-left: auto;
+    margin-right: auto;
   }
   
 `;

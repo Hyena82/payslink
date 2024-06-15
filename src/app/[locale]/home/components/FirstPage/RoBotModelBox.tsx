@@ -38,8 +38,8 @@ const ModelBox = styled.div<{ visibility: boolean }>`
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 440px;
-  height: 700px;
+  width: 40vw;
+  height: 750px;
   display: ${(props) => (props.visibility ? "none" : "block")};
 `;
 
@@ -75,14 +75,35 @@ const RoBotModelBox = () => {
     offset: ["start start", "end end"],
   });
 
-  const progress = useTransform(scrollYProgress, [0, 0.45], [-0.7, -0.3]);
-  const scale = useTransform(scrollYProgress, [0, 0.45], [0.8, 1]);
+  const [scaleSize, setScale] = useState(0.8);
+
+  useEffect(() => {
+    const updateScale = () => {
+      const screenWidth = window.innerWidth;
+      const scaleFactor = 0.7 + (screenWidth / window.screen.availWidth) * 0.3;
+      setScale(scaleFactor);
+    };
+
+    updateScale();
+    window.addEventListener("resize", updateScale);
+
+    return () => {
+      window.removeEventListener("resize", updateScale);
+    };
+  }, []);
+
+  const progress = useTransform(scrollYProgress, [0, 0.45], [-0.6, -0.3]);
+  const scale = useTransform(
+    scrollYProgress,
+    [0, 0.45],
+    [scaleSize, scaleSize + 0.15]
+  );
 
   const opacity = useTransform(scrollYProgress, [0, 0.86, 1], [1, 1, 0]);
   const hiddenY = useTransform(
     scrollYProgress,
     [0, 0.7, 0.85, 1],
-    [0, 0, -1, -2]
+    [0, 0, -2, -4]
   );
   useEffect(() => {
     window.addEventListener("mousemove", manageMouseMove);
@@ -99,9 +120,9 @@ const RoBotModelBox = () => {
       }}
     >
       <ModelBox visibility={disableSVG}>
-        <Canvas resize={{ scroll: true, debounce: { scroll: 50, resize: 0 } }}>
+        <Canvas>
           <PerspectiveCamera fov={105} />
-          <Environment preset="studio" />
+          <Environment preset="city" />
           {/* <OrbitControls /> */}
           <motion3D.mesh
             ref={mesh}

@@ -1,15 +1,18 @@
 import { SECTIONS } from "@/configs/constants";
 import useCustomSWR from "@/hooks/useCustomSWR";
 import useSectionInView from "@/hooks/useSectionInView";
+import CountUp, { useCountUp } from "react-countup";
+
 import { setCurrentSection } from "@/state/systemSlice";
 import { useInView } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import useSWR from "swr";
 import Trusted from "../Trusted";
 import InviewBox from "@/components/InViewBox";
+import { Box, Flex } from "@/components/Box";
 
 const Wrapper = styled.div`
   height: 600px;
@@ -92,8 +95,21 @@ const Wrapper = styled.div`
       font-weight: 700;
       line-height: 28.61px;
       text-align: left;
+      position: relative;
       color: #ffffff;
       margin-right: 14px;
+
+      .number-count {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+
+      .base-count {
+        visibility: hidden;
+        width: fit-content;
+      }
     }
 
     .percent {
@@ -111,41 +127,68 @@ const Staking = () => {
   const data = [
     {
       title: "Total TVL on Payslink",
-      amount: "$0",
+      amount: 0,
       percent: "0.00% (7d)",
     },
     {
       title: "Total Addresses Count",
-      amount: "931,525",
+      amount: 931525,
       percent: "0.53% (7d)",
     },
     {
       title: "Accumulated Stake Amount",
-      amount: "931,525",
+      amount: 931525,
       percent: "0.00% (7d)",
     },
     {
       title: "APR",
-      amount: "931,525",
+      amount: 931525,
       percent: "0.00% (7d)",
     },
   ];
 
+  function formatNumber(num: number) {
+    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
+  }
+
+  useCountUp({
+    ref: "counter",
+    end: 1234567,
+    enableScrollSpy: true,
+    scrollSpyDelay: 1000,
+  });
+
   return (
     <div className="relative" id={SECTIONS[1]}>
       <InviewBox section={SECTIONS[1]} />
+      <div className="layout-line layout-line-left" />
+      <div className="layout-line layout-line-right" />
       <Wrapper>
         {data.map((item, index) => (
           <div className="staking-item" key={index}>
             <div className="title">{item.title}</div>
-            <span className="amount">{item.amount}</span>
-            <Image
-              src="/images/icons/top-percent.svg"
-              width={20}
-              height={14}
-              alt=""
-            />{" "}
-            <span className="percent">{item.percent}</span>
+            <Flex alignItems="center">
+              <span className="amount">
+                <p className="base-count">{formatNumber(item.amount)}</p>
+                <p className="number-count">
+                  <CountUp
+                    end={item.amount}
+                    // scrollSpyOnce
+                    enableScrollSpy
+                    formattingFn={formatNumber}
+                  />
+                </p>
+              </span>
+              <Box mb={1}>
+                <Image
+                  src="/images/icons/top-percent.svg"
+                  width={20}
+                  height={14}
+                  alt=""
+                />
+              </Box>
+              <span className="percent">{item.percent}</span>
+            </Flex>
           </div>
         ))}
       </Wrapper>

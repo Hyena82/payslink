@@ -13,6 +13,15 @@ const Wrapper = styled.div`
   .background-s10 {
     padding-top: 200px;
     width: 50%;
+    position: relative;
+
+    .ecosystem-gif {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      mix-blend-mode: screen;
+    }
   }
 
   .flex-box {
@@ -22,7 +31,9 @@ const Wrapper = styled.div`
     border-left: 1px solid rgba(53, 53, 57, 1);
     width: 50%;
     padding-left: 40px;
+    position: relative;
     padding: 200px 0 0 40px;
+    z-index: 2;
   }
 
   .center-menu {
@@ -136,6 +147,14 @@ const Section10 = () => {
             src="/images/home/section10-bg.png"
             width={720}
             height={808}
+            alt=""
+          />
+
+          <Image
+            className="ecosystem-gif"
+            src="/images/gif/ecosystem.gif"
+            width={500}
+            height={500}
             alt=""
           />
         </div>

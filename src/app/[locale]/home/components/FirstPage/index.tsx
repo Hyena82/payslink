@@ -21,6 +21,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import RoBotModelBox from "./RoBotModelBox";
+import StakingNow from "@/components/StakingNow.tsx";
 
 const Wrapper = styled.div`
   height: calc(100vh - 58px);
@@ -62,13 +63,21 @@ const Wrapper = styled.div`
   }
 
   .intro-text-box {
-    border: 0.5px solid rgba(255, 255, 255, 0.7);
     display: flex;
     height: 100px;
 
     .intro-text {
+      border: 0.5px solid rgba(255, 255, 255, 0.7);
+      border-right: none;
       width: 50%;
       padding: 19px 22px;
+      font-family: Metrophobic;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 19.73px;
+      text-align: left;
     }
 
     .sub-text-box {
@@ -80,6 +89,9 @@ const Wrapper = styled.div`
       flex-direction: column;
       padding-right: 22px;
 
+      border: 1px solid rgba(53, 53, 57, 1);
+      border-left: none;
+
       .sub-text {
         height: 100%;
         width: 100%;
@@ -88,9 +100,12 @@ const Wrapper = styled.div`
         justify-content: flex-end;
         border-left: 0;
 
+        font-family: Metrophobic;
         font-size: 16px;
         font-weight: 400;
         line-height: 19.73px;
+        text-align: left;
+        color: rgba(109, 109, 109, 1);
 
         &:first-child {
           border-bottom: 0.5px solid rgba(53, 53, 57, 1);
@@ -113,7 +128,7 @@ const Wrapper = styled.div`
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 1300px;
+    /* max-width: 1300px; */
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
@@ -175,14 +190,41 @@ const Wrapper = styled.div`
     flex-direction: column;
     gap: 20px;
   }
+
+  /* .layout-line {
+    position: absolute;
+    background-color: rgba(53, 53, 57, 1);
+    width: 1px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+  }
+
+  .layout-line-right {
+    right: 20%;
+  }
+
+  .layout-line-left {
+    left: 20%;
+  }
+
+  .container-middle {
+    width: 60%;
+
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+  } */
 `;
 
 const FirstPage = () => {
   return (
     <Wrapper id={SECTIONS[0]}>
+      <div className="layout-line layout-line-left" />
+      <div className="layout-line layout-line-right" />
       <InviewBox section={SECTIONS[0]} />
       <RoBotModelBox />
-      <div className="container relative">
+      <div className="container-middle relative">
         <div className="intro-box">
           <Box className="" padding={4}></Box>
           <Box className="logo-box">

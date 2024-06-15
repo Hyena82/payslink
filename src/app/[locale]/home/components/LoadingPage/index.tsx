@@ -158,7 +158,6 @@ const LoadingPage = () => {
     shallowEqual
   );
 
-  console.log("~~", loadingPage);
   const dispatch = useDispatch();
   const [progress, setProgress] = useState(0); // Add this line
 
