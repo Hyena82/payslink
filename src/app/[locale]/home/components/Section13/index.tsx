@@ -73,24 +73,25 @@ const data = [
   },
 
   {
-    name: "SHAMAS JAVED",
+    name: "Christian Toung",
     avatar: "/images/members/javed.png",
     position: "CTO",
-    desc: "Skilled sofware developer with 7 years of experience in applications development, he is a technical lead with expertise in architecture development and database design. He is currently managing a team of over 20 professionals. He has strong knowledge in business logic implementatons. He is a blockchain and technology enthusiast with over 3.5 years of hands-on experience in Business and Strategy domains in Payments industry and Consumer markets.",
+    desc: "Skilled sofware developer with 12 years of experience in applications development, he is a technical lead with expertise in architecture development and database design. He is currently managing a team of over 20 professionals. He has strong knowledge in business logic implementatons. He is a blockchain and technology enthusiast with over 3.5 years of hands-on experience in Business and Strategy domains in Payments industry and Consumer markets.",
   },
 
   {
     name: "SHAMAS JAVED",
     avatar: "/images/members/scarlat2.png",
     position: "CFO",
-    desc: "Skilled sofware developer with 7 years of experience in applications development, he is a technical lead with expertise in architecture development and database design. He is currently managing a team of over 20 professionals. He has strong knowledge in business logic implementatons. He is a blockchain and technology enthusiast with over 3.5 years of hands-on experience in Business and Strategy domains in Payments industry and Consumer markets.",
+    desc: "6 years of experience in the cryptocurrency market. Javed is an experienced Investment specialist in Technology across Hardware, Software, Consumer and Internet public and private Equity.",
   },
 ];
 
 const Section13 = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+
   const settings = {
-    slidesToShow: 3,
+    slidesToShow: 2,
     slidesToScroll: 1,
     variableWidth: true,
     centerPadding: "0px",
@@ -152,7 +153,7 @@ const Section13 = () => {
       </Box>
       <Box className="" height={450} width={1000}></Box>
       <Box my={4} className="center">
-        <TotalMembers text="BACKERS and partner (52)" />
+        <TotalMembers text="BACKERS and partners (09)" />
       </Box>
     </Wrapper>
   );

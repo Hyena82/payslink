@@ -25,7 +25,7 @@ const Wrapper = styled.div`
   &:before {
     content: "";
     background: var(--gradient);
-    z-index: 2;
+    z-index: 1;
     width: 1400px;
     position: absolute;
     height: 1400px;
@@ -39,29 +39,33 @@ const Wrapper = styled.div`
   }
 
   .staking-item {
-    border: 0.87px solid #353539;
     position: relative;
     width: fit-content;
     border-radius: 10px;
-    background-color: #000;
+    z-index: 3;
+    background-color: #353539;
+
+    .border-span {
+      position: absolute;
+      border-radius: 10px;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #000;
+
+      width: 99%;
+      height: 98%;
+      clip-path: polygon(0 0, 93% 0, 100% 20%, 100% 100%, 0 100%);
+    }
 
     &:not(:last-child) {
       margin-right: 20px;
     }
 
-    &:before {
-      content: "";
-      position: absolute;
-      top: -27px;
-      right: -23px;
-      width: 40px;
-      height: 40px;
-      transform: rotate(45deg);
-      background: #000;
-      display: inline-block;
-    }
+    clip-path: polygon(0 0, 93% 0, 100% 20%, 100% 100%, 0 100%);
 
-    &:after {
+    /* &:after {
       content: "";
       position: absolute;
       top: 9px;
@@ -70,7 +74,7 @@ const Wrapper = styled.div`
       height: 0.87px;
       background: #353539;
       transform: rotate(45deg);
-    }
+    } */
 
     padding: 20px 23px;
     .title {
@@ -159,6 +163,7 @@ const Staking = () => {
       <Wrapper>
         {data.map((item, index) => (
           <div className="staking-item" key={index}>
+            <span className="border-span"></span>
             <div className="title">{item.title}</div>
             <Flex alignItems="center">
               <span className="amount">

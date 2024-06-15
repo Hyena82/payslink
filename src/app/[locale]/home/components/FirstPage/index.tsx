@@ -87,7 +87,6 @@ const Wrapper = styled.div`
       justify-content: flex-end;
       align-items: flex-end;
       flex-direction: column;
-      padding-right: 22px;
 
       border: 1px solid rgba(53, 53, 57, 1);
       border-left: none;
@@ -99,6 +98,7 @@ const Wrapper = styled.div`
         align-items: center;
         justify-content: flex-end;
         border-left: 0;
+        padding-right: 22px;
 
         font-family: Metrophobic;
         font-size: 16px;

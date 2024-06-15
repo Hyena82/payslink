@@ -79,8 +79,13 @@ const RoBotModelBox = () => {
 
   useEffect(() => {
     const updateScale = () => {
-      const screenWidth = window.innerWidth;
-      const scaleFactor = 0.7 + (screenWidth / window.screen.availWidth) * 0.3;
+      let screenWidth = window.innerWidth;
+      if (screenWidth < 1700) {
+        screenWidth -= 200;
+      } else {
+        screenWidth += 300;
+      }
+      const scaleFactor = 0.5 + (screenWidth / 10000) * 2;
       setScale(scaleFactor);
     };
 

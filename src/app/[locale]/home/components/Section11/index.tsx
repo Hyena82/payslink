@@ -71,6 +71,23 @@ const Wrapper = styled.div`
       top: 60%;
       left: 50%;
       transform: translate(-50%, -50%);
+
+      .main-bg {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        mix-blend-mode: screen;
+      }
+
+      .tree-image-bg {
+        position: absolute;
+        top: -50%;
+        z-index: 2;
+        left: 50%;
+        transform: translateX(-50%);
+      }
     }
 
     .token-image {
@@ -90,8 +107,8 @@ const Wrapper = styled.div`
     }
 
     .ball-box {
-      width: 160px;
-      height: 160px;
+      width: 180px;
+      height: 180px;
       position: absolute;
       border-radius: 50%;
       display: flex;
@@ -106,6 +123,9 @@ const Wrapper = styled.div`
       animation-timing-function: ease-in;
       animation-direction: alternate-reverse; */
 
+      p {
+        text-transform: capitalize;
+      }
       &.box1 {
         top: -151px;
         left: 116px;
@@ -228,12 +248,31 @@ const Section11 = () => {
         </Flex>
         <Box width="60%">
           <Box className="right-content">
-            <Box>
+            <Box className="tree-image">
+              <Box zIndex={1} className="relative">
+                <Image
+                  src="/images/home/tokenomic/value-tree.png"
+                  width={436}
+                  height={436}
+                  quality={100}
+                  alt=""
+                />
+              </Box>
+
               <Image
-                className="tree-image"
-                src="/images/home/tokenomic/value-tree.png"
-                width={436}
-                height={436}
+                className="tree-image-bg"
+                src="/images/home/tokenomic/shadow-tree.png"
+                width={212}
+                height={520}
+                quality={100}
+                alt=""
+              />
+
+              <Image
+                className="main-bg"
+                src="/images/home/tokenomic/bg.png"
+                width={1090}
+                height={768}
                 quality={100}
                 alt=""
               />
@@ -267,7 +306,7 @@ const Section11 = () => {
               style={{ x: xTransform, y: yTransform }}
             >
               <p className="percent">35%</p>
-              <p>Pays staking pool reward</p>
+              <p>For sale</p>
 
               <Image
                 src="/images/home/tokenomic/ball2.png"

@@ -27,10 +27,13 @@ const Wrapper = styled.div`
   }
 
   .down-box {
+    width: 100%;
     position: absolute;
     bottom: 40px;
-    left: 40px;
+    left: -40px;
     z-index: 2;
+    flex-direction: column;
+    align-items: center;
   }
 `;
 
@@ -44,24 +47,22 @@ const Section7 = () => {
 
   const outImageScrollY = useTransform(scrollYProgress, [0.07, 0.3], [-860, 0]);
   const midImageScrollY = useTransform(scrollYProgress, [0.2, 0.4], [860, 0]);
-  const downScrollX = useTransform(scrollYProgress, [0.4, 0.5], [-400, 0]);
+  const downScrollY = useTransform(scrollYProgress, [0.4, 0.55], [200, 0]);
   const outImageY = useSpring(outImageScrollY, { stiffness: 20, damping: 7 });
   const midImageY = useSpring(midImageScrollY, { stiffness: 20, damping: 10 });
-  const downX = useSpring(downScrollX, { stiffness: 50, damping: 20 });
+  const downX = useSpring(downScrollY, { stiffness: 50, damping: 20 });
 
   return (
     <Wrapper ref={container} className="relative" id={SECTIONS[5]}>
       <InviewBox section={SECTIONS[5]} />
       <Box>
-        <Box mt={4} className="down-box">
-          <motion.div style={{ x: downX }}>
-            <div className="title-section">
-              Download
-              <div>
-                <span>app Payslink</span>
-              </div>
-            </div>
-            <Flex mt={4}>
+        <Flex justifyContent="space-between" mt={4} className="down-box">
+          <motion.div style={{ y: downX }}>
+            <Flex className="title-section" justifyContent="center">
+              <Box mr={2}>Download</Box>
+              <span> app Payslink</span>
+            </Flex>
+            <Flex mt={4} justifyContent="center">
               <Box className="hover">
                 <Image
                   src="/images/home/google-play-down.svg"
@@ -81,9 +82,9 @@ const Section7 = () => {
               </Box>
             </Flex>
           </motion.div>
-        </Box>
+        </Flex>
 
-        <Flex justifyContent="center">
+        <Flex justifyContent="center" mb={5}>
           <motion.div style={{ y: outImageY }}>
             <Image
               src="/images/home/left-phone.png"

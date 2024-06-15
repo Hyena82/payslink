@@ -20,25 +20,29 @@ const Wrapper = styled.div`
 `;
 
 const dataRow1 = [
-  "/images/partners/coingecko.svg",
   "/images/partners/xt.svg",
-  "/images/partners/mexc.svg",
-  "/images/partners/bitmart.svg",
   "/images/partners/coingecko.svg",
+  "/images/partners/stc.svg",
+  "/images/partners/bitgert.svg",
+  "/images/partners/binance.svg",
+
   "/images/partners/xt.svg",
-  "/images/partners/mexc.svg",
-  "/images/partners/bitmart.svg",
+  "/images/partners/coingecko.svg",
+  "/images/partners/stc.svg",
+  "/images/partners/bitgert.svg",
+  "/images/partners/binance.svg",
 ];
 
 const dataRow2 = [
-  "/images/partners/coingecko.svg",
-  "/images/partners/stc.svg",
-  "/images/partners/bitgert.svg",
-  "/images/partners/binance.svg",
-  "/images/partners/coingecko.svg",
-  "/images/partners/stc.svg",
-  "/images/partners/bitgert.svg",
-  "/images/partners/binance.svg",
+  "/images/partners/mexc.svg",
+  "/images/partners/bitmart.svg",
+  "/images/partners/metamask.svg",
+  "/images/partners/light.svg",
+
+  "/images/partners/mexc.svg",
+  "/images/partners/bitmart.svg",
+  "/images/partners/metamask.svg",
+  "/images/partners/light.svg",
 ];
 
 const Section14 = () => {

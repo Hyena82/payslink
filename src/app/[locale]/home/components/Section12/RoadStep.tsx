@@ -2,11 +2,11 @@ import { Box, Flex } from "@/components/Box";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  height: 413px;
+  height: 535px;
 
   .step-box {
     width: 397px;
-    height: 413px;
+    height: 100%;
     padding: 0px 0px 20px 0px;
     gap: 20px;
     border: 1px solid rgba(53, 53, 57, 1);

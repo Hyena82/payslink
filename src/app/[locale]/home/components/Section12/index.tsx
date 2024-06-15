@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   }
 
   .slider-box {
-    height: 413px;
+    height: 535px;
     margin-left: 200px;
 
     &::before {
@@ -41,7 +41,7 @@ const Wrapper = styled.div`
       z-index: 3;
       position: absolute;
       width: 400px;
-      height: 413px;
+      height: 535px;
       background: red;
       left: -200px;
       bottom: 1px;
@@ -58,85 +58,47 @@ const Wrapper = styled.div`
 
 const data = [
   {
-    time: "Q1 2021",
+    time: "2022",
     status: "Completed",
     step: [
-      "Developing the idea for projects",
-      "Establishing a team, business ideas, technology proposals for PAYSLINK platform software. Key founding team, partners and advisors established",
+      "Marked a major milestone with the official launch of the payslink website, opening doors to its innovative platform.",
+      "Conducted successful private and public sales, garnering widespread participation and investment.",
+      "Achieved a significant listing on CoinMarketCap, a leading crypto data aggregator, enhancing visibility and credibility.",
+      "Unveiled the highly anticipated payslink metaverse, a cutting-edge virtual world for users to explore.",
+      "Opened the payslink exchange, providing a secure and user-friendly platform for cryptocurrency trading.",
     ],
   },
-
-  {
-    time: "Q2 2021",
-    status: "Completed",
-    step: ["Market research for new projects"],
-  },
-  {
-    time: "Q1 2022",
-    status: "Completed",
-    step: [
-      "Development of Payslink platform structure (IT and blockchain solutions)",
-      "Development of Payment app and digital wallet.",
-      "Preparation and advisory meetings for business and tech development, Payslink crypto payment platform's integration with its first corporate client",
-    ],
-  },
-  {
-    time: "5/2022",
-    status: "Completed",
-    step: [
-      "Detailed product and roadmap information is published, business model and concept of PAYSLINK. A regulatory framework is established for token sales and business operations.",
-      "Business expansion negotiations with partners",
-      "Building exchange",
-      "Beta multi-currency mobile wallet",
-    ],
-  },
-
-  {
-    time: "6/2022",
-    status: "In Progress",
-    step: [
-      "Website and App launch, Event Marketing activities, partner agreements, advisory board announcements.",
-    ],
-  },
-
-  {
-    time: "8/2022",
-    status: "In Progress",
-    step: ["Activities on token exchange, seed round opening, Private Sale."],
-  },
-
-  {
-    time: "7/2022",
-    status: "In Progress",
-    step: ["Public Sale, listed on coin marketcap, IDO"],
-  },
-
-  {
-    time: "Q4/2022",
-    status: "In Progress",
-    step: [
-      "Token Listing exchange after completing crowdfunding round",
-      "Opening to public Payslink Payment Platform, Payslink Exchange, Payslink Metaverse",
-    ],
-  },
-
   {
     time: "2023",
-    status: "In Progress",
+    status: "Completed",
     step: [
-      "Continuing development of the Payslink platform, integration with Payslink platform for crypto payments, open for a limited number of blockchain companies for testing and feedback.",
-      "Payment partner collaboration",
-      "Launch of payment cards worldwide",
-      "Open release of the platform for non-fiat payments, testing of fiat payments for non-blockchain companies, expanding business partnerships",
-      "Development platform for banking and government services",
+      "Executed a strategic airdrop and marketing campaign, driving user acquisition and awareness.",
+      "Established key press outreach initiatives and forged valuable collaborations with industry partners.",
+      "Secured coveted listings on Bitmart, XT.com exchange and streamlined withdrawal processes on Lighex.",
+      "Developed a robust app featuring seamless integration of traditional and cryptocurrency payment processing.",
     ],
   },
-
   {
-    time: "Q1/2024",
+    time: "2024",
     status: "In Progress",
     step: [
-      "Payslink fully working platform, proceeding with the market expansion in Asia, full scale marketing activities.",
+      "Officially opened the payslink network, enabling full access to the platform's comprehensive suite of features.",
+      "Formed strategic collaborations with major backers, solidifying the platform's position in the ecosystem.",
+      "Implemented a comprehensive marketing campaign, expanding outreach and attracting new user segments.",
+      "Introduced cutting-edge features, including messaging, integrated wallet, mining, leaderboard, and notification systems.",
+      "Integrated robust social functionality, an affiliate program, an ad platform, and support for additional cryptocurrencies.",
+      "Launched an immersive gaming platform, allowing users to participate in blockchain-based games and earn rewards",
+    ],
+  },
+  {
+    time: "2025 - 2026",
+    status: "In Progress",
+    step: [
+      "Implemented an innovative share reward system, incentivizing users to actively share and promote the platform.",
+      "Developed a state-of-the-art NFT marketplace, enabling users to seamlessly buy, sell, and trade non-fungible tokens.",
+      "Enhanced social features with advanced functionality, including groups, events, and vibrant communities.",
+      "Introduced a decentralized exchange (DEX), facilitating seamless peer-to-peer cryptocurrency trading within the platform.",
+      "Implemented advanced security measures, including multi-factor authentication and biometric authentication, prioritizing user safety.",
     ],
   },
 ];

@@ -8,10 +8,11 @@ const Wrapper = styled.div`
   padding: 40px 20px 56px;
   max-width: 1200px;
   width: 100%;
-
+  height: 600px;
+  display: flex;
+  align-items: flex-end;
   .number-box {
-    min-width: 334px;
-    width: 100%;
+    width: 338px;
     padding: 40px 20px 6rem 0;
   }
 
@@ -62,13 +63,13 @@ const Step: React.FC<StepProps> = ({ stepDescription, stepNumber }) => {
           <p className="description">{stepDescription}</p>
         </Box>
 
-        <Image
+        {/* <Image
           src={`/images/home/step/step${stepNumber}.png`}
           width={585}
           height={574}
           quality={100}
           alt=""
-        />
+        /> */}
       </Flex>
     </Wrapper>
   );
