@@ -1,15 +1,8 @@
 import { SECTIONS } from "@/configs/constants";
-import useCustomSWR from "@/hooks/useCustomSWR";
-import useSectionInView from "@/hooks/useSectionInView";
 import CountUp, { useCountUp } from "react-countup";
 
-import { setCurrentSection } from "@/state/systemSlice";
-import { useInView } from "framer-motion";
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
-import { useDispatch } from "react-redux";
 import styled from "styled-components";
-import useSWR from "swr";
 import Trusted from "../Trusted";
 import InviewBox from "@/components/InViewBox";
 import { Box, Flex } from "@/components/Box";
