@@ -142,7 +142,13 @@ const data = [
   },
 ];
 
-const images = [
+// Define the type for the images array
+interface ImagePair {
+  right: string;
+  left: string;
+}
+
+const images: ImagePair[] = [
   {
     right: "/images/solutions/right-step1.png",
     left: "/images/solutions/left-step1.png",
@@ -165,9 +171,21 @@ const images = [
   },
 ];
 
+// Preload images function
+const preloadImages = (imagePairs: ImagePair[]): void => {
+  imagePairs.forEach((img) => {
+    const rightImage = new window.Image();
+    rightImage.src = img.right;
+    const leftImage = new window.Image();
+    leftImage.src = img.left;
+  });
+};
+
 const Section4 = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-
+  useEffect(() => {
+    preloadImages(images);
+  }, []);
   const settings = {
     slidesToShow: 1.2,
     slidesToScroll: 1,
