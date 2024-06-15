@@ -1,19 +1,13 @@
 import { Flex } from "@/components/Box";
 import Image from "next/image";
 import styled from "styled-components";
-
 import _3DCard from "./_3DCard";
-import useSectionInView from "@/hooks/useSectionInView";
-import { SECTIONS } from "@/configs/constants";
-import { useEffect, useRef } from "react";
-import { useInView } from "framer-motion";
-import { useDispatch } from "react-redux";
-import { setCurrentSection } from "@/state/systemSlice";
 
 const Wrapper = styled.div`
   padding: 90px 40px 90px;
   z-index: 3;
   position: relative;
+  background-color: #000;
   .title-section {
     font-family: Trap;
     font-size: 50px;
