@@ -85,6 +85,12 @@ const GlobalStyles = createGlobalStyle`
     width: 100%;
     position: relative;
 
+    @media (max-width: 768px) {
+      font-size: 40px;
+      font-weight: 600;
+      line-height: 44px;
+    }
+
     span {
       font-family: Trap;
       font-size: 50px;
@@ -93,6 +99,12 @@ const GlobalStyles = createGlobalStyle`
       text-align: left;
       background: linear-gradient(90deg, #0093fe 0%, #50ffd5 72.7%) text;
       -webkit-text-fill-color: transparent;
+
+      @media (max-width: 768px) {
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 44px;
+      }
     }
   }
 
@@ -109,17 +121,13 @@ const GlobalStyles = createGlobalStyle`
     width: 1px;
     height: 100%;
     top: 0;
+
+    @media (max-width: 768px) {
+        display: none;
+      }
   }
 
-  /* .layout-line-relative {
-    position: absolute;
-    background-color: rgba(53, 53, 57, 1);
-    width: 1px;
-    height: 100%;
-    position: fixed;
-    top: 0;
-  } */
-
+ 
   .container {
     padding-left: 2.2%;
     padding-right: 2.2%;
@@ -137,9 +145,35 @@ const GlobalStyles = createGlobalStyle`
     width: 60%;
     left: -5%;
     position: relative;
+    padding-left: 0;
+    padding-right: 0;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      padding-left: 16px;
+      padding-right: 16px;
+      left: 0;
+    }
 
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .ant-drawer .ant-drawer-header{
+    display: none;
+  }
+
+  .ant-drawer .ant-drawer-content{
+    background: unset !important;
+  }
+
+  .hidden-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .hidden-scroll {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
   }
   
 `;

@@ -4,18 +4,24 @@ import { ArrowBox, ArrowLeftBox } from "../Section4";
 import { DownArrow } from "@/components/Svg";
 import Slider from "react-slick";
 import PersonCard from "./PersonCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TotalMembers from "@/components/TotalMembers";
 import { Box } from "@/components/Box";
 import { position } from "styled-system";
 import InviewBox from "@/components/InViewBox";
 import { SECTIONS } from "@/configs/constants";
+import { isMobile } from "react-device-detect";
+import { dot } from "node:test/reporters";
 
 const Wrapper = styled.div`
   .main-body {
     padding: 4rem 40px 0;
     margin-bottom: 4rem;
     border-bottom: 1px solid var(--Stroke, #353539);
+
+    @media (max-width: 768px) {
+      padding: 3rem 0 0;
+    }
   }
   .title-section {
     position: relative;
@@ -28,6 +34,16 @@ const Wrapper = styled.div`
     margin-top: 36px;
     padding: 0 0 14px 17px;
 
+    @media (max-width: 768px) {
+      margin: 0 16px;
+      width: 340px;
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+
     img {
       position: absolute;
       top: -20px;
@@ -39,6 +55,14 @@ const Wrapper = styled.div`
     height: 460px;
     margin-left: 10rem;
     margin-bottom: -1px;
+    @media (max-width: 768px) {
+      margin-left: 0;
+      height: 314px;
+      .slick-prev,
+      .slick-next {
+        display: none !important;
+      }
+    }
   }
 
   .slick-list {
@@ -89,6 +113,13 @@ const data = [
 
 const Section13 = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobileView, setIsMobileView] = useState(false);
+
+  useEffect(() => {
+    if (isMobile) {
+      setIsMobileView(true);
+    }
+  }, [isMobile]);
 
   const settings = {
     slidesToShow: 2,
@@ -97,6 +128,36 @@ const Section13 = () => {
     centerPadding: "0px",
     afterChange: (current: number) => setCurrentSlide(current),
     infinite: false,
+    dot: isMobileView ? false : true,
+
+    nextArrow: (
+      <ArrowBox
+        left={-100}
+        top={380}
+        disable={!(currentSlide < data.length - 1)}
+        style={{
+          display: isMobileView ? "none" : "block",
+        }}
+      >
+        <DownArrow
+          className={`${currentSlide < data.length - 1 && "active"} svg-button`}
+        />
+      </ArrowBox>
+    ),
+    prevArrow: (
+      <ArrowLeftBox
+        style={{
+          display: isMobileView ? "none" : "block",
+        }}
+        left={-160}
+        top={380}
+        disable={currentSlide === 0}
+      >
+        <DownArrow
+          className={`${currentSlide > 0 && "active"} left svg-button`}
+        />
+      </ArrowLeftBox>
+    ),
     responsive: [
       {
         breakpoint: 1224,
@@ -105,25 +166,14 @@ const Section13 = () => {
           slidesToScroll: 1,
         },
       },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
     ],
-    nextArrow: (
-      <ArrowBox
-        left={-100}
-        top={380}
-        disable={!(currentSlide < data.length - 1)}
-      >
-        <DownArrow
-          className={`${currentSlide < data.length - 1 && "active"} svg-button`}
-        />
-      </ArrowBox>
-    ),
-    prevArrow: (
-      <ArrowLeftBox left={-160} top={380} disable={currentSlide === 0}>
-        <DownArrow
-          className={`${currentSlide > 0 && "active"} left svg-button`}
-        />
-      </ArrowLeftBox>
-    ),
   };
   return (
     <Wrapper className="relative" id={SECTIONS[11]}>

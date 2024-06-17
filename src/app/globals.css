@@ -84,3 +84,46 @@ html.lenis body {
     color-scheme: dark;
   }
 }
+
+.ant-modal-mask {
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+.ant-modal .ant-modal-content {
+  background-color: unset !important;
+  box-shadow: unset !important;
+  border-radius: 0 !important;
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+.ant-modal-wrap {
+  &.custom-modal-mobile {
+    width: 100%;
+    position: fixed;
+    border-radius: 50px;
+    overflow: hidden;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #00000080;
+    height: 97.5vh;
+    max-width: 400px;
+    @media (max-width: 572px) {
+      height: 100vh;
+      border-radius: 0;
+    }
+    .ant-modal {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      top: auto !important;
+
+      width: 100% !important;
+      max-width: 100%;
+      height: fit-content;
+      margin: 0;
+      padding-bottom: 0;
+    }
+  }
+}

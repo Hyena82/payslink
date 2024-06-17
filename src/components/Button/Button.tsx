@@ -17,6 +17,8 @@ const Wrapper = styled.div`
   line-height: 15.4px;
   text-align: left;
   cursor: pointer;
+  width: fit-content;
+  white-space: nowrap;
 
   background: linear-gradient(90deg, #0093fe 0%, #50ffd5 100%);
   transition: box-shadow 0.3s ease, color 0.3s ease; // Add this line

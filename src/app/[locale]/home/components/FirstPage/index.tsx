@@ -1,8 +1,10 @@
 import GradientBorder from "@/components/Border";
 import { Box } from "@/components/Box";
 import PrimaryButton from "@/components/Button/PrimaryButton";
+import { Button } from "antd";
 import InviewBox from "@/components/InViewBox";
 import { ModelRobot } from "@/components/_3DRobot";
+
 import { SECTIONS } from "@/configs/constants";
 import {
   Environment,
@@ -46,11 +48,17 @@ const Wrapper = styled.div`
     background-position: top;
     background-repeat: no-repeat;
     filter: blur(1px) brightness(0.6);
+    @media (max-width: 768px) {
+      filter: blur(1px) brightness(0.2);
+    }
   }
 
   .intro-box {
     position: relative;
-
+    padding-top: 40px;
+    @media (max-width: 768px) {
+      padding-top: 20px;
+    }
     .logo-box {
       border: 0.5px solid rgba(255, 255, 255, 0.7);
       border-bottom: 0;
@@ -65,6 +73,10 @@ const Wrapper = styled.div`
   .intro-text-box {
     display: flex;
     height: 100px;
+    width: 100%;
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
 
     .intro-text {
       border: 0.5px solid rgba(255, 255, 255, 0.7);
@@ -74,10 +86,15 @@ const Wrapper = styled.div`
       font-family: Metrophobic;
       display: flex;
       align-items: center;
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 400;
       line-height: 19.73px;
       text-align: left;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        border: 0.5px solid rgba(255, 255, 255, 0.7);
+      }
     }
 
     .sub-text-box {
@@ -90,6 +107,11 @@ const Wrapper = styled.div`
 
       border: 1px solid rgba(53, 53, 57, 1);
       border-left: none;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        border: 1px solid rgba(53, 53, 57, 1);
+      }
 
       .sub-text {
         height: 100%;
@@ -106,6 +128,10 @@ const Wrapper = styled.div`
         line-height: 19.73px;
         text-align: left;
         color: rgba(109, 109, 109, 1);
+
+        @media (max-width: 768px) {
+          padding: 10px 20px;
+        }
 
         &:first-child {
           border-bottom: 0.5px solid rgba(53, 53, 57, 1);
@@ -128,11 +154,15 @@ const Wrapper = styled.div`
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    /* max-width: 1300px; */
     margin: 0 auto;
     padding: 0 40px;
     display: flex;
     align-items: flex-end;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
     .about-desc {
       width: 452px;
       padding: 34px 25px;
@@ -143,6 +173,15 @@ const Wrapper = styled.div`
       line-height: 49.5px;
       text-align: left;
 
+      @media (max-width: 768px) {
+        width: 100%;
+        font-family: Trap;
+        font-size: 30px;
+        font-weight: 700;
+        line-height: 33px;
+        text-align: left;
+      }
+
       span {
         font-family: Trap;
         font-size: 45px;
@@ -151,19 +190,31 @@ const Wrapper = styled.div`
         text-align: left;
         background: linear-gradient(90deg, #0093fe 0%, #50ffd5 72.7%) text;
         -webkit-text-fill-color: transparent;
+
+        @media (max-width: 768px) {
+          font-family: Trap;
+          font-size: 30px;
+          font-weight: 700;
+          line-height: 33px;
+          text-align: left;
+        }
       }
     }
 
     .access-text {
       max-width: 315px;
       position: absolute;
-      left: 60%;
+      left: 50%;
 
       font-size: 16px;
       font-weight: 400;
       line-height: 19.73px;
       text-align: right;
       color: #00ffe0;
+
+      @media (max-width: 768px) {
+        display: none;
+      }
     }
 
     .scroll-down {
@@ -172,6 +223,13 @@ const Wrapper = styled.div`
       align-items: center;
       position: absolute;
       right: 40px;
+
+      @media (max-width: 768px) {
+        position: relative;
+        right: unset;
+        margin: 40px auto 0;
+      }
+
       p {
         font-size: 16px;
         font-weight: 400;
@@ -189,6 +247,10 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     gap: 20px;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   /* .layout-line {
@@ -226,7 +288,6 @@ const FirstPage = () => {
       <RoBotModelBox />
       <div className="container-middle relative">
         <div className="intro-box">
-          <Box className="" padding={4}></Box>
           <Box className="logo-box">
             <Image
               src="/images/logo/logo-4.svg"

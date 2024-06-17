@@ -23,6 +23,11 @@ const Wrapper = styled.div`
   line-height: 17.26px;
   text-align: left;
   color: #6d6d6d;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+
   a {
     display: flex;
     align-items: flex-end;

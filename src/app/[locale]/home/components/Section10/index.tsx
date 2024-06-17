@@ -10,10 +10,24 @@ const Wrapper = styled.div`
   padding: 0 40px;
   border-bottom: 1px solid rgba(53, 53, 57, 1);
 
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+
   .background-s10 {
     padding-top: 200px;
     width: 50%;
     position: relative;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      padding-top: 120px;
+
+      & > img {
+        width: 100%;
+        height: auto;
+      }
+    }
 
     .ecosystem-gif {
       position: absolute;
@@ -21,10 +35,16 @@ const Wrapper = styled.div`
       left: 50%;
       transform: translateX(-50%);
       mix-blend-mode: screen;
+      @media (max-width: 768px) {
+        width: 60%;
+      }
     }
   }
 
   .flex-box {
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   .right-content {
@@ -34,6 +54,24 @@ const Wrapper = styled.div`
     position: relative;
     padding: 200px 0 0 40px;
     z-index: 2;
+    @media (max-width: 768px) {
+      width: 100%;
+      padding: 120px 0 0 0;
+      border-left: none;
+    }
+  }
+
+  .center-menu-layout-scroll {
+    @media (max-width: 768px) {
+      width: 100%;
+      overflow-x: auto;
+    }
+  }
+
+  .center-menu-layout {
+    @media (max-width: 768px) {
+      width: 600px;
+    }
   }
 
   .center-menu {
@@ -48,6 +86,13 @@ const Wrapper = styled.div`
     font-weight: 400;
     line-height: 19.73px;
     text-align: left;
+
+    @media (max-width: 768px) {
+      width: 600px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 17.6px;
+    }
 
     .menu-item {
       width: calc(100% / 4);
@@ -99,6 +144,15 @@ const Wrapper = styled.div`
     font-weight: 400;
     line-height: 19.73px;
     text-align: justify;
+
+    @media (max-width: 768px) {
+      margin-top: 30px;
+      height: 400px;
+
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 19.73px;
+    }
     span {
       color: rgba(35, 226, 221, 1);
     }
@@ -164,41 +218,49 @@ const Section10 = () => {
             Ecosystem
           </div>
 
-          <Flex mt={4} className="center-menu" justifyContent="space-around">
-            <Box
-              className={`${selectedItem === "Payment" && "active"} menu-item`}
-              onClick={() => setSelectedItem("Payment")}
-            >
-              Payment
-            </Box>
-            <Box
-              className={`${
-                selectedItem === "P2P Exchange" && "active"
-              } menu-item`}
-              onClick={() => setSelectedItem("P2P Exchange")}
-            >
-              P2P Exchange
-            </Box>
-            <Box
-              className={`${
-                selectedItem === "LAUNCHPAD" && "active"
-              } menu-item`}
-              onClick={() => setSelectedItem("LAUNCHPAD")}
-            >
-              LAUNCHPAD
-            </Box>
-
-            <Box
-              className={`${
-                selectedItem === "Metaverse" && "active"
-              } menu-item`}
-              onClick={() => setSelectedItem("Metaverse")}
-            >
-              Metaverse
-            </Box>
-
-            <Box className="line-slider" />
-          </Flex>
+          <Box className="center-menu-layout-scroll hidden-scroll">
+            <Flex className="center-menu-layout">
+              <Flex
+                mt={4}
+                className="center-menu"
+                justifyContent="space-around"
+              >
+                <Box
+                  className={`${
+                    selectedItem === "Payment" && "active"
+                  } menu-item`}
+                  onClick={() => setSelectedItem("Payment")}
+                >
+                  Payment
+                </Box>
+                <Box
+                  className={`${
+                    selectedItem === "P2P Exchange" && "active"
+                  } menu-item`}
+                  onClick={() => setSelectedItem("P2P Exchange")}
+                >
+                  P2P Exchange
+                </Box>
+                <Box
+                  className={`${
+                    selectedItem === "LAUNCHPAD" && "active"
+                  } menu-item`}
+                  onClick={() => setSelectedItem("LAUNCHPAD")}
+                >
+                  LAUNCHPAD
+                </Box>
+                <Box
+                  className={`${
+                    selectedItem === "Metaverse" && "active"
+                  } menu-item`}
+                  onClick={() => setSelectedItem("Metaverse")}
+                >
+                  Metaverse
+                </Box>
+                <Box className="line-slider" />
+              </Flex>
+            </Flex>
+          </Box>
 
           <div className="content-tab">
             <motion.div

@@ -7,6 +7,10 @@ const Wrapper = styled.div`
     top: 0;
     left: 0;
     height: 89px;
+    @media (max-width: 768px) {
+      height: 66px;
+      left: -50px;
+    }
   }
   .left-bottom {
     position: absolute;
@@ -14,6 +18,11 @@ const Wrapper = styled.div`
     left: 0;
     height: 89px;
     transform: rotate(0deg);
+
+    @media (max-width: 768px) {
+      height: 66px;
+      left: -17px;
+    }
   }
 
   .right-bottom {
@@ -21,6 +30,10 @@ const Wrapper = styled.div`
     bottom: 0;
     right: 0;
     height: 89px;
+    @media (max-width: 768px) {
+      height: 66px;
+      right: -17px;
+    }
   }
 `;
 

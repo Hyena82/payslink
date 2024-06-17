@@ -15,6 +15,10 @@ const Wrapper = styled.div`
   background-position: center;
   background-repeat: no-repeat;
 
+  @media (max-width: 768px) {
+    padding: 66px 16px;
+  }
+
   .title-section {
     text-align: center;
     margin: 0 auto;
@@ -31,6 +35,14 @@ const Wrapper = styled.div`
     font-weight: 400;
     line-height: 24.66px;
     text-align: center;
+
+    @media (max-width: 768px) {
+      font-family: Metrophobic;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 22.19px;
+      text-align: center;
+    }
   }
 
   .card-box {
@@ -39,6 +51,11 @@ const Wrapper = styled.div`
     justify-content: space-between;
     gap: 20px;
     margin-top: 40px;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
     & > div {
       flex: 0 0 calc(33.33% - 20px);
       max-width: calc(33.33% - 20px);
@@ -46,6 +63,10 @@ const Wrapper = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
+      @media (max-width: 768px) {
+        flex: 0 0 calc(100% - 16px);
+        max-width: calc(100% - 16px);
+      }
     }
   }
 `;

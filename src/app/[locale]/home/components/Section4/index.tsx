@@ -14,6 +14,7 @@ import { OrbitControls } from "@react-three/drei";
 import { Box } from "@/components/Box";
 import { motion } from "framer-motion";
 import { right } from "styled-system";
+import { isMobile } from "react-device-detect";
 
 const Wrapper = styled.div`
   padding: 40px 0 0;
@@ -32,10 +33,21 @@ const Wrapper = styled.div`
     margin-left: 40px;
     padding: 0 0 14px 17px;
 
+    @media (max-width: 768px) {
+      margin-left: 16px;
+      padding: 3px 3px 14px 17px;
+      width: fit-content;
+    }
+
     img {
       position: absolute;
       top: -20px;
       right: -10px;
+      @media (max-width: 768px) {
+        width: 310px;
+        left: 0;
+        right: unset;
+      }
     }
   }
 
@@ -44,6 +56,12 @@ const Wrapper = styled.div`
     border-top: 1px solid var(--Stroke, #353539);
     margin-top: 56px;
     padding: 0 40px;
+
+    @media (max-width: 768px) {
+      padding: 0 0 70px 0;
+
+      /* margin-bottom: 56px; */
+    }
 
     &::-webkit-scrollbar {
       display: none;
@@ -63,8 +81,25 @@ const Wrapper = styled.div`
   }
 
   .slick-list {
-    /* padding-right: 100px !important; */
     height: 660px;
+
+    @media (max-width: 768px) {
+      height: 740px;
+    }
+  }
+
+  .slick-prev {
+    @media (max-width: 768px) {
+      bottom: 40px;
+      left: 16px;
+    }
+  }
+
+  .slick-next {
+    @media (max-width: 768px) {
+      bottom: 40px;
+      left: 76px;
+    }
   }
 
   .root-tree {
@@ -78,6 +113,13 @@ const Wrapper = styled.div`
 
     @media screen and (max-width: 1470px) {
       left: 64%;
+    }
+
+    @media (max-width: 768px) {
+      width: 343px;
+      height: 300px;
+      left: 50%;
+      top: 60%;
     }
 
     @keyframes bounce {
@@ -102,6 +144,14 @@ const Wrapper = styled.div`
       left: 30px;
       top: 0;
       z-index: 2;
+      @media (max-width: 768px) {
+        width: 116px;
+        height: 190px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
 
     .left-step {
@@ -111,14 +161,27 @@ const Wrapper = styled.div`
       right: 60px;
       top: 0;
       z-index: 2;
+      @media (max-width: 768px) {
+        width: 92px;
+        height: 145px;
+        img {
+          width: 100%;
+          height: 100%;
+        }
+      }
     }
 
     .root-tree-image {
       position: absolute;
+      pointer-events: none;
       z-index: 1;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      @media (max-width: 768px) {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 `;
@@ -201,6 +264,14 @@ const Section4 = () => {
           slidesToScroll: 1,
         },
       },
+
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
     ],
     nextArrow: (
       <ArrowBox>
@@ -229,11 +300,6 @@ const Section4 = () => {
         />
         Our <span>Solutions</span>
       </p>
-
-      <div className="cube">
-        <div className="face front"></div>
-        <div className="face left"></div>
-      </div>
 
       <div className="slider-box relative">
         <Box className="root-tree">
@@ -314,6 +380,10 @@ export const ArrowBox = styled.div<{
   pointer-events: ${({ disable }) => (disable ? "none" : "auto")};
   z-index: 10;
 
+  @media (max-width: 768px) {
+    bottom: 0px;
+  }
+
   .svg-button {
     cursor: pointer;
     path {
@@ -330,9 +400,11 @@ export const ArrowBox = styled.div<{
       margin-right: 27px;
     }
 
-    &.active:hover {
-      path {
-        fill: url(#paint0_linear_196_1511);
+    @media (min-width: 1024px) {
+      &.active:hover {
+        path {
+          fill: url(#paint0_linear_196_1511);
+        }
       }
     }
   }
@@ -342,6 +414,7 @@ export const ArrowLeftBox = styled.div<{
   left?: number;
   disable?: boolean;
   top?: number;
+  mbl?: number;
 }>`
   position: absolute;
   top: ${({ top }) => (top ? `${top}px` : "unset")};
@@ -350,6 +423,11 @@ export const ArrowLeftBox = styled.div<{
   pointer-events: ${({ disable }) => (disable ? "none" : "auto")};
 
   z-index: 10;
+
+  @media (max-width: 768px) {
+    left: ${({ mbl }) => (mbl ? `${mbl}px` : 0)};
+    bottom: 0px;
+  }
 
   &.left-arrow {
     left: 0;
@@ -370,9 +448,11 @@ export const ArrowLeftBox = styled.div<{
       margin-right: 27px;
     }
 
-    &.active:hover {
-      path {
-        fill: url(#paint0_linear_196_1511);
+    @media (min-width: 1024px) {
+      &.active:hover {
+        path {
+          fill: url(#paint0_linear_196_1511);
+        }
       }
     }
   }

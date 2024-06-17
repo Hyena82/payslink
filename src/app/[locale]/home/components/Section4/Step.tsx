@@ -11,9 +11,23 @@ const Wrapper = styled.div`
   height: 600px;
   display: flex;
   align-items: flex-end;
+
+  @media (max-width: 768px) {
+    align-items: flex-start;
+    padding: 0;
+    height: 740px;
+    border-bottom: 1px solid var(--Stroke, #353539);
+  }
+
   .number-box {
     width: 338px;
     padding: 40px 20px 6rem 0;
+
+    @media (max-width: 768px) {
+      padding-top: 20px;
+      padding-left: 16px;
+      width: 100%;
+    }
   }
 
   .number-step {
@@ -43,6 +57,14 @@ const Wrapper = styled.div`
     width: 100%;
 
     margin-top: 34px;
+
+    @media (max-width: 768px) {
+      font-family: Trap;
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 26.4px;
+      text-align: left;
+    }
   }
 `;
 
@@ -54,23 +76,13 @@ interface StepProps {
 const Step: React.FC<StepProps> = ({ stepDescription, stepNumber }) => {
   return (
     <Wrapper>
-      <Flex alignItems="flex-end">
-        <Box mr={5} className="number-box">
-          <div className="number-step">
-            <span>0{stepNumber}</span>
-            <GradientCircle />
-          </div>
-          <p className="description">{stepDescription}</p>
-        </Box>
-
-        {/* <Image
-          src={`/images/home/step/step${stepNumber}.png`}
-          width={585}
-          height={574}
-          quality={100}
-          alt=""
-        /> */}
-      </Flex>
+      <Box mr={5} className="number-box">
+        <div className="number-step">
+          <span>0{stepNumber}</span>
+          <GradientCircle />
+        </div>
+        <p className="description">{stepDescription}</p>
+      </Box>
     </Wrapper>
   );
 };

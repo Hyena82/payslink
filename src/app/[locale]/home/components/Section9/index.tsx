@@ -22,6 +22,12 @@ const Wrapper = styled.div`
   .title-section {
     margin-bottom: 10px;
     text-align: center;
+    @media (max-width: 768px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
   }
 
   .desc {
@@ -30,6 +36,10 @@ const Wrapper = styled.div`
     font-weight: 400;
     line-height: 24.66px;
     text-align: left;
+    @media (max-width: 768px) {
+      width: 370px;
+      text-align: center;
+    }
   }
 
   .section-text {
@@ -40,6 +50,19 @@ const Wrapper = styled.div`
     text-align: left;
     color: rgba(35, 226, 183, 1);
     margin: 40px 0 20px;
+  }
+
+  .mobile-box {
+    @media (max-width: 768px) {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 20px;
+      & > div {
+        margin-right: 0;
+      }
+    }
   }
 `;
 
@@ -87,7 +110,7 @@ const Section9 = () => {
 
         <p className="section-text">TRADE $PAYS</p>
 
-        <Flex>
+        <Flex className="mobile-box">
           {row1.map((item, index) => (
             <Box key={index} mr={3}>
               <PrimaryButton fromIcon icon={item.icon}>
@@ -99,7 +122,7 @@ const Section9 = () => {
 
         <p className="section-text">TRACK $PAYS</p>
 
-        <Flex>
+        <Flex className="mobile-box">
           {row2.map((item, index) => (
             <Box key={index} mr={3}>
               <PrimaryButton key={index} fromIcon icon={item.icon}>

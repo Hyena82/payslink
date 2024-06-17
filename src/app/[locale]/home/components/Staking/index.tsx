@@ -22,6 +22,12 @@ const Wrapper = styled.div`
   border-top: 1px solid #353539;
   border-bottom: 1px solid #353539;
 
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    padding: 0 16px;
+  }
+
   &:before {
     content: "";
     background: var(--gradient);
@@ -45,6 +51,10 @@ const Wrapper = styled.div`
     z-index: 3;
     background-color: #353539;
 
+    @media (max-width: 768px) {
+      width: 100%;
+    }
+
     .border-span {
       position: absolute;
       border-radius: 10px;
@@ -61,6 +71,10 @@ const Wrapper = styled.div`
 
     &:not(:last-child) {
       margin-right: 20px;
+      @media (max-width: 768px) {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
     }
 
     clip-path: polygon(0 0, 93% 0, 100% 20%, 100% 100%, 0 100%);

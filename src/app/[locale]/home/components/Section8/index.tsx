@@ -10,7 +10,9 @@ const Wrapper = styled.div`
   width: 100%;
   height: 800px;
   border-bottom: 1px solid var(--Stroke, #353539);
-
+  @media (max-width: 768px) {
+    height: 1000px;
+  }
   .right-content {
     width: 50%;
     height: 100%;
@@ -19,6 +21,18 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      height: 30%;
+      padding: 16px;
+    }
+  }
+
+  .wrap-layout {
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   .title-section {
@@ -38,6 +52,10 @@ const Wrapper = styled.div`
     width: 50%;
     height: 100%;
     position: relative;
+    @media (max-width: 768px) {
+      width: 100%;
+      height: 70%;
+    }
 
     video {
       position: absolute;
@@ -48,6 +66,9 @@ const Wrapper = styled.div`
       height: 100%;
       transform: translate(-50%, -50%);
       object-fit: cover;
+
+      @media (max-width: 768px) {
+      }
     }
 
     .ball-box {
@@ -57,6 +78,12 @@ const Wrapper = styled.div`
       align-items: center;
       flex-direction: column;
       mix-blend-mode: color-dodge;
+
+      @media (max-width: 768px) {
+        img {
+          scale: 0.7;
+        }
+      }
     }
     .box1 {
       mix-blend-mode: color-dodge;
@@ -121,7 +148,7 @@ const Section8 = () => {
   return (
     <Wrapper className="relative" id={SECTIONS[6]}>
       <InviewBox section={SECTIONS[6]} />
-      <Flex justifyContent="flex-end" height="100%">
+      <Flex className="wrap-layout" justifyContent="flex-end" height="100%">
         <Box className="left-content">
           <video width="100%" height="100%" autoPlay muted loop playsInline>
             <source src="/videos/door.mp4" type="video/mp4" />

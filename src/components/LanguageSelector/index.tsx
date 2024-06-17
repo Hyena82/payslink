@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Box } from "../Box";
 
 const Wrapper = styled.div`
-  margin-left: 23px;
+  width: fit-content;
   .wrapper-selector {
     padding: 10px;
     border: 0.5px solid rgba(255, 255, 255, 1);

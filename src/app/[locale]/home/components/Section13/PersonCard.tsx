@@ -9,6 +9,11 @@ const Wrapper = styled.div`
   z-index: 2;
   background-color: #000;
   margin-top: 1px;
+
+  @media (max-width: 768px) {
+    width: 328px;
+  }
+
   &.fisrt-child-card .step-box {
     border-left: 1px solid rgba(53, 53, 57, 1);
   }
@@ -25,6 +30,9 @@ const Wrapper = styled.div`
     max-height: 0;
     overflow: hidden;
     padding: 0 40px;
+    @media (max-width: 768px) {
+      padding: 0 19px;
+    }
 
     transition: max-height 0.3s ease-in-out;
     transition: margin-top 0.3s ease-in-out;
@@ -33,6 +41,9 @@ const Wrapper = styled.div`
   &.content-visible .content {
     max-height: 1000px;
     padding: 20px 40px;
+    @media (max-width: 768px) {
+      padding: 12px 19px;
+    }
   }
 
   &.content-visible .plus-icon {
@@ -49,6 +60,10 @@ const Wrapper = styled.div`
     border: 1px solid rgba(53, 53, 57, 1);
     border-top: none;
     margin-left: -1px;
+
+    @media (max-width: 768px) {
+      font-size: 14px;
+    }
   }
 
   .step-box {
@@ -61,6 +76,12 @@ const Wrapper = styled.div`
     border: 1px solid rgba(53, 53, 57, 1);
     border-bottom: none;
     border-left: none;
+
+    @media (max-width: 768px) {
+      padding: 12px 19px;
+      height: 312px;
+    }
+
     .text-gradient {
       font-family: Metrophobic;
       font-size: 20px;
@@ -75,6 +96,12 @@ const Wrapper = styled.div`
       width: 270px;
       height: 270px;
       margin: 20px auto;
+
+      @media (max-width: 768px) {
+        width: 178px;
+        height: 178px;
+        margin: 20px auto 0;
+      }
 
       .avatar-border {
         position: absolute;
@@ -92,6 +119,11 @@ const Wrapper = styled.div`
         left: 50%;
         transform: translate(-50%, -50%);
         z-index: 1;
+
+        @media (max-width: 768px) {
+          width: 146px;
+          height: 146px;
+        }
       }
     }
 
@@ -101,6 +133,13 @@ const Wrapper = styled.div`
       font-weight: 400;
       line-height: 19.73px;
       text-align: left;
+
+      @media (max-width: 768px) {
+        font-size: 14.32px;
+        font-weight: 400;
+        line-height: 17.65px;
+        text-align: left;
+      }
     }
   }
 `;

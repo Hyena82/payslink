@@ -2,46 +2,90 @@ import styled from "styled-components";
 import { Box } from "../Box";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+
 import { shallowEqual, useSelector } from "react-redux";
 import { RootState } from "@/store/store";
+import { Modal } from "antd";
+import { motion } from "framer-motion";
 
 const Wrapper = styled.div`
   .icon-staking {
     position: fixed;
-    left: 40px;
+    right: 60px;
     top: 40%;
-    z-index: 9999;
+    z-index: 999;
+    cursor: pointer;
+
+    @media (max-width: 768px) {
+      right: 20px;
+      top: 75%;
+    }
+  }
+`;
+
+const ContentBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  .close-button {
+    position: absolute;
+    right: 90px;
+    top: 30px;
+    @media (max-width: 768px) {
+      right: 20px;
+      top: 0px;
+    }
   }
 
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.8);
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    z-index: 9999;
-    backdrop-filter: blur(10px);
+  .popup-image {
+    @media (max-width: 768px) {
+      width: 88%;
+      height: auto;
+    }
+  }
 
-    .content {
+  .staking-button {
+    margin-top: 10px;
+    cursor: pointer;
+    box-shadow: 0px 0px 17.64px 0px rgba(80, 255, 213, 1);
+
+    font-family: Trap;
+    font-size: 21.17px;
+    font-weight: 800;
+    line-height: 23.29px;
+    text-align: center;
+    padding: 12px 33px;
+    width: fit-content;
+    border-radius: 26.6px;
+    background: var(--gradient);
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #fff;
+    }
+
+    img {
       position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      padding: 20px;
-      border-radius: 10px;
-      width: 500px;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      left: -50px;
+      bottom: -50px;
     }
   }
 `;
 
 const StakingNow = () => {
-  const [first, setfirst] = useState(false);
+  const [open, setOpen] = useState(false);
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   const loadingPage = useSelector(
     (state: RootState) => state.system.loadingPage,
     shallowEqual
@@ -53,7 +97,7 @@ const StakingNow = () => {
 
   return (
     <Wrapper>
-      <Box className="icon-staking">
+      <Box className="icon-staking" onClick={() => setOpen(true)}>
         <Image
           src="/images/home/staking-now.svg"
           width={137}
@@ -63,18 +107,50 @@ const StakingNow = () => {
         />
       </Box>
 
-      {first && (
-        <div className="modal" onClick={() => setfirst(false)}>
-          <div className="content">
+      <Modal
+        open={open}
+        centered
+        onCancel={handleClose}
+        footer={false}
+        width={557}
+        closeIcon={false}
+      >
+        <ContentBox>
+          <Box className="close-button hover" onClick={handleClose}>
             <Image
-              src="/images/home/staking1.jpg"
-              width={418}
-              height={536}
+              src="/images/icons/close.svg"
+              width={30}
+              height={30}
               alt=""
             />
-          </div>
-        </div>
-      )}
+          </Box>
+
+          <Image
+            className="popup-image"
+            src="/images/home/staking-popup.png"
+            width={418}
+            height={411}
+            quality={100}
+            alt=""
+          />
+
+          <motion.div
+            whileHover={{ scale: 1.06 }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ type: "spring" }}
+            className="staking-button"
+          >
+            Staking Now
+            <Image
+              src="/images/icons/hand.svg"
+              width={77}
+              quality={100}
+              height={74}
+              alt=""
+            />
+          </motion.div>
+        </ContentBox>
+      </Modal>
     </Wrapper>
   );
 };

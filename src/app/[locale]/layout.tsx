@@ -3,6 +3,8 @@ import "../globals.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import StyledJsxRegistry from "@/lib/registry";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
+
 import GlobalStyles from "@/styles/GlobalStyles";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -30,7 +32,7 @@ export default async function RootLayout({
         <StyledJsxRegistry>
           <GlobalStyles />
           <NextIntlClientProvider locale="en" messages={messages}>
-            {children}
+            <AntdRegistry>{children}</AntdRegistry>
           </NextIntlClientProvider>
         </StyledJsxRegistry>
       </body>

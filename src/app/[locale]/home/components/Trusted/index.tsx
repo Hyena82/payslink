@@ -8,12 +8,10 @@ const Wrapper = styled.div`
   z-index: 3;
   position: relative;
   background-color: #000;
+  @media (max-width: 768px) {
+    padding: 90px 16px 90px;
+  }
   .title-section {
-    font-family: Trap;
-    font-size: 50px;
-    font-weight: 600;
-    line-height: 55px;
-    text-align: left;
     max-width: 791px;
     width: 100%;
     position: relative;
@@ -22,6 +20,10 @@ const Wrapper = styled.div`
       position: absolute;
       top: -20px;
       right: -10px;
+      @media (max-width: 768px) {
+        right: 0px;
+        width: 100%;
+      }
     }
 
     span {
@@ -32,6 +34,12 @@ const Wrapper = styled.div`
       text-align: left;
       background: linear-gradient(90deg, #0093fe 0%, #50ffd5 72.7%) text;
       -webkit-text-fill-color: transparent;
+
+      @media (max-width: 768px) {
+        font-size: 40px;
+        font-weight: 600;
+        line-height: 44px;
+      }
     }
   }
 
@@ -76,6 +84,20 @@ const Wrapper = styled.div`
     margin-top: 30px;
     max-width: 791px;
     width: 100%;
+
+    @media (max-width: 768px) {
+      font-family: Metrophobic;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 22.19px;
+      text-align: left;
+    }
+  }
+  .box-container {
+    @media (max-width: 768px) {
+      flex-direction: column;
+      padding: 0;
+    }
   }
 `;
 
@@ -96,7 +118,11 @@ const Trusted = () => {
         PAYSLINK Staking represents a new era of cryptoeconomic security for the
         industry-standard oracle network
       </p>
-      <Flex justifyContent="center" className="container-middle" mt={5}>
+      <Flex
+        justifyContent="center"
+        className="container-middle box-container"
+        mt={5}
+      >
         <_3DCard
           title="Focus on Growth"
           number="2.3x"

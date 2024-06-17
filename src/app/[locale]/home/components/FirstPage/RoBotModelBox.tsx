@@ -13,6 +13,7 @@ import {
 } from "framer-motion";
 import { motion as motion3D } from "framer-motion-3d";
 import { useEffect, useRef, useState } from "react";
+import { isMobile } from "react-device-detect";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 
@@ -39,6 +40,13 @@ const ModelBox = styled.div<{ visibility: boolean }>`
   left: 50%;
   transform: translateX(-50%);
   width: 40vw;
+
+  @media (max-width: 768px) {
+    width: 80vw;
+    bottom: 10%;
+    pointer-events: none;
+  }
+
   height: 750px;
   display: ${(props) => (props.visibility ? "none" : "block")};
 `;
@@ -97,7 +105,12 @@ const RoBotModelBox = () => {
     };
   }, []);
 
-  const progress = useTransform(scrollYProgress, [0, 0.45], [-0.6, -0.3]);
+  const progress = useTransform(
+    scrollYProgress,
+    [0, 0.45],
+    [isMobile ? 0 : -0.6, isMobile ? 0 : -0.3]
+  );
+
   const scale = useTransform(
     scrollYProgress,
     [0, 0.45],

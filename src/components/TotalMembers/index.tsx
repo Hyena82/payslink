@@ -11,7 +11,14 @@ const Wrapper = styled.div`
   width: fit-content;
   border-radius: 100px;
   color: var(--Color-2, rgba(35, 226, 183, 1));
-
+  @media (max-width: 768px) {
+    padding: 19px 0;
+    width: 267px;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.73px;
+    text-align: center;
+  }
   text-transform: uppercase;
 `;
 

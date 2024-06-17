@@ -49,13 +49,18 @@ const Wrapper = styled.div`
   }
 
   .content-box {
-    width: 472px;
+    width: 100%;
     height: 280px;
     position: relative;
     flex-direction: column;
     /* margin-top: 38px; */
     z-index: 2;
     border-radius: 20px;
+
+    @media (max-width: 768px) {
+      height: 242px;
+      margin-top: 20px;
+    }
 
     transition: all 0.3s ease-in-out;
 
@@ -93,6 +98,14 @@ const Wrapper = styled.div`
       line-height: 36.99px;
       text-align: center;
       color: #23e2b7;
+
+      @media (max-width: 768px) {
+        font-family: Metrophobic;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 24.66px;
+        text-align: center;
+      }
     }
 
     .number {
@@ -104,6 +117,14 @@ const Wrapper = styled.div`
       text-align: center;
       margin-top: 15px;
       margin-bottom: 15px;
+
+      @media (max-width: 768px) {
+        font-family: Trap;
+        font-size: 60px;
+        font-weight: 700;
+        line-height: 66px;
+        text-align: left;
+      }
     }
 
     .desc {
@@ -114,6 +135,14 @@ const Wrapper = styled.div`
       font-weight: 400;
       line-height: 24.66px;
       text-align: center;
+
+      @media (max-width: 768px) {
+        font-family: Metrophobic;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 22.19px;
+        text-align: center;
+      }
     }
 
     .dot {
@@ -155,6 +184,26 @@ const Wrapper = styled.div`
       left: 0;
       width: 100%;
       height: 100%;
+      & {
+        @media (max-width: 768px) {
+          rect {
+            width: calc(100% - 1.8px);
+            height: calc(100% - 1.8px);
+          }
+        }
+      }
+    }
+  }
+
+  .box-container-2 {
+    transform-style: preserve-3d;
+    position: relative;
+    height: 280px;
+    width: 472px;
+    border-radius: 20px;
+    @media (max-width: 768px) {
+      width: 100%;
+      height: 242px;
     }
   }
 `;
@@ -213,13 +262,9 @@ const _3DCard = ({
         ref={ref}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
+        className="box-container-2"
         style={{
-          transformStyle: "preserve-3d",
           transform,
-          position: "relative",
-          height: "280px",
-          width: "472px",
-          borderRadius: "20px",
           marginRight: last ? 0 : "35px",
         }}
       >

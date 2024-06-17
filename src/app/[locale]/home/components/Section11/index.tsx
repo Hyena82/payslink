@@ -11,8 +11,22 @@ const Wrapper = styled.div`
   padding: 0 40px;
   border-bottom: 1px solid rgba(53, 53, 57, 1);
   position: relative;
-
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    padding: 0 16px;
+  }
+
+  .layout-mobile {
+    @media (max-width: 768px) {
+      flex-direction: column-reverse;
+      padding-top: 2rem;
+      & > div {
+        width: 100%;
+        position: relative;
+      }
+    }
+  }
 
   .section12-bg {
     position: absolute;
@@ -57,6 +71,18 @@ const Wrapper = styled.div`
     position: relative;
     z-index: 1;
     background-color: #000;
+
+    @media (max-width: 768px) {
+      margin-left: -60%;
+      /* position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%); */
+    }
+
+    @media (max-width: 768px) {
+      scale: 0.6;
+    }
 
     .line {
       position: absolute;
@@ -130,6 +156,11 @@ const Wrapper = styled.div`
         top: -151px;
         left: 116px;
 
+        @media (max-width: 768px) {
+          left: 106px;
+          top: -191px;
+        }
+
         p.percent {
           color: rgba(75, 177, 249, 1);
         }
@@ -138,6 +169,11 @@ const Wrapper = styled.div`
       &.box2 {
         top: 75px;
         left: -45px;
+
+        @media (max-width: 768px) {
+          left: 35px;
+        }
+
         p.percent {
           color: rgba(35, 226, 183, 1);
         }
@@ -146,6 +182,10 @@ const Wrapper = styled.div`
       &.box3 {
         top: 328px;
         left: 55px;
+
+        @media (max-width: 768px) {
+          left: 55px;
+        }
         p.percent {
           color: rgba(217, 155, 255, 1);
         }
@@ -155,6 +195,11 @@ const Wrapper = styled.div`
         top: -114px;
         right: 100px;
 
+        @media (max-width: 768px) {
+          top: -195px;
+          right: 140px;
+        }
+
         p.percent {
           color: rgba(203, 203, 203, 1);
         }
@@ -163,6 +208,12 @@ const Wrapper = styled.div`
       &.box5 {
         top: 145px;
         right: -15px;
+
+        @media (max-width: 768px) {
+          top: 105px;
+          right: 100px;
+        }
+
         p.percent {
           color: rgba(35, 193, 226, 1);
         }
@@ -171,6 +222,11 @@ const Wrapper = styled.div`
       &.box6 {
         top: 349px;
         right: 41px;
+
+        @media (max-width: 768px) {
+          right: 130px;
+          top: 329px;
+        }
         p.percent {
           color: rgba(0, 109, 254, 1);
         }
@@ -231,7 +287,7 @@ const Section11 = () => {
   return (
     <Wrapper className="relative" id={SECTIONS[9]}>
       <InviewBox section={SECTIONS[9]} />
-      <Flex padding="8rem 0">
+      <Flex padding="8rem 0" className="layout-mobile">
         <Flex flexDirection="column" justifyContent="center" width="40%">
           <Box className="left-content">
             <div className="title-section">
@@ -246,6 +302,7 @@ const Section11 = () => {
             <p> Payslink raised funding distribution for product launch</p>
           </Box>
         </Flex>
+
         <Box width="60%">
           <Box className="right-content">
             <Box className="tree-image">

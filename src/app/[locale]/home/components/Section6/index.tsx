@@ -7,6 +7,10 @@ const Wrapper = styled.div`
   border-bottom: 1px solid var(--Stroke, #353539);
   padding: 66px;
 
+  @media (max-width: 768px) {
+    padding: 66px 16px;
+  }
+
   .title-section {
     text-align: center;
     margin: 0 auto;
@@ -23,6 +27,12 @@ const Wrapper = styled.div`
     font-weight: 400;
     line-height: 24.66px;
     text-align: center;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 22.19px;
+    }
   }
 
   .video-box {
@@ -32,29 +42,19 @@ const Wrapper = styled.div`
     position: relative;
     z-index: 1;
     overflow: hidden;
-    /* &:before {
-      content: "";
-      position: absolute;
-      top: -46px;
-      right: -48px;
-      width: 90px;
-      height: 90px;
-      z-index: 2;
-      transform: rotate(45deg);
-      background: #000;
-      display: inline-block;
+
+    @media (max-width: 768px) {
+      border-radius: 5px;
     }
 
-    &:after {
-      content: "";
-      position: absolute;
-      top: 27px;
-      right: -13px;
-      width: 94.1px;
-      height: 0.87px;
-      background: #353539;
-      transform: rotate(45deg);
-    } */
+    iframe {
+      width: 860px;
+      height: 545px;
+      @media (max-width: 768px) {
+        width: 100%;
+        height: 100%;
+      }
+    }
   }
 `;
 
@@ -75,8 +75,6 @@ const Section6 = () => {
       <Flex mt={4} justifyItems="center">
         <div className="video-box">
           <iframe
-            width="860"
-            height="545"
             src="https://www.youtube.com/embed/bRiPYd_BkGU?si=iqiXdbvU7_PF8wnl"
             title="YouTube video player"
             frameBorder="0"
