@@ -249,6 +249,7 @@ const Section4 = () => {
   useEffect(() => {
     preloadImages(images);
   }, []);
+
   const settings = {
     slidesToShow: 1.2,
     slidesToScroll: 1,
@@ -290,7 +291,6 @@ const Section4 = () => {
   return (
     <Wrapper className="relative" id={SECTIONS[2]}>
       <InviewBox section={SECTIONS[2]} />
-
       <p className="title-section">
         <Image
           src="/images/home/corner-border.png"
@@ -320,6 +320,7 @@ const Section4 = () => {
               src={images[currentSlide].right} // Update image based on currentSlide
               fill
               quality={100}
+              priority
               alt=""
             />
           </motion.div>
@@ -338,6 +339,7 @@ const Section4 = () => {
               src={images[currentSlide].left} // Update image based on currentSlide
               fill
               quality={100}
+              priority
               alt=""
             />
           </motion.div>

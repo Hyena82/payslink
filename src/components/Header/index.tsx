@@ -2,13 +2,11 @@ import styled from "styled-components";
 import { Box, Flex } from "../Box";
 import Link from "next/link";
 import Image from "next/image";
-import { isMobile } from "react-device-detect";
 
 import Button from "../Button/Button";
 import LanguageSelector from "../LanguageSelector";
 import { useState } from "react";
 import { Drawer } from "antd";
-import Content from "./MobileMenu";
 import MobileMenu from "./MobileMenu";
 
 const Wrapper = styled.div`
@@ -86,7 +84,6 @@ const Wrapper = styled.div`
     justify-content: space-between;
     position: relative;
     height: 100%;
-    /* border: 1px solid rgba(53, 53, 57, 1); */
     font-size: 16px;
     font-weight: 400;
     line-height: 19.73px;
@@ -159,7 +156,6 @@ const Wrapper = styled.div`
 
 const Header = () => {
   const [selectedItem, setSelectedItem] = useState("home");
-  console.log("~~", isMobile);
   const [open, setOpen] = useState(false);
 
   const showDrawer = () => {

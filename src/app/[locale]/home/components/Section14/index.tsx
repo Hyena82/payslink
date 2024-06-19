@@ -26,11 +26,19 @@ const dataRow1 = [
   "/images/partners/bitgert.svg",
   "/images/partners/binance.svg",
 
+  "/images/partners/Gbox.svg",
+  "/images/partners/ibm.svg",
+  "/images/partners/diviner.svg",
+
   "/images/partners/xt.svg",
   "/images/partners/coingecko.svg",
   "/images/partners/stc.svg",
   "/images/partners/bitgert.svg",
   "/images/partners/binance.svg",
+
+  "/images/partners/Gbox.svg",
+  "/images/partners/ibm.svg",
+  "/images/partners/diviner.svg",
 ];
 
 const dataRow2 = [
@@ -39,10 +47,18 @@ const dataRow2 = [
   "/images/partners/metamask.svg",
   "/images/partners/light.svg",
 
+  "/images/partners/Celestloan.svg",
+  "/images/partners/BinanceLive.svg",
+  "/images/partners/3sWallet.svg",
+
   "/images/partners/mexc.svg",
   "/images/partners/bitmart.svg",
   "/images/partners/metamask.svg",
   "/images/partners/light.svg",
+
+  "/images/partners/Celestloan.svg",
+  "/images/partners/BinanceLive.svg",
+  "/images/partners/3sWallet.svg",
 ];
 
 const Section14 = () => {

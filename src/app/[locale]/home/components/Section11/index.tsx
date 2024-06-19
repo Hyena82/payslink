@@ -6,6 +6,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import InviewBox from "@/components/InViewBox";
 import { SECTIONS } from "@/configs/constants";
 import useParallaxMouse from "@/hooks/useParallaxMouse";
+import { isMobile } from "react-device-detect";
 
 const Wrapper = styled.div`
   padding: 0 40px;
@@ -21,9 +22,11 @@ const Wrapper = styled.div`
     @media (max-width: 768px) {
       flex-direction: column-reverse;
       padding-top: 2rem;
+
       & > div {
-        width: 100%;
+        width: 60%;
         position: relative;
+        height: 500px;
       }
     }
   }
@@ -41,8 +44,12 @@ const Wrapper = styled.div`
     max-width: 415px;
     width: 100%;
     position: relative;
-
     z-index: 2;
+
+    @media (max-width: 768px) {
+      margin-top: 50px;
+    }
+
     .sub-title {
       font-family: Metrophobic;
       font-size: 20px;
@@ -73,15 +80,17 @@ const Wrapper = styled.div`
     background-color: #000;
 
     @media (max-width: 768px) {
-      margin-left: -60%;
-      /* position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%); */
+      width: 511px;
+      height: 500px;
     }
 
     @media (max-width: 768px) {
       scale: 0.6;
+      position: absolute;
+      top: 50%;
+      left: 41%;
+      transform: translate(-50%, -50%);
+      margin-top: 0;
     }
 
     .line {
@@ -149,6 +158,11 @@ const Wrapper = styled.div`
       animation-timing-function: ease-in;
       animation-direction: alternate-reverse; */
 
+      @media (max-width: 768px) {
+        width: 160px;
+        height: 160px;
+      }
+
       p {
         text-transform: capitalize;
       }
@@ -157,7 +171,7 @@ const Wrapper = styled.div`
         left: 116px;
 
         @media (max-width: 768px) {
-          left: 106px;
+          left: -19px;
           top: -191px;
         }
 
@@ -171,7 +185,7 @@ const Wrapper = styled.div`
         left: -45px;
 
         @media (max-width: 768px) {
-          left: 35px;
+          left: -82px;
         }
 
         p.percent {
@@ -184,7 +198,7 @@ const Wrapper = styled.div`
         left: 55px;
 
         @media (max-width: 768px) {
-          left: 55px;
+          left: -20px;
         }
         p.percent {
           color: rgba(217, 155, 255, 1);
@@ -197,7 +211,7 @@ const Wrapper = styled.div`
 
         @media (max-width: 768px) {
           top: -195px;
-          right: 140px;
+          right: -11px;
         }
 
         p.percent {
@@ -211,7 +225,7 @@ const Wrapper = styled.div`
 
         @media (max-width: 768px) {
           top: 105px;
-          right: 100px;
+          right: -52px;
         }
 
         p.percent {
@@ -224,7 +238,7 @@ const Wrapper = styled.div`
         right: 41px;
 
         @media (max-width: 768px) {
-          right: 130px;
+          right: -29px;
           top: 329px;
         }
         p.percent {
@@ -279,7 +293,14 @@ const Wrapper = styled.div`
 `;
 
 const Section11 = () => {
-  const { xMove, yMove } = useParallaxMouse(20);
+  const [isMobileState, setIsMobile] = useState(false);
+  const { xMove, yMove } = useParallaxMouse(isMobileState ? 0 : 20);
+
+  useEffect(() => {
+    if (isMobile) {
+      setIsMobile(true);
+    }
+  }, [isMobile]);
 
   const yTransform = useSpring(yMove);
   const xTransform = useSpring(xMove);
