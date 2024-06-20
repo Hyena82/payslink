@@ -61,8 +61,6 @@ const HomePage = () => {
 
   return (
     <HomeLayout>
-      <LoadingPage />
-
       <FirstPage />
 
       <Staking />

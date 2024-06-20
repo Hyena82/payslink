@@ -11,12 +11,16 @@ import { motion } from "framer-motion";
 const Wrapper = styled.div<{ active: boolean }>`
   position: fixed;
 
-  z-index: 1000;
+  z-index: 10000;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100vw;
   height: 100vh;
   background-color: #000;
+  pointer-events: none;
+  overflow: hidden;
 
   display: flex;
   justify-content: flex-start;
@@ -200,7 +204,7 @@ const LoadingPage = () => {
           return 100;
         }
         // Generate a random increment between 1 and 10
-        const increment = Math.floor(Math.random() * 50) + 1;
+        const increment = Math.floor(Math.random() * 35) + 1;
         const newProgress = oldProgress + increment;
         return newProgress > 100 ? 100 : newProgress;
       });
@@ -210,10 +214,21 @@ const LoadingPage = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (loadingPage) {
+      document.body.style.height = `${window?.innerHeight}px`;
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+      document.body.style.height = "auto";
+    };
+  }, [loadingPage]);
+
   if (!loadingPage) {
     return null;
   }
-
   return (
     <Wrapper
       active
