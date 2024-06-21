@@ -252,31 +252,6 @@ const Wrapper = styled.div`
       display: none;
     }
   }
-
-  /* .layout-line {
-    position: absolute;
-    background-color: rgba(53, 53, 57, 1);
-    width: 1px;
-    height: 100%;
-    position: fixed;
-    top: 0;
-  }
-
-  .layout-line-right {
-    right: 20%;
-  }
-
-  .layout-line-left {
-    left: 20%;
-  }
-
-  .container-middle {
-    width: 60%;
-
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-  } */
 `;
 
 const FirstPage = () => {

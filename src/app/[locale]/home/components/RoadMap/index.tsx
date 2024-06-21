@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ArrowBox, ArrowLeftBox } from "../Section4";
+import { ArrowBox, ArrowLeftBox } from "../Solutions";
 import { DownArrow } from "@/components/Svg";
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
