@@ -89,6 +89,7 @@ html.lenis body {
   background: rgba(0, 0, 0, 0.8);
   backdrop-filter: blur(10px);
 }
+
 .ant-modal .ant-modal-content {
   background-color: unset !important;
   box-shadow: unset !important;
