@@ -3,10 +3,10 @@ import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyles = createGlobalStyle`
   @font-face {
-  font-family: 'Trap';
-  font-weight: 700;
-  src: local('Trap'), url('/fonts/Trap/Trap-Bold.otf') format('opentype');
-}
+    font-family: 'Trap';
+    font-weight: 700;
+    src: local('Trap'), url('/fonts/Trap/Trap-Bold.otf') format('opentype');
+  }
 
   @font-face {
     font-family: 'Trap';
@@ -30,6 +30,24 @@ const GlobalStyles = createGlobalStyle`
     font-family: 'Metrophobic';
     font-weight: 400;
     src: local('Metrophobic'), url('/fonts/Metrophobic/Metrophobic-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Manrope';
+    font-weight: normal;
+    src: local('Manrope'), url('/fonts/Manrope/Manrope-Regular.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Manrope';
+    font-weight: 500;
+    src: local('Manrope'), url('/fonts/Manrope/Manrope-Medium.ttf') format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Manrope';
+    font-weight: 700;
+    src: local('Manrope'), url('/fonts/Manrope/Manrope-Bold.ttf') format('truetype');
   }
 
    html {
@@ -174,6 +192,14 @@ const GlobalStyles = createGlobalStyle`
   .hidden-scroll {
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+  }
+
+  .h-100{
+    height: 100%;
+  }
+
+  .w-100{
+    width: 100%;
   }
   
 `;

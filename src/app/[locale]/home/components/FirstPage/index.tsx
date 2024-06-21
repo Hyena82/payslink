@@ -24,6 +24,7 @@ import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import RoBotModelBox from "./RoBotModelBox";
 import StakingNow from "@/components/StakingNow.tsx";
+import { Link } from "@/navigation";
 
 const Wrapper = styled.div`
   height: calc(100vh - 58px);
@@ -31,6 +32,32 @@ const Wrapper = styled.div`
   z-index: 2;
   background: rgba(0, 0, 0, 1);
   color: #fff;
+  .white-grad {
+    --b: 1px; /* border width*/
+
+    color: #313149;
+    display: block;
+    margin: 10px;
+    width: 450px;
+    aspect-ratio: 1;
+    position: relative;
+    z-index: 0;
+  }
+
+  .white-grad:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background: var(--c, linear-gradient(90deg, #0093fe 0%, #50ffd5 100%));
+    padding: var(--b);
+    border-radius: 30%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
 
   &:after {
   }
@@ -286,13 +313,14 @@ const FirstPage = () => {
         </div>
 
         <div className="group-button">
-          <PrimaryButton
-            icon="/images/icons/black-staking.svg"
-            activeIcon="/images/icons/white-staking.svg"
-          >
-            Staking
-          </PrimaryButton>
-
+          <Link href="/staking">
+            <PrimaryButton
+              icon="/images/icons/black-staking.svg"
+              activeIcon="/images/icons/white-staking.svg"
+            >
+              Staking
+            </PrimaryButton>
+          </Link>
           <PrimaryButton
             icon="/images/icons/black-wallet.svg"
             activeIcon="/images/icons/white-wallet.svg"
