@@ -3,33 +3,6 @@ import { ChangeEvent, useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  /* border-width: 1px;
-  --b: 1.4px;
-  position: relative;
-  color: #313149;
-  display: block;
-  margin: 10px;
-  width: 450px;
-  height: fit-content;
-  position: relative;
-  z-index: 0;
-  overflow: hidden;
-
-  &:before {
-    content: "";
-    position: absolute;
-    z-index: -2;
-    inset: 0;
-    background: var(--c, linear-gradient(90deg, #0093fe 0%, #50ffd5 100%));
-    padding: var(--b);
-    border-radius: 10px;
-    -webkit-mask: linear-gradient(#fff 0 0) content-box,
-      linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-  } */
-
   .ant-input,
   & > :first-child {
     padding: 22px;

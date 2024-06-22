@@ -34,8 +34,8 @@ const GlobalStyles = createGlobalStyle`
 
   @font-face {
     font-family: 'Manrope';
-    font-weight: normal;
-    src: local('Manrope'), url('/fonts/Manrope/Manrope-Regular.ttf') format('truetype');
+    font-weight: 400;
+    src: local('Manrope'), url('/fonts/Manrope/Manrope-Light.ttf') format('truetype');
   }
 
   @font-face {
@@ -78,8 +78,6 @@ const GlobalStyles = createGlobalStyle`
     position: relative;
   }
   
-
-
   
 
   .hover:hover{
@@ -183,6 +181,17 @@ const GlobalStyles = createGlobalStyle`
 
   .ant-drawer .ant-drawer-content{
     background: unset !important;
+  }
+
+  :where(.css-dev-only-do-not-override-zg0ahe).ant-popover .ant-popover-inner{
+    padding: 0 !important;
+    background-color: unset !important;
+    box-shadow: unset !important;
+  }
+
+  .ant-popover-placement-bottom>.ant-popover-arrow
+  {
+    display: none !important;
   }
 
   .hidden-scroll::-webkit-scrollbar {

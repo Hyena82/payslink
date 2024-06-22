@@ -11,3 +11,6 @@ export { default as Twitter } from './Twitter';
 export { default as Instagram } from './Instagram';
 export { default as Discord } from './Discord';
 export { default as Telegram } from './Telegram';
+
+// Staking menu
+export { default as Dashboard } from './StakingMenu/Dashboard';

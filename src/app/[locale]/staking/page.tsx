@@ -1,64 +1,25 @@
 "use client";
-import { Box } from "@/components/Box";
-import SubmitButton from "@/components/Button/SubmitButton";
-import TextInput from "@/components/Input/TextInput";
-import Image from "next/image";
-import { useState } from "react";
+
 import styled from "styled-components";
+import SignIn from "./components/SignIn";
+import { useState } from "react";
+import StakingMenu from "./components/StakingMenu";
+import DashboardContent from "./components/Dashboard";
+import { Box, Flex } from "@/components/Box";
 
 const Wrapper = styled.div`
-  width: 100%;
-  height: calc(100vh - 58px);
+  height: 100%;
+  min-height: calc(100vh - 58px);
 
-  .sign-in-box {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 520px;
-    position: relative;
-    z-index: 10;
-
-    justify-content: center;
-
-    .title-box {
-      font-family: Trap;
-      font-size: 20px;
-      font-weight: 500;
-      line-height: 32px;
-      text-align: left;
-    }
-
-    .lable-input {
-      font-family: Manrope;
-      font-size: 20px;
-      font-weight: 400;
-      line-height: 32px;
-      text-align: left;
-      color: rgba(35, 226, 183, 1);
-    }
-
-    .invalid-value {
-      margin-top: 10px;
-      font-family: Manrope;
-      font-size: 16px;
-      font-weight: 500;
-      line-height: 24px;
-      text-align: left;
-      color: rgba(255, 55, 55, 1);
-    }
+  .container {
+    /* padding-top: 30px; */
+    padding-right: unset;
   }
 
-  .blur-box {
-    background: linear-gradient(278.24deg, #08cdda 39.63%, #1af7a8 108.26%);
-    position: fixed;
-    z-index: 1;
-    bottom: 0;
-    left: 0;
-    transform: translate(-40%, 50%);
-    width: 850px;
-    height: 550px;
-    border-radius: 50%;
-    filter: blur(350px);
+  .content-menu {
+    border-left: 1px solid var(--Stroke, rgba(53, 53, 57, 1));
+    margin-left: 20px;
+    min-height: calc(100vh - 58px);
   }
 
   .blur-box-top {
@@ -66,80 +27,65 @@ const Wrapper = styled.div`
     position: fixed;
     z-index: 3;
     top: 0;
-    right: 0;
-    transform: translate(20%, -50%);
-    width: 850px;
-    height: 450px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 350px;
     border-radius: 50%;
-    filter: blur(270px);
+    filter: blur(230px);
   }
 
-  .bg {
-    position: fixed;
-    z-index: 1;
-    bottom: 0;
-    right: 0;
-    width: 921px;
-    height: 760px;
+  .footer-page {
+    margin-top: 1rem;
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+    color: rgba(122, 122, 122, 1);
+    padding: 13px 0;
+    border-top: 1px solid var(--Stroke, rgba(53, 53, 57, 1));
+    /* border-left: 1px solid var(--Stroke, rgba(53, 53, 57, 1)); */
   }
 `;
 
 const StakingPage = () => {
-  const [email, setEmailValue] = useState("");
-  const [password, setPasswordValue] = useState("");
+  const [isLogIn, setIsLogIn] = useState(false);
+  const [valueMenu, setValueMenu] = useState("Dashboard");
 
   return (
-    <Wrapper>
-      <div className="container h-100">
-        <div className="sign-in-box h-100">
-          <div className="title-box">
-            <p className="title-section">
-              <span>Sign in</span>
-            </p>
-            <Box mt={3}>Welcome back! Please enter your details.</Box>
-          </div>
+    <>
+      {isLogIn ? (
+        <Wrapper>
+          <Flex className="container h-100 w-100">
+            <div className="blur-box-top" />
+            <Box pt={4}>
+              <StakingMenu value={valueMenu} onChange={setValueMenu} />
+            </Box>
 
-          <Box mb={2} mt={4} className="lable-input">
-            Email
-          </Box>
-
-          <TextInput
-            value={email}
-            onChange={setEmailValue}
-            placeholder="Enter Your Email"
-          />
-
-          <Box className="invalid-value">Invalid email address</Box>
-
-          <Box mt={4} mb={2} className="lable-input">
-            Password
-          </Box>
-
-          <TextInput
-            value={password}
-            onChange={setPasswordValue}
-            placeholder="Enter Your Password"
-            isPassword
-          />
-
-          <Box mt={4}>
-            <SubmitButton>Sign in</SubmitButton>
-          </Box>
-        </div>
-
-        <div className="blur-box-top" />
-        <div className="blur-box" />
-
-        <div className="bg">
-          <Image
-            src="/images/staking/sign-in-bg.png"
-            fill
-            quality={100}
-            alt=""
-          />
-        </div>
-      </div>
-    </Wrapper>
+            <Flex
+              pt={4}
+              flexDirection="column"
+              justifyContent="space-between"
+              className="content-menu h-100 w-100"
+            >
+              <Flex
+                flexDirection="column"
+                justifyContent="space-between"
+                pr="2.2%"
+              >
+                <DashboardContent />
+              </Flex>
+              <Box className="footer-page">
+                Payslink © 2024. All Rights Reserved.
+              </Box>
+            </Flex>
+          </Flex>
+        </Wrapper>
+      ) : (
+        <SignIn setIsLogIn={setIsLogIn} />
+      )}
+    </>
   );
 };
 
