@@ -210,6 +210,10 @@ const GlobalStyles = createGlobalStyle`
   .w-100{
     width: 100%;
   }
+
+  .border{
+    border: 1px solid var(--Stroke, rgba(53, 53, 57, 1));
+  }
   
 `;
 

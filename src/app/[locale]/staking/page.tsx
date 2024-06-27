@@ -6,12 +6,17 @@ import { useState } from "react";
 import StakingMenu from "./components/StakingMenu";
 import DashboardContent from "./components/Dashboard";
 import { Box, Flex } from "@/components/Box";
+import WalletContent from "./components/Wallet";
 
 const Wrapper = styled.div`
   height: 100%;
   min-height: calc(100vh - 58px);
 
   .container {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    width: 100%;
     /* padding-top: 30px; */
     padding-right: unset;
   }
@@ -20,12 +25,18 @@ const Wrapper = styled.div`
     border-left: 1px solid var(--Stroke, rgba(53, 53, 57, 1));
     margin-left: 20px;
     min-height: calc(100vh - 58px);
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    background: url(/images/staking/footer-bg.png) no-repeat fixed;
+    background-position-x: 65%;
+    background-position-y: bottom;
   }
 
   .blur-box-top {
     background: linear-gradient(278.24deg, #08cdda 39.63%, #1af7a8 108.26%);
     position: fixed;
-    z-index: 3;
+    z-index: 1;
     top: 0;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -58,7 +69,7 @@ const StakingPage = () => {
       {isLogIn ? (
         <Wrapper>
           <Flex className="container h-100 w-100">
-            <div className="blur-box-top" />
+            {/* <div className="blur-box-top" /> */}
             <Box pt={4}>
               <StakingMenu value={valueMenu} onChange={setValueMenu} />
             </Box>
@@ -67,14 +78,15 @@ const StakingPage = () => {
               pt={4}
               flexDirection="column"
               justifyContent="space-between"
-              className="content-menu h-100 w-100"
+              className="content-menu w-100"
             >
               <Flex
                 flexDirection="column"
                 justifyContent="space-between"
                 pr="2.2%"
               >
-                <DashboardContent />
+                {/* <DashboardContent /> */}
+                <WalletContent />
               </Flex>
               <Box className="footer-page">
                 Payslink © 2024. All Rights Reserved.

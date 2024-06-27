@@ -98,6 +98,26 @@ html.lenis body {
   padding: 0 !important;
 }
 
+/* .ant-select-dropdown {
+  background-color: unset !important;
+} */
+
+.ant-select-selector {
+  padding-top: 4px;
+  border: none;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-select-dropdown
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) {
+  background-color: rgba(36, 35, 50, 1) !important;
+}
+
+:where(.css-dev-only-do-not-override-zg0ahe).ant-select-dropdown .ant-select-item {
+  padding: auto 15px;
+}
+
 .ant-modal-wrap {
   &.custom-modal-mobile {
     width: 100%;

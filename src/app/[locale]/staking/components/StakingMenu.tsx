@@ -8,6 +8,7 @@ const Wrapper = styled.div`
   border-radius: 70px;
   width: 113px;
   position: relative;
+  height: 810px;
 
   .gradient-border {
     background-color: rgba(255, 255, 255, 0.1);
