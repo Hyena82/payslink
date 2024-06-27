@@ -7,6 +7,7 @@ import StakingMenu from "./components/StakingMenu";
 import DashboardContent from "./components/Dashboard";
 import { Box, Flex } from "@/components/Box";
 import WalletContent from "./components/Wallet";
+import Investment from "./components/Investment";
 
 const Wrapper = styled.div`
   height: 100%;
@@ -86,7 +87,8 @@ const StakingPage = () => {
                 pr="2.2%"
               >
                 {/* <DashboardContent /> */}
-                <WalletContent />
+                {/* <WalletContent /> */}
+                <Investment />
               </Flex>
               <Box className="footer-page">
                 Payslink © 2024. All Rights Reserved.
