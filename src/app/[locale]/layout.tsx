@@ -8,6 +8,7 @@ import { AntdRegistry } from "@ant-design/nextjs-registry";
 import GlobalStyles from "@/styles/GlobalStyles";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { LenisProvider } from "@/Provider/LenisProvider";
 
 export const metadata: Metadata = {
   title: "PAYSLINK",
@@ -29,7 +30,9 @@ export default async function RootLayout({
         <StyledJsxRegistry>
           <GlobalStyles />
           <NextIntlClientProvider locale="en" messages={messages}>
-            <AntdRegistry>{children}</AntdRegistry>
+            <LenisProvider>
+              <AntdRegistry>{children}</AntdRegistry>
+            </LenisProvider>
           </NextIntlClientProvider>
         </StyledJsxRegistry>
       </body>

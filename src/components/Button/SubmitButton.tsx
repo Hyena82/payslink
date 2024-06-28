@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   width: 100%;
   color: #000;
   cursor: pointer;
-  transition: color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
   &:hover {
     color: #fff;
