@@ -209,6 +209,9 @@ const HistoryTable = () => {
         className="member-table"
         columns={columns}
         dataSource={[...tableData]}
+        locale={{
+          emptyText: "There is no record",
+        }}
       />
     </Wrapper>
   );

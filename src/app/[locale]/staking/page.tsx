@@ -9,6 +9,7 @@ import { Box, Flex } from "@/components/Box";
 import WalletContent from "./components/Wallet";
 import Investment from "./components/Investment";
 import MemberContent from "./components/Member";
+import History from "./components/History";
 
 const Wrapper = styled.div`
   height: 100%;
@@ -90,7 +91,8 @@ const StakingPage = () => {
                 {/* <DashboardContent /> */}
                 {/* <WalletContent /> */}
                 {/* <Investment /> */}
-                <MemberContent />
+                {/* <MemberContent /> */}
+                <History />
               </Flex>
               <Box className="footer-page">
                 Payslink © 2024. All Rights Reserved.

@@ -194,6 +194,81 @@ const GlobalStyles = createGlobalStyle`
     display: none !important;
   }
 
+  .ant-table-row > .ant-table-cell-row-hover {
+    background: unset !important;
+    cursor: pointer;
+  }
+
+  .ant-table-thead .ant-table-cell {
+    background-color: rgba(10, 9, 16, 1) !important;
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    text-align: left;
+    color: rgba(101, 99, 111, 1) !important;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  .ant-table-tbody {
+    background-color: rgba(10, 9, 16, 1);
+    color: rgba(240, 240, 240, 1);
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 16px;
+    letter-spacing: 0.1em;
+    text-align: left;
+  }
+  .ant-table-wrapper .ant-table-pagination.ant-pagination {
+    margin: 0 !important;
+    padding: 16px 0 !important;
+  }
+
+
+  .ant-table-cell {
+    padding: 20px 16px !important;
+    border-bottom: 1px solid rgba(36, 35, 50, 1) !important;
+  }
+
+ 
+  .ant-table-pagination.ant-pagination,
+  .ant-table-placeholder {
+    background: rgba(10, 9, 16, 1) !important;
+  }
+
+  .ant-table-placeholder .ant-table-cell {
+    height: 176px;
+    text-align: center;
+    font-family: Manrope;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+    text-align: center;
+    color: rgba(122, 122, 122, 1);
+    background: rgba(10, 9, 16, 1) !important;
+  }
+
+  .ant-pagination .ant-pagination-item-active {
+    background-color: rgba(45, 44, 59, 1) !important;
+    border: none;
+    width: 32px;
+    height: 32px;
+    a {
+      color: rgba(222, 222, 222, 1);
+    }
+  }
+
+  .ant-pagination-item-link {
+    svg {
+      fill: #fff;
+    }
+  }
+
   .hidden-scroll::-webkit-scrollbar {
     display: none;
   }
