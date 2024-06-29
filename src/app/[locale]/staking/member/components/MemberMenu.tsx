@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   align-items: center;
   .menu-item {
     border: 1px solid var(--Stroke, rgba(53, 53, 57, 1));
-    width: 120px;
+    width: 140px;
     height: 42px;
     font-family: Manrope;
     font-size: 14px;
@@ -34,15 +34,14 @@ const Wrapper = styled.div`
   }
 `;
 
-const WalletMenu = () => {
+const MemberMenu = () => {
   const pathname = usePathname();
 
   const tabs = [
-    { name: "List Wallet", href: "/staking/wallet/list-wallet" },
-    { name: "Deposit", href: "/staking/wallet/deposit" },
-    { name: "Swap", href: "/staking/wallet/swap" },
-    { name: "Claim Profit", href: "/staking/wallet/claim-profit" },
-    { name: "Withdraw", href: "/staking/wallet/withdraw" },
+    { name: "Member Referral", href: "/staking/member/referral" },
+    { name: "Member Tree", href: "/staking/member/tree" },
+    { name: "Transfer", href: "/staking/member/transfer" },
+    { name: "Transfer History", href: "/staking/member/history" },
   ];
 
   return (
@@ -59,5 +58,4 @@ const WalletMenu = () => {
     </Wrapper>
   );
 };
-
-export default WalletMenu;
+export default MemberMenu;

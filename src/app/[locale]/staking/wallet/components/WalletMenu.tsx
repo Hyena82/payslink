@@ -38,7 +38,7 @@ const WalletMenu = () => {
   const pathname = usePathname();
 
   const tabs = [
-    { name: "List Wallet", href: "/staking/wallet/list-wallet" },
+    { name: "List Wallet", href: "/staking/wallet/list" },
     { name: "Deposit", href: "/staking/wallet/deposit" },
     { name: "Swap", href: "/staking/wallet/swap" },
     { name: "Claim Profit", href: "/staking/wallet/claim-profit" },

@@ -1,5 +1,7 @@
 import { Box } from "@/components/Box";
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
@@ -85,58 +87,54 @@ const Wrapper = styled.div`
   }
 `;
 
-interface IStakingMenu {
-  value: string;
-  onChange: (value: string) => void;
-}
-
-const StakingMenu: React.FC<IStakingMenu> = ({ value, onChange }) => {
+const StakingMenu = () => {
   const dataMenu = [
     {
       title: "Dashboard",
-      url: "/staking",
+      url: "/staking/dashboard",
       nameIcon: "dashboard",
     },
     {
       title: "Wallet",
-      url: "/staking",
+      url: "/staking/wallet",
       nameIcon: "wallet",
     },
     {
       title: "Investment Pool",
-      url: "/staking",
-      nameIcon: "investMent",
+      url: "/staking/investment-pool",
+      nameIcon: "investment",
     },
     {
       title: "Member Team",
-      url: "/staking",
+      url: "/staking/member",
       nameIcon: "team",
     },
     {
       title: "History",
-      url: "/staking",
+      url: "/staking/history",
       nameIcon: "history",
     },
     {
       title: "Profile",
-      url: "/staking",
+      url: "/staking/profile",
       nameIcon: "profile",
     },
   ];
+  const pathname = usePathname();
 
   return (
     <Wrapper>
       {dataMenu.map((item, index) => (
-        <Box
-          onClick={() => onChange(item.title)}
-          className={`${item.title === value && "active"} item-menu `}
+        <Link
+          className={`${pathname.startsWith(item.url) && "active"} item-menu `}
           key={index}
+          href={item.url}
         >
           <Box className="gradient-border"></Box>
           <Image
-            src={`images/staking/menu/${item.title === value ? "active-" : ""}${
-              item.nameIcon
-            }.svg`}
+            src={`/images/staking/menu/${
+              pathname.startsWith(item.url) ? "active-" : ""
+            }${item.nameIcon}.svg`}
             width={30}
             height={30}
             alt=""
@@ -145,7 +143,7 @@ const StakingMenu: React.FC<IStakingMenu> = ({ value, onChange }) => {
             {" "}
             {item.title}
           </Box>
-        </Box>
+        </Link>
       ))}
     </Wrapper>
   );

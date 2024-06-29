@@ -131,7 +131,7 @@ const SwapContent = () => {
     // Fetch or update your data here
     const newData = [...data]; // Your data fetching logic
     setTableData(newData);
-  }, [data]);
+  }, []);
   return (
     <Wrapper>
       <Table

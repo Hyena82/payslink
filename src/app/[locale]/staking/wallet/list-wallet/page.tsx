@@ -1,9 +1,11 @@
+"use client";
+
 import { Box, Flex } from "@/components/Box";
 import FuncButton from "@/components/Button/FuncButton";
 import Image from "next/image";
 import { useState } from "react";
 import styled from "styled-components";
-import WithdrawTransaction from "./WithdrawTransaction";
+import WithdrawTransaction from "../components/WithdrawTransaction";
 
 const Wrapper = styled.div`
   font-family: Manrope;
@@ -49,11 +51,7 @@ const Wrapper = styled.div`
 `;
 
 const ListWalletContent = () => {
-  const [value, setValue] = useState<string>("");
-
-  const useHandleChange = (text: string) => {
-    useState(text);
-  };
+  const [value, setValue] = useState("");
 
   return (
     <Wrapper>
@@ -116,8 +114,7 @@ const ListWalletContent = () => {
           </Box>
         </>
       ) : (
-        // <WithdrawTransaction setValueTab={useHandleChange} nameWallet={value} />
-        <div>x</div>
+        <WithdrawTransaction setValueTab={setValue} nameWallet={value} />
       )}
     </Wrapper>
   );

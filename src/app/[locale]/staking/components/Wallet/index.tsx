@@ -15,7 +15,7 @@ const WalletContent = () => {
 
   return (
     <Wrapper>
-      <WalletMenu active={activeMenuItem} setItem={setActiveMenuItem} />
+      <WalletMenu />
 
       {activeMenuItem === "List Wallet" && <ListWalletContent />}
 

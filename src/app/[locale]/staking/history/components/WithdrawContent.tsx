@@ -17,12 +17,13 @@ interface DataType {
   key: string;
   no: number;
   pool: string;
-  price: string;
+  token: string;
   date: string;
-  active: string;
+  network: string;
+  status: string;
 }
 
-const InvestPoolContent = () => {
+const WithdrawContent = () => {
   const columns: TableProps<DataType>["columns"] = [
     {
       title: "No",
@@ -35,9 +36,9 @@ const InvestPoolContent = () => {
       dataIndex: "pool",
     },
     {
-      title: "Price",
-      key: "price",
-      dataIndex: "price",
+      title: "Token",
+      key: "token",
+      dataIndex: "token",
     },
     {
       title: "Date",
@@ -45,30 +46,18 @@ const InvestPoolContent = () => {
       dataIndex: "date",
     },
     {
-      title: "Active",
-      key: "active",
-      dataIndex: "active",
+      title: "Network",
+      key: "network",
+      dataIndex: "network",
+    },
+    {
+      title: "Status",
+      key: "status",
+      dataIndex: "status",
     },
   ];
 
-  const data: DataType[] = [
-    {
-      key: "1",
-      no: 1,
-      pool: "John Brown",
-      price: "1",
-      date: "2021-09-01",
-      active: "Active",
-    },
-    {
-      key: "2",
-      no: 2,
-      pool: "Jim Green",
-      price: "1",
-      date: "2021-09-01",
-      active: "Active",
-    },
-  ];
+  const data: DataType[] = [];
 
   const [tableData, setTableData] = useState<DataType[]>([]);
 
@@ -76,7 +65,8 @@ const InvestPoolContent = () => {
     // Fetch or update your data here
     const newData = [...data]; // Your data fetching logic
     setTableData(newData);
-  }, [data]);
+  }, []);
+
   return (
     <Wrapper>
       <Table
@@ -91,4 +81,4 @@ const InvestPoolContent = () => {
   );
 };
 
-export default InvestPoolContent;
+export default WithdrawContent;

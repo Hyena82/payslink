@@ -1,11 +1,12 @@
+"use client";
 import { useState } from "react";
 import styled from "styled-components";
-import HistoryMenu from "./HistoryMenu";
-import InvestPoolContent from "./InvestPoolContent";
-import DepositContent from "./DepositContent";
-import SwapContent from "./SwapContent";
-import WithdrawContent from "./WithdrawContent";
-import ProfitContent from "./ProfitContent";
+import HistoryMenu from "./components/HistoryMenu";
+import DepositContent from "./components/DepositContent";
+import SwapContent from "./components/SwapContent";
+import WithdrawContent from "./components/WithdrawContent";
+import ProfitContent from "./components/ProfitContent";
+import InvestPoolContent from "./components/InvestPoolContent";
 
 const Wrapper = styled.div`
   padding-left: 85px;

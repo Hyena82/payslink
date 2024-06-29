@@ -27,7 +27,7 @@ const TokenBox: React.FC<TokenBoxProps> = ({ name }) => {
       <Flex alignItems="center">
         <Flex className="image-token center">
           <Image
-            src={`images/token/${name}.svg`}
+            src={`/images/token/${name}.svg`}
             width={20}
             height={20}
             alt=""

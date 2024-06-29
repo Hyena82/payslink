@@ -151,9 +151,15 @@ const StakingHeader = () => {
           </Box>
 
           <Box className="box-content">
-            <Button className="header-button">Deposit</Button>
+            <Link href="/staking/wallet/deposit">
+              <Button className="header-button">Deposit</Button>
+            </Link>
             <Box ml={3}>
-              <Button className="header-button last-child">Claim profit</Button>
+              <Link href="/staking/wallet/claim-profit">
+                <Button className="header-button last-child">
+                  Claim profit
+                </Button>
+              </Link>
             </Box>
           </Box>
 

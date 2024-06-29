@@ -1,3 +1,4 @@
+"use client";
 import { Box, Flex } from "@/components/Box";
 import FuncButton from "@/components/Button/FuncButton";
 import PrimaryButton from "@/components/Button/PrimaryButton";
@@ -79,7 +80,7 @@ const Wrapper = styled.div`
 `;
 
 interface WithdrawTransactionProps {
-  setValueTab: (value: string) => void;
+  setValueTab: (value: any) => void;
   nameWallet: string;
 }
 
@@ -88,8 +89,6 @@ const WithdrawTransaction: React.FC<WithdrawTransactionProps> = ({
   nameWallet,
 }) => {
   const [value, setValue] = useState("");
-  console.log("~~", nameWallet);
-
   const handleClose = () => {
     setValueTab("");
   };
