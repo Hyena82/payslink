@@ -32,6 +32,11 @@ const Wrapper = styled.div`
     line-height: 40px;
     text-align: center;
     margin: 30px 0 20px;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+      line-height: 32px;
+    }
   }
 
   .desc-box {
@@ -52,6 +57,11 @@ const Wrapper = styled.div`
     text-align: left;
     color: rgba(35, 226, 183, 1);
     margin-bottom: 10px;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   .input-text {
@@ -70,6 +80,13 @@ const Wrapper = styled.div`
     width: 100%;
     transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
+    @media (max-width: 768px) {
+      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      height: 53px;
+    }
+
     &::placeholder {
       color: rgba(92, 92, 92, 1);
     }
@@ -83,6 +100,9 @@ const Wrapper = styled.div`
   .ant-select-single {
     width: 100%;
     height: 63px;
+    @media (max-width: 768px) {
+      height: 53px !important;
+    }
   }
 
   .form-select {
@@ -103,6 +123,13 @@ const Wrapper = styled.div`
       text-align: left;
       color: #fff;
       transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+      @media (max-width: 768px) {
+        padding: 0 15px !important;
+        display: flex;
+        align-items: center;
+        height: 53px !important;
+      }
       .ant-select-focused .ant-select-selector {
         border-color: #d9d9d9 !important;
         box-shadow: none !important;
@@ -135,6 +162,7 @@ const Wrapper = styled.div`
     }
   }
 `;
+
 const ContentBox = styled.div`
   background-color: rgba(10, 9, 16, 1);
   padding: 20px;
@@ -143,10 +171,14 @@ const ContentBox = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 20px;
-  border: 1px solid red;
   width: 469px;
   margin: 0 auto;
   color: rgba(255, 255, 255, 1);
+
+  @media (max-width: 768px) {
+    width: 95%;
+    border-radius: 10px;
+  }
 
   .scrollable-content {
     max-height: 10vh; // Adjust this value as needed

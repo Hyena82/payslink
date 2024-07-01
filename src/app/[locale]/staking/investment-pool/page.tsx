@@ -15,6 +15,10 @@ const Wrapper = styled.div`
   margin: 0 auto;
   width: 100%;
 
+  @media (max-width: 768px) {
+    padding: 0;
+  }
+
   .invest-form {
     margin: 0 auto;
 
@@ -28,6 +32,10 @@ const Wrapper = styled.div`
     flex-direction: column;
     border-radius: 16px;
     font-family: Manrope;
+
+    @media (max-width: 768px) {
+      padding: 15px;
+    }
 
     .title-form {
       font-family: Trap;
@@ -52,10 +60,13 @@ const Wrapper = styled.div`
       font-weight: 400;
       line-height: 32px;
       text-align: left;
-
       color: rgba(35, 226, 183, 1);
-
       margin-bottom: 10px;
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+        line-height: 24px;
+      }
     }
 
     .input-text {
@@ -72,6 +83,13 @@ const Wrapper = styled.div`
       color: #fff;
       width: 100%;
       transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+      @media (max-width: 768px) {
+        padding: 0 15px;
+        display: flex;
+        align-items: center;
+        height: 53px;
+      }
 
       &.radius {
         border-radius: 10px;
@@ -238,7 +256,7 @@ const Investment = () => {
       ) : (
         <Row gutter={[20, 20]}>
           {data.map((item, index) => (
-            <Col span={8} key={index}>
+            <Col sm={8} xs={24} key={index}>
               <InvestCard
                 number={index + 1}
                 amount={item.amount}

@@ -87,7 +87,7 @@ const PopupContent: React.FC<PopupContentProps> = ({ onClose }) => {
       token: "USDT",
     },
     {
-      image: "/images/token/pays.svg",
+      image: "/images/token/pays.png",
       amount: "12.12",
       token: "PAYS",
     },

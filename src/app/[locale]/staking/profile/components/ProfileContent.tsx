@@ -17,6 +17,11 @@ const Wrapper = styled.div`
     text-align: left;
     color: rgba(35, 226, 183, 1);
     margin-bottom: 10px;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   .body-content {
@@ -61,6 +66,9 @@ const Wrapper = styled.div`
     position: relative;
     cursor: pointer;
     white-space: nowrap;
+    @media (max-width: 768px) {
+      padding: 10px 20px;
+    }
     input {
       position: absolute;
       width: 100%;
@@ -115,6 +123,13 @@ const Wrapper = styled.div`
     color: #fff;
     width: 100%;
     transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+    @media (max-width: 768px) {
+      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      height: 53px;
+    }
 
     &::placeholder {
       color: rgba(92, 92, 92, 1);
@@ -180,7 +195,7 @@ const ProfileContent = () => {
     <Wrapper>
       {contextHolder}
       <Row gutter={[20, 20]}>
-        <Col span={8}>
+        <Col sm={8} xs={24}>
           <Flex flexDirection="column" className="h-100">
             <div className="title">Avatar</div>
             <Box className="body-content ">
@@ -265,7 +280,7 @@ const ProfileContent = () => {
           </Flex>
         </Col>
 
-        <Col span={16}>
+        <Col sm={16} xs={24}>
           <div className="title">Information</div>
           <Box className="body-content">
             <Box className="box-content">

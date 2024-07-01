@@ -6,10 +6,21 @@ import Image from "next/image";
 
 const Wrapper = styled.div`
   margin-top: 43px;
+  @media (max-width: 768px) {
+    width: 100%;
+    overflow-x: auto;
+  }
+
   .member-table {
     border: 1px solid rgba(36, 35, 50, 1);
     border-radius: 16px;
     overflow: hidden;
+    @media (max-width: 768px) {
+      width: 600px;
+      overflow: unset;
+      border-radius: unset;
+      max-width: unset;
+    }
   }
 
   .amount-text {

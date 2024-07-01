@@ -29,6 +29,11 @@ const Wrapper = styled.div`
     line-height: 40px;
     text-align: center;
     margin: 30px 0 20px;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+      line-height: 32px;
+    }
   }
 
   .desc-box {
@@ -49,6 +54,11 @@ const Wrapper = styled.div`
     text-align: left;
     color: rgba(35, 226, 183, 1);
     margin-bottom: 10px;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   .input-text {
@@ -66,6 +76,13 @@ const Wrapper = styled.div`
     color: #fff;
     width: 100%;
     transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+    @media (max-width: 768px) {
+      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      height: 53px;
+    }
 
     &::placeholder {
       color: rgba(92, 92, 92, 1);

@@ -6,6 +6,7 @@ import styled from "styled-components";
 import Trusted from "../Trusted";
 import InviewBox from "@/components/InViewBox";
 import { Box, Flex } from "@/components/Box";
+import { formatNumber } from "@/utils";
 
 const Wrapper = styled.div`
   height: 600px;
@@ -157,10 +158,6 @@ const Staking = () => {
       percent: "0.00% (7d)",
     },
   ];
-
-  function formatNumber(num: number) {
-    return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, "$1,");
-  }
 
   useCountUp({
     ref: "counter",

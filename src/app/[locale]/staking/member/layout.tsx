@@ -5,6 +5,9 @@ import MemberMenu from "./components/MemberMenu";
 
 const Wrapper = styled.div`
   padding-left: 85px;
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 `;
 interface MemberLayoutProps {
   children: React.ReactNode;

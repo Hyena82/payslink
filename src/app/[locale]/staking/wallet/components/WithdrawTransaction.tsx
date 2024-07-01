@@ -28,6 +28,11 @@ const Wrapper = styled.div`
     line-height: 40px;
     text-align: center;
     margin: 30px 0;
+
+    @media (max-width: 768px) {
+      font-size: 24px;
+      line-height: 32px;
+    }
   }
 
   .lable {
@@ -38,6 +43,11 @@ const Wrapper = styled.div`
     text-align: left;
     color: rgba(35, 226, 183, 1);
     margin-bottom: 10px;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   .input-text {
@@ -56,6 +66,13 @@ const Wrapper = styled.div`
     width: 100%;
     transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
+    @media (max-width: 768px) {
+      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      height: 53px;
+    }
+
     &::placeholder {
       color: rgba(92, 92, 92, 1);
     }
@@ -67,11 +84,15 @@ const Wrapper = styled.div`
   }
 
   .custom-button {
-    //styleName: Body/Medium/02;
     font-family: Manrope;
     font-size: 16px;
     font-weight: 500;
     color: rgba(27, 26, 40, 1);
+    height: 30px;
+
+    @media (max-width: 768px) {
+      padding-top: 2px;
+    }
 
     &:hover {
       color: #fff;
@@ -165,9 +186,7 @@ const WithdrawTransaction: React.FC<WithdrawTransactionProps> = ({
 
       <Box className="w-100" mt={3}>
         <SubmitButton>
-          <Box className="custom-button" height={30}>
-            Withdraw now
-          </Box>
+          <Box className="custom-button">Withdraw now</Box>
         </SubmitButton>
       </Box>
     </Wrapper>

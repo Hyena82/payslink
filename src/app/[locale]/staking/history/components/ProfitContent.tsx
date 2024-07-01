@@ -7,10 +7,29 @@ import { Box } from "@/components/Box";
 
 const Wrapper = styled.div`
   margin-top: 43px;
+
+  @media (max-width: 768px) {
+    max-width: 100%;
+  }
+
+  .box-table {
+    @media (max-width: 768px) {
+      width: 100%;
+      overflow-x: auto;
+    }
+  }
+
   .member-table {
     border: 1px solid rgba(36, 35, 50, 1);
     border-radius: 16px;
     overflow: hidden;
+
+    @media (max-width: 768px) {
+      width: 600px;
+      overflow: unset;
+      border-radius: unset;
+      max-width: unset;
+    }
   }
 
   .amount-text {
@@ -109,9 +128,14 @@ const ProfitContent = () => {
   return (
     <Wrapper>
       <Box className="" mb={4}>
-        <Row gutter={[20, 20]}>
+        <Row
+          gutter={[
+            { sm: 20, xs: 10 },
+            { sm: 20, xs: 10 },
+          ]}
+        >
           {items.map((item, index) => (
-            <Col span={6} key={index}>
+            <Col sm={6} key={index} xs={12}>
               <Box
                 className={`${value === item && "active"} type-box hover`}
                 onClick={() => setValue(item)}
@@ -123,14 +147,16 @@ const ProfitContent = () => {
         </Row>
       </Box>
 
-      <Table
-        className="member-table"
-        columns={columns}
-        dataSource={tableData}
-        locale={{
-          emptyText: "There is no record",
-        }}
-      />
+      <Box className="box-table">
+        <Table
+          className="member-table"
+          columns={columns}
+          dataSource={tableData}
+          locale={{
+            emptyText: "There is no record",
+          }}
+        />
+      </Box>
     </Wrapper>
   );
 };

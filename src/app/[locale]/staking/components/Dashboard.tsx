@@ -1,5 +1,7 @@
 import { Box, Flex } from "@/components/Box";
 import { Col, Progress, Row } from "antd";
+import CountUp, { useCountUp } from "react-countup";
+
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -10,17 +12,32 @@ const Wrapper = styled.div`
   font-family: Manrope;
   padding: 0 20px;
 
+  @media (max-width: 768px) {
+    padding: 0;
+  }
+
   .box-item {
     background: rgba(10, 9, 16, 1);
     border: 1px solid var(--Stroke, rgba(53, 53, 57, 1));
     padding: 17px 20px;
     border-radius: 16px;
+
+    @media (max-width: 768px) {
+      padding: 10px;
+      height: 100%;
+    }
   }
 
   .thumbnail {
     padding: 34px 42px;
     background: url("/images/staking/thumbnail.png") no-repeat center center;
     background-size: cover;
+
+    @media (max-width: 768px) {
+      padding: 20px;
+      background-position: 80% 50%;
+    }
+
     .text {
       font-family: Manrope;
       font-size: 16px;
@@ -62,9 +79,12 @@ const Wrapper = styled.div`
       display: flex;
       justify-content: center;
       align-items: center;
-
       border: 1px solid var(--Neutral-700, rgba(36, 35, 50, 1));
       border-radius: 70px;
+
+      @media (max-width: 768px) {
+        padding: 10px;
+      }
 
       p {
         margin-left: 10px;
@@ -138,12 +158,21 @@ const Wrapper = styled.div`
       flex-direction: column;
       flex: 1;
 
+      @media (max-width: 768px) {
+        font-size: 12px;
+        line-height: 18px;
+      }
+
       & .value-text {
         font-size: 20px;
         font-weight: 400;
         line-height: 32px;
         text-align: left;
         color: rgba(35, 226, 183, 1);
+        @media (max-width: 768px) {
+          font-size: 12px;
+          line-height: 18px;
+        }
       }
     }
   }
@@ -193,10 +222,21 @@ const Wrapper = styled.div`
       width: 100%;
       border-radius: 16px;
       border: 1px solid var(--Stroke, rgba(53, 53, 57, 1));
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @media (max-width: 768px) {
+        padding: 10px;
+      }
 
       p {
         margin: 0 8px;
         width: 100%;
+        @media (max-width: 768px) {
+          width: 80%;
+          word-wrap: break-word;
+        }
       }
     }
   }
@@ -212,6 +252,10 @@ const Button = styled.div`
   padding: 15px 50px;
   border-radius: 70px;
   color: rgba(92, 92, 92, 1);
+
+  @media (max-width: 768px) {
+    padding: 10px 30px;
+  }
 
   &.size-s {
     padding: 9px 24px;
@@ -237,7 +281,7 @@ const DashboardContent = () => {
       title: "Total Earn",
       value: "0 PAYS",
       image: "/images/staking/volume.svg",
-      icon: "/images/token/pays.svg",
+      icon: "/images/token/pays.png",
     },
     {
       title: "Total Investment",
@@ -255,14 +299,15 @@ const DashboardContent = () => {
       title: "Withdrawal",
       value: "0 PAYS",
       image: "/images/staking/volume.svg",
-      icon: "/images/token/pays.svg",
+      icon: "/images/token/pays.png",
       button: "Withdraw",
     },
   ];
+
   return (
     <Wrapper>
       <Row gutter={[20, 20]}>
-        <Col span={18}>
+        <Col span={24} sm={18}>
           <div className="box-item thumbnail">
             <p className="text">Welcome back</p>
 
@@ -302,7 +347,7 @@ const DashboardContent = () => {
           </div>
         </Col>
 
-        <Col span={6}>
+        <Col span={24} sm={6}>
           <div className="progress-bar box-item h-100">
             <Flex className="title" justifyContent="space-between">
               Token sale progress
@@ -345,14 +390,26 @@ const DashboardContent = () => {
         </Col>
       </Row>
 
-      <Row gutter={[20, 20]} className="detail-data">
+      <Row
+        gutter={[
+          { sm: 20, xs: 10 },
+          { sm: 20, xs: 10 },
+        ]}
+        className="detail-data"
+      >
         {data.map((item, index) => (
-          <Col span={8} key={index}>
+          <Col
+            sm={8}
+            span={
+              index === data.length - 1 || index === data.length - 2 ? 24 : 12
+            }
+            key={index}
+          >
             <Flex className="box-item">
               <Image src={item.image} width={60} height={60} alt="" />
               <Box className="value-data" ml={3}>
                 <p>{item.title}</p>
-                <Flex>
+                <Flex alignItems="center">
                   {item.icon && (
                     <Image
                       src={item.icon}
@@ -376,7 +433,7 @@ const DashboardContent = () => {
       </Row>
 
       <Row gutter={[20, 20]}>
-        <Col span={8}>
+        <Col span={24} sm={8}>
           <Box className="box-item refer-us h-100">
             <Flex justifyContent="space-between">
               <p>Refer Us & Earn</p>
@@ -396,7 +453,7 @@ const DashboardContent = () => {
           </Box>
         </Col>
 
-        <Col span={16}>
+        <Col span={24} sm={16}>
           <Box className="box-item refer-us">
             <Flex justifyContent="space-between">
               <p>Refer Us & Earn</p>

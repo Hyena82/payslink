@@ -10,6 +10,11 @@ const Wrapper = styled.div`
   border: 1px solid var(--Stroke, rgba(53, 53, 57, 1));
   border-radius: 16px;
   font-family: Manrope;
+
+  @media (max-width: 768px) {
+    padding: 20px 15px;
+  }
+
   .content-box {
     font-size: 16px;
     font-weight: 500;
@@ -17,12 +22,22 @@ const Wrapper = styled.div`
     text-align: left;
     color: var(--Neutral-White, rgba(255, 255, 255, 1));
 
+    @media (max-width: 768px) {
+      font-size: 14px;
+      line-height: 22px;
+    }
+
     p:last-child {
       font-size: 36px;
       font-weight: 400;
       line-height: 44px;
       text-align: left;
       color: rgba(35, 226, 183, 1);
+
+      @media (max-width: 768px) {
+        font-size: 24px;
+        line-height: 32px;
+      }
     }
   }
 `;

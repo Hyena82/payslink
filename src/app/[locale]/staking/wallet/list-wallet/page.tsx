@@ -13,12 +13,23 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
+
   .box-item {
     background: rgba(10, 9, 16, 1);
     border: 1px solid var(--Stroke, rgba(53, 53, 57, 1));
     padding: 17px 20px;
     border-radius: 16px;
     width: 361px;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      &:last-child {
+        margin: 20px 0;
+      }
+    }
 
     .title-box {
       font-size: 16px;

@@ -12,7 +12,6 @@ const Wrapper = styled.div`
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   width: 100%;
-  height: 100%;
   color: #fff;
   padding: 35px 24px;
 
@@ -129,12 +128,14 @@ const MobileMenu = ({ onClose }: any) => {
         </Box>
 
         <Flex flexDirection="column" mt={4} alignItems="center">
-          <PrimaryButton
-            icon="/images/icons/black-staking.svg"
-            activeIcon="/images/icons/white-staking.svg"
-          >
-            Staking
-          </PrimaryButton>
+          <Link href="/staking">
+            <PrimaryButton
+              icon="/images/icons/black-staking.svg"
+              activeIcon="/images/icons/white-staking.svg"
+            >
+              Staking
+            </PrimaryButton>
+          </Link>
 
           <Box my={3}>
             <PrimaryButton

@@ -22,6 +22,10 @@ const Wrapper = styled.div`
   justify-content: center;
   margin: 40px auto 20px;
 
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+
   .title-box {
     font-family: Trap;
     font-size: 32px;
@@ -29,6 +33,10 @@ const Wrapper = styled.div`
     line-height: 40px;
     text-align: center;
     margin: 30px 0 20px;
+    @media (max-width: 768px) {
+      font-size: 24px;
+      line-height: 32px;
+    }
   }
 
   .desc-box {
@@ -49,6 +57,11 @@ const Wrapper = styled.div`
     text-align: left;
     color: rgba(35, 226, 183, 1);
     margin-bottom: 10px;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   .input-text {
@@ -67,6 +80,13 @@ const Wrapper = styled.div`
     width: 100%;
     transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
+    @media (max-width: 768px) {
+      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      height: 53px;
+    }
+
     &::placeholder {
       color: rgba(92, 92, 92, 1);
     }
@@ -80,6 +100,9 @@ const Wrapper = styled.div`
   .ant-select-single {
     width: 100%;
     height: 63px;
+    @media (max-width: 768px) {
+      height: 53px !important;
+    }
   }
 
   .form-select {
@@ -100,6 +123,13 @@ const Wrapper = styled.div`
       text-align: left;
       color: #fff;
       transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+
+      @media (max-width: 768px) {
+        padding: 0 8px !important;
+        display: flex;
+        align-items: center;
+        height: 53px !important;
+      }
       .ant-select-focused .ant-select-selector {
         border-color: #d9d9d9 !important;
         box-shadow: none !important;

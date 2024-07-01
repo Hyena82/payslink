@@ -42,7 +42,6 @@ const WalletMenu = () => {
     { name: "Deposit", href: "/staking/wallet/deposit" },
     { name: "Swap", href: "/staking/wallet/swap" },
     { name: "Claim Profit", href: "/staking/wallet/claim-profit" },
-    { name: "Withdraw", href: "/staking/wallet/withdraw" },
   ];
 
   return (

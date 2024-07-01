@@ -9,6 +9,10 @@ import PasswordContent from "./components/PasswordContent";
 const Wrapper = styled.div`
   padding: 20px;
   color: #fff;
+
+  @media (max-width: 768px) {
+    padding: 0;
+  }
 `;
 
 const Profile = () => {

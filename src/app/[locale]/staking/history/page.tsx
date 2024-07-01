@@ -10,6 +10,9 @@ import InvestPoolContent from "./components/InvestPoolContent";
 
 const Wrapper = styled.div`
   padding-left: 85px;
+  @media (max-width: 768px) {
+    padding-left: 0;
+  }
 `;
 
 const History = () => {

@@ -22,6 +22,8 @@ const Wrapper = styled.div`
   margin-right: 0;
   padding-left: 2.2%;
   padding-right: 2.2%;
+  position: relative;
+  z-index: 10;
 
   @media (max-width: 768px) {
     padding-left: 0;
@@ -169,7 +171,7 @@ const Header = () => {
   return (
     <Wrapper>
       <Drawer
-        width="70%"
+        width="330px"
         zIndex={1000}
         title=" Drawer"
         onClose={onClose}
@@ -252,7 +254,9 @@ const Header = () => {
         justifyContent="flex-end"
       >
         <Box className="right-side-button">
-          <Button>Go to dashboard</Button>
+          <Link href="/staking">
+            <Button>Go to dashboard</Button>
+          </Link>
         </Box>
 
         <Box className="header-menu" onClick={showDrawer}>

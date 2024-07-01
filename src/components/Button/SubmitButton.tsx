@@ -14,6 +14,12 @@ const Wrapper = styled.div`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 
+  @media (max-width: 768px) {
+    font-size: 20px;
+    line-height: 24px;
+    padding: 12px 0;
+  }
+
   &:hover {
     color: #fff;
     box-shadow: 0px 0px 8px 0px rgba(80, 255, 213, 1);

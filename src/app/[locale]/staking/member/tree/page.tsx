@@ -14,6 +14,10 @@ const Wrapper = styled.div`
     align-items: center;
     justify-content: space-between;
 
+    @media (max-width: 768px) {
+      padding: 20px 15px;
+    }
+
     font-family: Manrope;
     font-size: 16px;
     font-weight: 500;
@@ -28,6 +32,10 @@ const Wrapper = styled.div`
       align-items: center;
       width: 284px;
 
+      @media (max-width: 768px) {
+        width: 220px;
+      }
+
       .item-box {
         font-family: Manrope;
         font-size: 14px;
@@ -40,6 +48,10 @@ const Wrapper = styled.div`
         cursor: pointer;
         white-space: nowrap;
         transition: background-color 0.3s ease, color 0.3s ease; /* Add this line */
+
+        @media (max-width: 768px) {
+          padding: 7px 20px;
+        }
 
         &.active {
           background: rgba(35, 226, 221, 1);

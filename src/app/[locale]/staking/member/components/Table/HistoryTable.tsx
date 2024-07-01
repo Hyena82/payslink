@@ -5,10 +5,22 @@ import styled from "styled-components";
 import Image from "next/image";
 
 const Wrapper = styled.div`
+  @media (max-width: 768px) {
+    width: 100%;
+    overflow-x: auto;
+  }
+
   .member-table {
     border: 1px solid rgba(36, 35, 50, 1);
     border-radius: 16px;
     overflow: hidden;
+
+    @media (max-width: 768px) {
+      width: 600px;
+      overflow: unset;
+      border-radius: unset;
+      max-width: unset;
+    }
   }
 
   .amount-text {
@@ -56,6 +68,25 @@ const Wrapper = styled.div`
     padding: 16px 0;
   }
 
+  .ant-table-wrapper .ant-table-pagination-right {
+    @media (max-width: 768px) {
+      justify-content: flex-start;
+    }
+  }
+
+  .ant-table-wrapper
+    .ant-table-container
+    table
+    > thead
+    > tr:first-child
+    > *:last-child,
+  .ant-table-wrapper table,
+  .ant-table-wrapper .ant-table {
+    @media (max-width: 768px) {
+      border-radius: 0;
+    }
+  }
+
   .ant-table-pagination.ant-pagination,
   .ant-table-placeholder {
     background: rgba(10, 9, 16, 1) !important;
@@ -71,6 +102,10 @@ const Wrapper = styled.div`
     text-align: center;
     color: rgba(122, 122, 122, 1);
     background: rgba(10, 9, 16, 1) !important;
+
+    @media (max-width: 768px) {
+      border-radius: 0;
+    }
   }
 
   .ant-pagination .ant-pagination-item-active {

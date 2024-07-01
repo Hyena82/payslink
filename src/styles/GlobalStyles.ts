@@ -199,6 +199,22 @@ const GlobalStyles = createGlobalStyle`
     cursor: pointer;
   }
 
+  
+  .ant-table-wrapper
+    .ant-table-container
+    table
+    > thead
+    > tr:first-child
+    > *:first-child, 
+    .ant-table-wrapper .ant-table-container table>thead>tr:first-child >*:last-child
+     {
+    @media (max-width: 768px) {
+      border: none !important;
+      border-bottom: 1px solid rgba(36, 35, 50, 1) !important;
+      border-radius: 0 !important;
+    }
+  }
+
   .ant-table-thead .ant-table-cell {
     background-color: rgba(10, 9, 16, 1) !important;
     font-family: Manrope;
@@ -227,12 +243,21 @@ const GlobalStyles = createGlobalStyle`
   .ant-table-wrapper .ant-table-pagination.ant-pagination {
     margin: 0 !important;
     padding: 16px 0 !important;
+    @media (max-width: 768px) {
+      justify-content: flex-start;
+    }
   }
 
 
   .ant-table-cell {
     padding: 20px 16px !important;
     border-bottom: 1px solid rgba(36, 35, 50, 1) !important;
+  }
+
+  .ant-table-wrapper .ant-table-pagination-right {
+    @media (max-width: 768px) {
+      justify-content: flex-start;
+    }
   }
 
  

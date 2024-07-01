@@ -21,6 +21,12 @@ const Wrapper = styled.div`
     width: 100%;
     transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
+    @media (max-width: 768px) {
+      padding: 10px;
+      font-size: 14px;
+      line-height: 22px;
+    }
+
     &::placeholder {
       color: rgba(92, 92, 92, 1);
     }

@@ -11,6 +11,10 @@ const Wrapper = styled.div<{ color?: string; width?: string }>`
   border-radius: 70px;
   color: ${(props) => (props ? props.color : "rgba(92, 92, 92, 1)")};
 
+  @media (max-width: 768px) {
+    padding: 12.5px 30px;
+  }
+
   &.size-s {
     padding: 9px 24px;
     font-size: 14px;

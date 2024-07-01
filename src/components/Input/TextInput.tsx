@@ -16,6 +16,10 @@ const Wrapper = styled.div`
 
     border: 1px solid var(--Stroke, rgba(53, 53, 57, 1));
     background-color: rgba(37, 37, 37, 1);
+
+    @media (max-width: 768px) {
+      padding: 15px 10px;
+    }
   }
 
   .ant-input::placeholder,

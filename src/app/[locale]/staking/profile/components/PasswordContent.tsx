@@ -15,6 +15,11 @@ const Wrapper = styled.div`
     text-align: left;
     color: rgba(35, 226, 183, 1);
     margin-bottom: 10px;
+
+    @media (max-width: 768px) {
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
 
   .body-content {
@@ -113,6 +118,13 @@ const Wrapper = styled.div`
     width: 100%;
     transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
+    @media (max-width: 768px) {
+      padding: 0 15px;
+      display: flex;
+      align-items: center;
+      height: 53px;
+    }
+
     &::placeholder {
       color: rgba(92, 92, 92, 1);
     }
@@ -160,7 +172,7 @@ const PasswordContent = () => {
     <Wrapper>
       {contextHolder}
       <Row gutter={[20, 20]}>
-        <Col span={10}>
+        <Col sm={10} xs={24}>
           <div className="title">Change password</div>
           <Box className="body-content">
             <Box className="box-content">

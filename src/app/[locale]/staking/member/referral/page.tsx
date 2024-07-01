@@ -34,7 +34,7 @@ const MemberReferalContent = () => {
       <Box mt={4} mb={2}>
         <Row gutter={[20, 20]}>
           {data.map((item, index) => (
-            <Col span={6} key={index}>
+            <Col xs={24} sm={6} key={index}>
               <TotalCard name={item.name} value={item.value} />
             </Col>
           ))}

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Box, Flex } from "@/components/Box";
 import StakingMenu from "./components/StakingMenu";
 import SignIn from "./components/SignIn";
+import { isMobile } from "react-device-detect";
 
 const Wrapper = styled.div`
   background-color: #000;
@@ -24,6 +25,10 @@ const WrapperContainer = styled.div`
     width: 100%;
     /* padding-top: 30px; */
     padding-right: unset;
+
+    @media (max-width: 768px) {
+      padding: 0;
+    }
   }
 
   .content-menu {
@@ -36,6 +41,18 @@ const WrapperContainer = styled.div`
     background: url(/images/staking/footer-bg.png) no-repeat fixed;
     background-position-x: 65%;
     background-position-y: bottom;
+
+    & > div:first-child {
+      padding-right: 2.2%;
+      @media (max-width: 768px) {
+        padding: 0 2.2%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      margin-left: 0;
+      border: none;
+    }
   }
 
   .blur-box-top {
@@ -61,7 +78,6 @@ const WrapperContainer = styled.div`
     color: rgba(122, 122, 122, 1);
     padding: 13px 0;
     border-top: 1px solid var(--Stroke, rgba(53, 53, 57, 1));
-    /* border-left: 1px solid var(--Stroke, rgba(53, 53, 57, 1)); */
   }
 `;
 
@@ -80,9 +96,11 @@ const StakingLayout = ({
           <WrapperContainer>
             <Flex className="container h-100 w-100">
               <div className="blur-box-top" />
-              <Box pt={4}>
-                <StakingMenu />
-              </Box>
+              {!isMobile && (
+                <Box pt={4}>
+                  <StakingMenu />
+                </Box>
+              )}
 
               <Flex
                 pt={4}
@@ -90,11 +108,7 @@ const StakingLayout = ({
                 justifyContent="space-between"
                 className="content-menu w-100"
               >
-                <Flex
-                  flexDirection="column"
-                  justifyContent="space-between"
-                  pr="2.2%"
-                >
+                <Flex flexDirection="column" justifyContent="space-between">
                   {children}
                 </Flex>
                 <Box className="footer-page">

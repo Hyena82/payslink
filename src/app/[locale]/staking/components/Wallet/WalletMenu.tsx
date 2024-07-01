@@ -1,3 +1,4 @@
+import { Flex } from "@/components/Box";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import styled from "styled-components";
@@ -6,6 +7,12 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    overflow-x: auto;
+  }
+
   .menu-item {
     border: 1px solid var(--Stroke, rgba(53, 53, 57, 1));
     width: 120px;
@@ -20,6 +27,7 @@ const Wrapper = styled.div`
     justify-content: center;
     align-items: center;
     background: rgba(0, 0, 0, 1);
+    flex: 1;
 
     transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
 
@@ -30,6 +38,9 @@ const Wrapper = styled.div`
 
     &:not(:last-child) {
       margin-right: 20px;
+      @media (max-width: 768px) {
+        margin-right: 10px;
+      }
     }
   }
 `;
@@ -42,20 +53,23 @@ const WalletMenu = () => {
     { name: "Deposit", href: "/staking/wallet/deposit" },
     { name: "Swap", href: "/staking/wallet/swap" },
     { name: "Claim Profit", href: "/staking/wallet/claim-profit" },
-    { name: "Withdraw", href: "/staking/wallet/withdraw" },
   ];
 
   return (
     <Wrapper>
-      {tabs.map((tab) => (
-        <Link
-          href={tab.href}
-          key={tab.name}
-          className={`menu-item hover ${pathname === tab.href ? "active" : ""}`}
-        >
-          {tab.name}
-        </Link>
-      ))}
+      <Flex>
+        {tabs.map((tab) => (
+          <Link
+            href={tab.href}
+            key={tab.name}
+            className={`menu-item hover ${
+              pathname === tab.href ? "active" : ""
+            }`}
+          >
+            {tab.name}
+          </Link>
+        ))}
+      </Flex>
     </Wrapper>
   );
 };

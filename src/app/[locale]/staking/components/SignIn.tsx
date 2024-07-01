@@ -34,6 +34,11 @@ const Wrapper = styled.div`
       line-height: 32px;
       text-align: left;
       color: rgba(35, 226, 183, 1);
+
+      @media (max-width: 768px) {
+        font-size: 16px;
+        line-height: 24px;
+      }
     }
 
     .invalid-value {
@@ -44,6 +49,10 @@ const Wrapper = styled.div`
       line-height: 24px;
       text-align: left;
       color: rgba(255, 55, 55, 1);
+      @media (max-width: 768px) {
+        font-size: 16px;
+        line-height: 24px;
+      }
     }
   }
 
@@ -80,6 +89,13 @@ const Wrapper = styled.div`
     right: -15%;
     width: calc(1020px + 10vw);
     height: calc(1020px + 10vw);
+    @media (max-width: 768px) {
+      width: 800px;
+      height: 800px;
+      bottom: unset;
+      top: -20%;
+      right: -40%;
+    }
   }
 `;
 interface SignInProps {

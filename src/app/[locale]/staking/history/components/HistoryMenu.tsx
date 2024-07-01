@@ -1,9 +1,16 @@
+import { Flex } from "@/components/Box";
 import styled from "styled-components";
 
 const Wrapper = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
+  @media (max-width: 768px) {
+    width: 100%;
+    overflow-x: auto;
+  }
+
   .menu-item {
     border: 1px solid var(--Stroke, rgba(53, 53, 57, 1));
     width: 140px;
@@ -14,6 +21,7 @@ const Wrapper = styled.div`
     font-weight: 500;
     line-height: 22px;
     text-align: center;
+    flex: 1;
 
     border-radius: 40px;
     display: flex;
@@ -30,6 +38,9 @@ const Wrapper = styled.div`
 
     &:not(:last-child) {
       margin-right: 20px;
+      @media (max-width: 768px) {
+        margin-right: 10px;
+      }
     }
   }
 `;
@@ -42,39 +53,40 @@ interface HistoryMenuProps {
 const HistoryMenu: React.FC<HistoryMenuProps> = ({ active, setItem }) => {
   return (
     <Wrapper>
-      <div
-        className={`menu-item hover ${
-          active === "Investment pool" ? "active" : ""
-        }`}
-        onClick={() => setItem("Investment pool")}
-      >
-        Investment pool
-      </div>
-      <div
-        className={`menu-item hover ${active === "Deposit" ? "active" : ""}`}
-        onClick={() => setItem("Deposit")}
-      >
-        Deposit
-      </div>
-      <div
-        className={`menu-item hover ${active === "Withdraw" ? "active" : ""}`}
-        onClick={() => setItem("Withdraw")}
-      >
-        Withdraw
-      </div>
-      <div
-        className={`menu-item hover ${active === "Swap" ? "active" : ""}`}
-        onClick={() => setItem("Swap")}
-      >
-        Swap
-      </div>
-
-      <div
-        className={`menu-item hover ${active === "Profit" ? "active" : ""}`}
-        onClick={() => setItem("Profit")}
-      >
-        Profit
-      </div>
+      <Flex>
+        <div
+          className={`menu-item hover ${
+            active === "Investment pool" ? "active" : ""
+          }`}
+          onClick={() => setItem("Investment pool")}
+        >
+          Investment pool
+        </div>
+        <div
+          className={`menu-item hover ${active === "Deposit" ? "active" : ""}`}
+          onClick={() => setItem("Deposit")}
+        >
+          Deposit
+        </div>
+        <div
+          className={`menu-item hover ${active === "Withdraw" ? "active" : ""}`}
+          onClick={() => setItem("Withdraw")}
+        >
+          Withdraw
+        </div>
+        <div
+          className={`menu-item hover ${active === "Swap" ? "active" : ""}`}
+          onClick={() => setItem("Swap")}
+        >
+          Swap
+        </div>
+        <div
+          className={`menu-item hover ${active === "Profit" ? "active" : ""}`}
+          onClick={() => setItem("Profit")}
+        >
+          Profit
+        </div>
+      </Flex>
     </Wrapper>
   );
 };
